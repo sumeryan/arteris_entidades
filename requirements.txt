@@ -1,0 +1,3 @@
+# Adicione as dependências do seu projeto aqui
+requests
+python-dotenv
