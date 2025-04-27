@@ -157,5 +157,5 @@ if __name__ == '__main__':
     print("Iniciando servidor Flask com Socket.IO (modo threading)...")
     # Usa socketio.run, que agora usará o servidor de desenvolvimento do Flask/Werkzeug
     # com suporte a threading para SocketIO.
-    # A porta 5001 foi mantida.
-    socketio.run(app, host='0.0.0.0', port=5001, debug=True, allow_unsafe_werkzeug=True) # debug=True e allow_unsafe_werkzeug=True para desenvolvimento
+    # Voltando para a porta 5000, conforme mapeamento do docker-compose.
+    socketio.run(app, host='0.0.0.0', port=5000, debug=True, allow_unsafe_werkzeug=True) # debug=True e allow_unsafe_werkzeug=True para desenvolvimento
