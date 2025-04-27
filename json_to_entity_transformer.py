@@ -125,6 +125,8 @@ def create_entity(doctype_name, fields_metadata, is_child=False, parent_doctype=
     """
     # Processar atributos (sem valores)
     attributes = process_attributes(fields_metadata, is_child)
+    # Adiciona o atributo 'name' como primeiro item da lista
+    attributes.insert(0, {"key": "name", "type": "string"})
 
     # Adicionar atributo 'parent' explicitamente para entidades filhas
     if is_child and parent_doctype:

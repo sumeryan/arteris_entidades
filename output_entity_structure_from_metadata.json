@@ -6,6 +6,10 @@
                 "description": "Entidade representando o DocType Asset",
                 "attributes": [
                     {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
                         "key": "nomeativo",
                         "type": "string",
                         "description": "Nome do ativo"
@@ -19,6 +23,10 @@
                 "type": "City",
                 "description": "Entidade representando o DocType City",
                 "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
                     {
                         "key": "uf",
                         "type": "string",
@@ -43,6 +51,10 @@
                 "type": "Contract",
                 "description": "Entidade representando o DocType Contract",
                 "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
                     {
                         "key": "obra",
                         "type": "string",
@@ -123,6 +135,10 @@
                 "description": "Entidade representando o DocType Contract Item",
                 "attributes": [
                     {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
                         "key": "old_parent",
                         "type": "string",
                         "description": "Old Parent"
@@ -192,6 +208,10 @@
                 "description": "Entidade representando o DocType Contracted Company",
                 "attributes": [
                     {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
                         "key": "razaosocial",
                         "type": "string",
                         "description": "Razão Social"
@@ -221,6 +241,10 @@
                 "description": "Entidade representando o DocType Formula",
                 "attributes": [
                     {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
                         "key": "formula",
                         "type": "string",
                         "description": "Formula"
@@ -239,6 +263,10 @@
                 "type": "Formula Template",
                 "description": "Entidade representando o DocType Formula Template",
                 "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
                     {
                         "key": "nome",
                         "type": "string",
@@ -269,6 +297,10 @@
                 "description": "Entidade representando o DocType SAP Order",
                 "attributes": [
                     {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
                         "key": "numeropedido",
                         "type": "string",
                         "description": "Nº do pedido"
@@ -293,6 +325,10 @@
                 "description": "Entidade representando o DocType Subsidiary",
                 "attributes": [
                     {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
                         "key": "nome",
                         "type": "string",
                         "description": "Subsidiária"
@@ -307,6 +343,10 @@
                 "description": "Entidade representando o DocType Work Role",
                 "attributes": [
                     {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
                         "key": "funcao",
                         "type": "string",
                         "description": "Função"
@@ -320,6 +360,10 @@
                 "type": "Asset Operator",
                 "description": "Entidade representando o DocType Asset Operator",
                 "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
                     {
                         "key": "operador",
                         "type": "string",
@@ -350,6 +394,10 @@
                 "type": "Contract Item Asset",
                 "description": "Entidade representando o DocType Contract Item Asset",
                 "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
                     {
                         "key": "descricao",
                         "type": "string",
@@ -391,6 +439,10 @@
                 "description": "Entidade representando o DocType Contract Item City",
                 "attributes": [
                     {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
                         "key": "iss",
                         "type": "string",
                         "description": "ISS"
@@ -425,6 +477,10 @@
                 "type": "Contract Item Order",
                 "description": "Entidade representando o DocType Contract Item Order",
                 "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
                     {
                         "key": "percentual",
                         "type": "numeric",
@@ -465,6 +521,10 @@
                 "type": "Contract Item Work Role",
                 "description": "Entidade representando o DocType Contract Item Work Role",
                 "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
                     {
                         "key": "funcao",
                         "type": "string",
