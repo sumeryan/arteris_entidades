@@ -5,10 +5,10 @@ import sys
 from flask import Flask, render_template, jsonify, request
 from flask_socketio import SocketIO, emit
 from dotenv import load_dotenv
-import eventlet # Importa eventlet
+# import eventlet # REMOVIDO: Não usaremos eventlet por enquanto
 
 # Garante que o eventlet seja usado
-eventlet.monkey_patch()
+# eventlet.monkey_patch() # REMOVIDO: Monkey-patching pode causar o RecursionError
 
 # Importa as funções dos módulos existentes
 from get_docktypes import process_arteris_doctypes
@@ -20,7 +20,8 @@ load_dotenv()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY', 'uma-chave-secreta-padrao') # Use uma chave secreta segura
-socketio = SocketIO(app, async_mode='eventlet') # Configura para usar eventlet
+# Mudando async_mode para 'threading' para evitar a necessidade de eventlet/gevent
+socketio = SocketIO(app, async_mode='threading')
 
 # Variável global para armazenar o JSON gerado
 generated_json_data = None
@@ -153,6 +154,8 @@ def handle_start_generation(message):
 
 # --- Ponto de Entrada ---
 if __name__ == '__main__':
-    print("Iniciando servidor Flask com Socket.IO...")
-    # Usa socketio.run para iniciar o servidor com suporte a WebSocket (eventlet)
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True) # debug=True para desenvolvimento
+    print("Iniciando servidor Flask com Socket.IO (modo threading)...")
+    # Usa socketio.run, que agora usará o servidor de desenvolvimento do Flask/Werkzeug
+    # com suporte a threading para SocketIO.
+    # A porta 5001 foi mantida.
+    socketio.run(app, host='0.0.0.0', port=5001, debug=True, allow_unsafe_werkzeug=True) # debug=True e allow_unsafe_werkzeug=True para desenvolvimento

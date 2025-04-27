@@ -3,4 +3,4 @@ requests
 python-dotenv
 Flask
 Flask-SocketIO
-eventlet
+# eventlet # Removido pois estamos usando async_mode='threading'
