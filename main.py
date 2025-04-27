@@ -17,8 +17,8 @@ import json
 from dotenv import load_dotenv
 
 # Importa as funções dos módulos refatorados
-from api_client import get_arteris_doctypes, get_docfields_for_doctype, get_data_for_doctype, get_arteris_doctypes_child
 from transformer import transform_to_entity_structure
+from get_docktypes import process_arteris_doctypes # Importa a função refatorada
 
 # Carrega variáveis de ambiente do arquivo .env na raiz do projeto
 load_dotenv()
@@ -37,135 +37,92 @@ def main():
         print("Certifique-se de que o arquivo .env existe na raiz do projeto e contém as variáveis.")
         return
 
-    # --- Etapa 1: Buscar DocTypes ---
-    print("--- Etapa 1: Buscando DocTypes ---")
-    all_doctypes = get_arteris_doctypes(api_base_url, api_token)
-    if all_doctypes is None:
-        print("Não foi possível obter a lista de DocTypes. Encerrando.")
+    # --- Etapa 1: Processar DocTypes, Fields e Dados ---
+    print("--- Iniciando processamento de DocTypes, Fields e Dados ---")
+    # Chama a função refatorada que encapsula a lógica de busca
+    doctypes_with_fields, all_doctype_data, child_parent_mapping = process_arteris_doctypes(api_base_url, api_token)
+
+    # Verifica se o processamento foi bem-sucedido
+    if doctypes_with_fields is None or all_doctype_data is None or child_parent_mapping is None:
+        print("Erro durante o processamento de DocTypes/Fields/Dados. Encerrando.")
         return
-    print(f"Encontrados {len(all_doctypes)} DocTypes no módulo Arteris.")
 
-    print("--- Etapa 1.1: Buscando DocTypes Child ---")
-    all_doctypes_child = get_arteris_doctypes_child(api_base_url, api_token)
-    if all_doctypes_child is None:
-        print("Não foi possível obter a lista de DocTypes. Encerrando.")
-        return
-    print(f"Encontrados {len(all_doctypes_child)} DocTypes no módulo Arteris.")    
+    print("\n--- Processamento de busca concluído ---")
 
-    # --- Etapa 2: Buscar DocFields para cada DocType ---
-    # Combinar as listas all_doctypes_child e all_doctypes
-    combined_doctypes = all_doctypes_child + all_doctypes  # Combina as duas listas
+    # --- Etapa 2: Transformar Metadados (Opcional, dependendo do objetivo) ---
+    # Se a transformação ainda for necessária:
+    print("\n--- Etapa 2: Transformando Metadados ---")
+    entity_structure = transform_to_entity_structure(doctypes_with_fields)
+    if entity_structure:
+        print("Estrutura de entidades gerada com sucesso.")
+        # Opcional: Salvar a estrutura em um arquivo JSON
+        # try:
+        #     with open("arteris_entity_structure.json", "w", encoding="utf-8") as f:
+        #         json.dump(entity_structure, f, indent=4, ensure_ascii=False)
+        #     print("Estrutura de entidades salva em arteris_entity_structure.json")
+        # except IOError as e:
+        #     print(f"Erro ao salvar a estrutura de entidades: {e}")
+    else:
+        print("Não foi possível gerar a estrutura de entidades.")
 
-    doctypes_with_fields = {}
-    for doc in combined_doctypes:
-        doctype_name = doc.get("name")
-        if doctype_name:
-            docfields = get_docfields_for_doctype(api_base_url, api_token, doctype_name)
-            if docfields is not None:
-                doctypes_with_fields[doctype_name] = docfields
-            else:
-                doctypes_with_fields[doctype_name] = None  # Marca erro
-        else:
-            print("Aviso: Encontrado DocType sem nome.")
-    print("Busca de DocFields concluída.")
+    # --- Etapa 3: Exibir Resultados ---
+    # Exibe o mapeamento Child-Parent (já é feito dentro de process_arteris_doctypes, mas pode exibir aqui se preferir)
+    print("\n--- Mapeamento de Childs para Parents ---")
+    if child_parent_mapping:
+        for mapping in child_parent_mapping:
+            print(f"Child: {mapping.get('child')}, Parent: {mapping.get('parent')}")
+    else:
+        print("Nenhum mapeamento Child-Parent encontrado.")
 
-    # --- Etapa 3: Localizar os "Parents" ---
-    print("\n--- Etapa 4: Localizando os 'Parents' ---")
-    child_parent_mapping = [] # Dicionário para mapear child -> parent
-
-    # Itera sobre cada DocType que pode ser um "Parent"
-    for doctype_name, fields in doctypes_with_fields.items():
-        if fields is None:
-            print(f"Pulando busca de dados para {doctype_name} devido a erro anterior na busca de campos.")
-            all_doctype_data[doctype_name] = None
-            continue
-        if not fields:
-            print(f"Pulando busca de dados para {doctype_name} pois não foram encontrados campos (DocFields).")
-            all_doctype_data[doctype_name] = []
-            continue
-
-        # Percorre a lista de dicionários 'fields'
-        for f in fields:
-            # Verifica se o item tem um fieldname e se o fieldtype é "Table"
-            if f.get("fieldname") and f.get("fieldtype") == "Table":
-                child_parent_mapping.append(
-                    {
-                        "child": f.get("options"),
-                        "parent": doctype_name
-                    }
-                )    
-    # Criar um dicionário para mapeamento rápido de child para parent
-    child_to_parent = {mapping["child"]: mapping["parent"] for mapping in child_parent_mapping}
-
-    # --- Etapa 4: Buscar Dados Reais para cada DocType ---
-    print("\n--- Etapa 3: Buscando Dados Reais ---")
-    all_doctype_data = {}
-    for doctype_name, fields in doctypes_with_fields.items():
-
-        # Verificar se este doctype está em all_doctypes_child
-        is_child_doctype = any(doc.get("name") == doctype_name for doc in all_doctypes_child)
-
-        if fields is None:
-            print(f"Pulando busca de dados para {doctype_name} devido a erro anterior na busca de campos.")
-            all_doctype_data[doctype_name] = None
-            continue
-        if not fields:
-            print(f"Pulando busca de dados para {doctype_name} pois não foram encontrados campos (DocFields).")
-            all_doctype_data[doctype_name] = []
-            continue
-
-        # Extrai apenas os 'fieldname' da lista de dicionários 'fields'
-        fieldnames = [f.get("fieldname") for f in fields if f.get("fieldname") and f.get("fieldtype") not in ["Link", "Table"]]
-        if not fieldnames:
-             print(f"Aviso: Nenhum 'fieldname' válido encontrado para {doctype_name}. Buscando apenas 'name'.")
-
-        print(f"\nBuscando dados para {doctype_name} com os seguintes fieldnames {fieldnames}...")
-        # Se o doctype for um child, busca os dados do parent
-        if is_child_doctype:
-            # Obter o parent diretamente do dicionário (retorna None se não existir)
-            parent_name = child_to_parent.get(doctype_name)
-            print(f"Parent encontrado: {parent_name}")
-            doctype_data = get_data_for_doctype(api_base_url, api_token, doctype_name, fieldnames, parent_name)
-        else:
-            doctype_data = get_data_for_doctype(api_base_url, api_token, doctype_name, fieldnames)
-
-        if doctype_data is not None:
-            all_doctype_data[doctype_name] = doctype_data
-        else:
-            all_doctype_data[doctype_name] = None # Marca erro         
-
-    print("\nBusca de dados reais concluída.")
-
-    # Corrigido - iterando diretamente sobre a lista
-    print("\n--- Exibindo Mapeamento de Childs para Parents ---")
-    for mapping in child_parent_mapping:
-        print(f"Child: {mapping.get('child')}, Parent(s): {mapping.get('parent')}")
-
-    # --- Exibição de Exemplo dos Dados Coletados ---
-    print("\n--- Exemplo de Dados Coletados (Primeiro registro dos primeiros 3 DocTypes) ---")
+    # Exibe exemplo dos dados coletados
+    print("\n--- Exemplo de Dados Coletados (Primeiro registro dos primeiros 3 DocTypes com dados) ---")
     count = 0
-    for doctype_name, data_list in all_doctype_data.items():
-        if count >= 3:
-            break
-        print(f"\nDocType: {doctype_name}")
-        if data_list is None:
-            print("  Erro ao buscar dados.")
-        elif not data_list:
-            print("  Nenhum registro encontrado.")
-        else:
-            print(f"  Total de registros: {len(data_list)}")
-            if data_list:
-                print(f"  Primeiro registro: {data_list[0]}")
+    count = 0
+    if all_doctype_data: # Verifica se o dicionário não está vazio
+        for doctype_name, data_list in all_doctype_data.items():
+            if count >= 3:
+                break
+            print(f"\nDocType: {doctype_name}")
+            if data_list is None:
+                print("  Erro ao buscar dados.")
+            elif not data_list: # Verifica se a lista está vazia
+                print("  Nenhum registro encontrado.")
             else:
-                print("  Lista de dados está vazia.")
-        count += 1
+                print(f"  Total de registros: {len(data_list)}")
+                print(f"  Primeiro registro: {data_list[0]}") # Acessa o primeiro item diretamente
+                count += 1 # Incrementa apenas se mostrou dados válidos
+    else:
+        print("Nenhum dado foi coletado ou houve erro em todas as buscas.")
 
-    # # Mensagem final
-    # print(f"\nTotal de {len(all_doctype_data)} DocTypes tiveram seus dados buscados e armazenados em memória.")
-    # if entity_structure and 'entities' in entity_structure:
-    #     print(f"Estrutura de entidades gerada para {len(entity_structure.get('entities', []))} DocTypes.")
-    # else:
-    #     print("Estrutura de entidades não foi gerada devido a erros anteriores.")
+    # --- Etapa 3: Montagem das entidades ---
+    entity_structure = transform_to_entity_structure(doctypes_with_fields)
+    if entity_structure:
+        print("\nEstrutura de entidades gerada com sucesso.")
+        # Opcional: Salvar a estrutura em um arquivo JSON
+        try:
+            #check if the file already exists
+            if os.path.exists("arteris_entity_structure.json"):
+                print("O arquivo arteris_entity_structure.json já existe. Deseja sobrescrever? (s/n)")
+                choice = input().strip().lower()
+                if choice == 's':
+                    #excluir o arquivo
+                    os.remove("arteris_entity_structure.json")
+
+            with open("arteris_entity_structure.json", "w", encoding="utf-8") as f:
+                json.dump(entity_structure, f, indent=4, ensure_ascii=False)
+
+            print("Estrutura de entidades salva em arteris_entity_structure.json")
+
+        except IOError as e:
+            print(f"Erro ao salvar a estrutura de entidades: {e}")
+    else:
+        print("Não foi possível gerar a estrutura de entidades.")
+
+    print(f"\n--- Fim da execução ---")
+    # Mensagem final opcional
+    print(f"\nTotal de {len(all_doctype_data)} DocTypes tiveram seus dados buscados.")
+    # if 'entity_structure' in locals() and entity_structure:
+    #      print(f"Estrutura de entidades gerada para {len(entity_structure.get('entities', []))} DocTypes.")
 
 # Ponto de entrada do script
 if __name__ == "__main__":

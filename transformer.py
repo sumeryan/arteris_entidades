@@ -60,5 +60,7 @@ def transform_to_entity_structure(doctypes_metadata):
             "relationships": [] # Ignorando relacionamentos conforme solicitado
         }
         entities_list.append({"entity": entity_data})
+        
+        print(f"Entidade transformada para {doctype_name}: {entity_data}")
 
     return {"entities": entities_list}

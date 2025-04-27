@@ -1,0 +1,479 @@
+{
+    "entities": [
+        {
+            "entity": {
+                "type": "Asset",
+                "description": "Entidade representando o DocType Asset",
+                "attributes": [
+                    {
+                        "key": "nomeativo",
+                        "type": "Data",
+                        "description": "Nome do ativo"
+                    },
+                    {
+                        "key": "operadoresoumotoristas",
+                        "type": "Table",
+                        "description": "Operadores ou motoristas"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "City",
+                "description": "Entidade representando o DocType City",
+                "attributes": [
+                    {
+                        "key": "uf",
+                        "type": "Data",
+                        "description": "UF"
+                    },
+                    {
+                        "key": "municipio",
+                        "type": "Data",
+                        "description": "Município"
+                    },
+                    {
+                        "key": "iss",
+                        "type": "Float",
+                        "description": "ISS"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract",
+                "description": "Entidade representando o DocType Contract",
+                "attributes": [
+                    {
+                        "key": "obra",
+                        "type": "Data",
+                        "description": "Obra"
+                    },
+                    {
+                        "key": "inicioservicos",
+                        "type": "Date",
+                        "description": "Início real dos serviços"
+                    },
+                    {
+                        "key": "modeloformula",
+                        "type": "Link",
+                        "description": "Modelo de fórmula"
+                    },
+                    {
+                        "key": "inicioservicosprevisto",
+                        "type": "Date",
+                        "description": "Início dos serviços conf. contrato"
+                    },
+                    {
+                        "key": "percentualreidi",
+                        "type": "Float",
+                        "description": "Percentual"
+                    },
+                    {
+                        "key": "contratada",
+                        "type": "Link",
+                        "description": "Contratada"
+                    },
+                    {
+                        "key": "terminoservicos",
+                        "type": "Date",
+                        "description": "Término previsto dos serviços"
+                    },
+                    {
+                        "key": "terminoservicosprevisto",
+                        "type": "Date",
+                        "description": "Término serviços conf. contrato"
+                    },
+                    {
+                        "key": "valortotal",
+                        "type": "Currency",
+                        "description": "Valor total do contrato"
+                    },
+                    {
+                        "key": "datainicial",
+                        "type": "Date",
+                        "description": "Data inicial do contrato"
+                    },
+                    {
+                        "key": "descricao",
+                        "type": "Small Text",
+                        "description": "Descrição"
+                    },
+                    {
+                        "key": "f_calculopedidosap",
+                        "type": "Long Text",
+                        "description": "Fórmula"
+                    },
+                    {
+                        "key": "contrato",
+                        "type": "Data",
+                        "description": "Nº do Contrato"
+                    },
+                    {
+                        "key": "datafinal",
+                        "type": "Date",
+                        "description": "Data final do contrato"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Item",
+                "description": "Entidade representando o DocType Contract Item",
+                "attributes": [
+                    {
+                        "key": "listapedidossap",
+                        "type": "Table",
+                        "description": "Lista"
+                    },
+                    {
+                        "key": "old_parent",
+                        "type": "Link",
+                        "description": "Old Parent"
+                    },
+                    {
+                        "key": "codigo",
+                        "type": "Data",
+                        "description": "Código"
+                    },
+                    {
+                        "key": "valorunitario",
+                        "type": "Currency",
+                        "description": "Valor unitário"
+                    },
+                    {
+                        "key": "rgt",
+                        "type": "Int",
+                        "description": "Right"
+                    },
+                    {
+                        "key": "fcalculomedicaoservico",
+                        "type": "Long Text",
+                        "description": "Fórmula"
+                    },
+                    {
+                        "key": "contrato",
+                        "type": "Link",
+                        "description": "Nº do contrato"
+                    },
+                    {
+                        "key": "parent_contract_item",
+                        "type": "Link",
+                        "description": "Parent Contract Item"
+                    },
+                    {
+                        "key": "lft",
+                        "type": "Int",
+                        "description": "Left"
+                    },
+                    {
+                        "key": "listamaodeobra",
+                        "type": "Table",
+                        "description": "Lista"
+                    },
+                    {
+                        "key": "quantidade",
+                        "type": "Float",
+                        "description": "Quantidade"
+                    },
+                    {
+                        "key": "modeloformula",
+                        "type": "Link",
+                        "description": "Modelo de fórmula"
+                    },
+                    {
+                        "key": "descricao",
+                        "type": "Data",
+                        "description": "Descrição"
+                    },
+                    {
+                        "key": "listacidades",
+                        "type": "Table",
+                        "description": "Lista"
+                    },
+                    {
+                        "key": "listafrotaequipamentos",
+                        "type": "Table",
+                        "description": "Lista"
+                    },
+                    {
+                        "key": "is_group",
+                        "type": "Check",
+                        "description": "Is Group"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Contracted Company",
+                "description": "Entidade representando o DocType Contracted Company",
+                "attributes": [
+                    {
+                        "key": "razaosocial",
+                        "type": "Data",
+                        "description": "Razão Social"
+                    },
+                    {
+                        "key": "endereco",
+                        "type": "Small Text",
+                        "description": "Endereço"
+                    },
+                    {
+                        "key": "cnpj",
+                        "type": "Data",
+                        "description": "CNPJ"
+                    },
+                    {
+                        "key": "nome",
+                        "type": "Data",
+                        "description": "Nome"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Formula",
+                "description": "Entidade representando o DocType Formula",
+                "attributes": [
+                    {
+                        "key": "formula",
+                        "type": "Long Text",
+                        "description": "Formula"
+                    },
+                    {
+                        "key": "open",
+                        "type": "Button",
+                        "description": "Open"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Formula Template",
+                "description": "Entidade representando o DocType Formula Template",
+                "attributes": [
+                    {
+                        "key": "nome",
+                        "type": "Data",
+                        "description": "Nome"
+                    },
+                    {
+                        "key": "formula",
+                        "type": "Long Text",
+                        "description": "Fórmula"
+                    },
+                    {
+                        "key": "configurar",
+                        "type": "Button",
+                        "description": "Configurar"
+                    },
+                    {
+                        "key": "descricao",
+                        "type": "Small Text",
+                        "description": "Descrrção"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "SAP Order",
+                "description": "Entidade representando o DocType SAP Order",
+                "attributes": [
+                    {
+                        "key": "numeropedido",
+                        "type": "Data",
+                        "description": "Nº do pedido"
+                    },
+                    {
+                        "key": "valortotal",
+                        "type": "Currency",
+                        "description": "Valor total"
+                    },
+                    {
+                        "key": "centrocusto",
+                        "type": "Data",
+                        "description": "Centro de custo"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Subsidiary",
+                "description": "Entidade representando o DocType Subsidiary",
+                "attributes": [
+                    {
+                        "key": "nome",
+                        "type": "Data",
+                        "description": "Subsidiária"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Work Role",
+                "description": "Entidade representando o DocType Work Role",
+                "attributes": [
+                    {
+                        "key": "funcao",
+                        "type": "Data",
+                        "description": "Função"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Asset Operator",
+                "description": "Entidade representando o DocType Asset Operator",
+                "attributes": [
+                    {
+                        "key": "operador",
+                        "type": "Link",
+                        "description": "Operador/motorista"
+                    },
+                    {
+                        "key": "quantidade",
+                        "type": "Int",
+                        "description": "Quantidade"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Item Asset",
+                "description": "Entidade representando o DocType Contract Item Asset",
+                "attributes": [
+                    {
+                        "key": "descricao",
+                        "type": "Data",
+                        "description": "Descrição"
+                    },
+                    {
+                        "key": "valormensal",
+                        "type": "Currency",
+                        "description": "Valor mensal"
+                    },
+                    {
+                        "key": "asset",
+                        "type": "Link",
+                        "description": "Máquina, equipamento ou veículos"
+                    },
+                    {
+                        "key": "quantidade",
+                        "type": "Int",
+                        "description": "Quantidade"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Item City",
+                "description": "Entidade representando o DocType Contract Item City",
+                "attributes": [
+                    {
+                        "key": "iss",
+                        "type": "Data",
+                        "description": "ISS"
+                    },
+                    {
+                        "key": "cidade",
+                        "type": "Link",
+                        "description": "Cidade"
+                    },
+                    {
+                        "key": "participacaopercentual",
+                        "type": "Float",
+                        "description": "Participação %"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Item Order",
+                "description": "Entidade representando o DocType Contract Item Order",
+                "attributes": [
+                    {
+                        "key": "percentual",
+                        "type": "Float",
+                        "description": "Percentual"
+                    },
+                    {
+                        "key": "valortotal",
+                        "type": "Currency",
+                        "description": "Valor total"
+                    },
+                    {
+                        "key": "pedidosap",
+                        "type": "Link",
+                        "description": "Nº do pedido SAP"
+                    },
+                    {
+                        "key": "centrocusto",
+                        "type": "Data",
+                        "description": "Centro de custo"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Item Work Role",
+                "description": "Entidade representando o DocType Contract Item Work Role",
+                "attributes": [
+                    {
+                        "key": "funcao",
+                        "type": "Link",
+                        "description": "Função"
+                    },
+                    {
+                        "key": "quantidade",
+                        "type": "Int",
+                        "description": "Quantidade"
+                    },
+                    {
+                        "key": "valortotalmensal",
+                        "type": "Currency",
+                        "description": "Valor total mensal"
+                    },
+                    {
+                        "key": "pagamentohora",
+                        "type": "Check",
+                        "description": "Pagamento por hora"
+                    },
+                    {
+                        "key": "valorporhora",
+                        "type": "Currency",
+                        "description": "Valor por hora"
+                    }
+                ],
+                "relationships": []
+            }
+        }
+    ]
+}
