@@ -80,9 +80,16 @@ def process_attributes(fields_metadata, is_child=False):
     for field in fields_metadata:
         field_name = field.get("fieldname")
         field_type = field.get("fieldtype")
+        field_hidden = field.get("hidden")
 
         # Ignorar campos do tipo Table (serão tratados como entidades separadas)
         if field_type == "Table":
+            continue
+        # Ignorar campos ocultos
+        if field_hidden == 1:
+            continue
+        # Ignorar campos do tipo formula (f_ ou fm_)
+        if field_name[:2] == "f_" or field_name[:3] == "fm_":
             continue
 
         # Ignorar campos internos/específicos que não devem ser atributos diretos,
@@ -99,7 +106,7 @@ def process_attributes(fields_metadata, is_child=False):
         attribute = {
             "key": field_name,
             "type": generic_type,
-            "description": field.get("label", field_name) # Usa label ou fieldname
+            "description": field.get("label") if field.get("label") else None
         }
 
         # A lógica de adicionar 'parent' ao atributo foi movida para create_entity
@@ -136,7 +143,6 @@ def create_entity(doctype_name, fields_metadata, is_child=False, parent_doctype=
              attributes.append({
                  "key": "parent",
                  "type": "string", # Assumindo que a referência ao pai é uma string (ID/nome)
-                 "description": "Parent DocType"
              })
 
     # Criar relacionamentos (apenas para entidades filhas, apontando para o pai)
@@ -171,7 +177,7 @@ def create_entity(doctype_name, fields_metadata, is_child=False, parent_doctype=
     entity = {
         "entity": {
             "type": doctype_name,
-            "description": f"Entidade representando o DocType {doctype_name}",
+            "description": doctype_name,
             "attributes": attributes,
             "relationships": relationships
         }

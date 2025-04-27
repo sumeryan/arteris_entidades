@@ -1,0 +1,281 @@
+
+{
+  "entities": [
+    {"id":"P1","entity_type":["Parent"],"attributes":[
+                {"key":"id","value":"P1","type":"string"}
+    ]},
+    {"id":"C1","entity_type":["Child"],"attributes":[
+        {"key":"parentId","value":"P1","type":"string"},
+        {"key":"x","value":"3","type":"number"}
+    ]},
+    {"id":"C2","entity_type":["Child"],"attributes":[
+        {"key":"parentId","value":"P1","type":"string"},
+        {"key":"x","value":"7","type":"number"}
+    ]},
+    {"id":"G1","entity_type":["Grand"],"attributes":[
+        {"key":"childId","value":"C1","type":"string"},
+        {"key":"y","value":"2","type":"number"}
+    ]},
+    {"id":"G2","entity_type":["Grand"],"attributes":[
+        {"key":"childId","value":"C1","type":"string"},
+        {"key":"y","value":"4","type":"number"}
+    ]},
+    {"id":"G3","entity_type":["Grand"],"attributes":[
+        {"key":"childId","value":"C2","type":"string"},
+        {"key":"y","value":"1","type":"number"}
+    ]}
+  ],
+  "formulas": [
+    "COUNT(Parent.Child.x * Parent.Child.Grand.y)",
+    "AVG(Parent.Child.x * Parent.Child.Grand.y)",
+    "MAX(Parent.Child.x * Parent.Child.Grand.y)",
+    "MIN(Parent.Child.x * Parent.Child.Grand.y)"
+  ]
+}
+
+
+{
+    "direct_results": [
+        {
+            "entity_id": "C1",
+            "formula": "COUNT(Parent.Child.x * Parent.Child.Grand.y)",
+            "resolved_formula": "COUNT(x * y)",
+            "result": 2.0,
+            "result_type": "int",
+            "success": true
+        },
+        {
+            "entity_id": "C2",
+            "formula": "COUNT(Parent.Child.x * Parent.Child.Grand.y)",
+            "resolved_formula": "COUNT(x * y)",
+            "result": 1.0,
+            "result_type": "int",
+            "success": true
+        },
+        {
+            "entity_id": "C1",
+            "formula": "AVG(Parent.Child.x * Parent.Child.Grand.y)",
+            "resolved_formula": "AVG(x * y)",
+            "result": 9.0,
+            "result_type": "float",
+            "success": true
+        },
+        {
+            "entity_id": "C2",
+            "formula": "AVG(Parent.Child.x * Parent.Child.Grand.y)",
+            "resolved_formula": "AVG(x * y)",
+            "result": 7.0,
+            "result_type": "float",
+            "success": true
+        },
+        {
+            "entity_id": "C1",
+            "formula": "MAX(Parent.Child.x * Parent.Child.Grand.y)",
+            "resolved_formula": "MAX(x * y)",
+            "result": 12.0,
+            "result_type": "float",
+            "success": true
+        },
+        {
+            "entity_id": "C2",
+            "formula": "MAX(Parent.Child.x * Parent.Child.Grand.y)",
+            "resolved_formula": "MAX(x * y)",
+            "result": 7.0,
+            "result_type": "float",
+            "success": true
+        },
+        {
+            "entity_id": "C1",
+            "formula": "MIN(Parent.Child.x * Parent.Child.Grand.y)",
+            "resolved_formula": "MIN(x * y)",
+            "result": 6.0,
+            "result_type": "float",
+            "success": true
+        },
+        {
+            "entity_id": "C2",
+            "formula": "MIN(Parent.Child.x * Parent.Child.Grand.y)",
+            "resolved_formula": "MIN(x * y)",
+            "result": 7.0,
+            "result_type": "float",
+            "success": true
+        }
+    ],
+    "aggregated_entities": [
+        {
+            "id": "C1",
+            "entity_type": [
+                "Child"
+            ],
+            "computed": [
+                {
+                    "key": "COUNT(x * y)",
+                    "value": 2.0,
+                    "description": "COUNT(x * y)"
+                },
+                {
+                    "key": "AVG(x * y)",
+                    "value": 9.0,
+                    "description": "AVG(x * y)"
+                },
+                {
+                    "key": "MAX(x * y)",
+                    "value": 12.0,
+                    "description": "MAX(x * y)"
+                },
+                {
+                    "key": "MIN(x * y)",
+                    "value": 6.0,
+                    "description": "MIN(x * y)"
+                }
+            ]
+        },
+        {
+            "id": "C2",
+            "entity_type": [
+                "Child"
+            ],
+            "computed": [
+                {
+                    "key": "COUNT(x * y)",
+                    "value": 1.0,
+                    "description": "COUNT(x * y)"
+                },
+                {
+                    "key": "AVG(x * y)",
+                    "value": 7.0,
+                    "description": "AVG(x * y)"
+                },
+                {
+                    "key": "MAX(x * y)",
+                    "value": 7.0,
+                    "description": "MAX(x * y)"
+                },
+                {
+                    "key": "MIN(x * y)",
+                    "value": 7.0,
+                    "description": "MIN(x * y)"
+                }
+            ]
+        }
+    ]
+}
+
+{
+  "entities": [
+    {
+      "id": "C1",
+      "entity_type": ["Contract"],
+      "attributes": [
+        { "key": "ISS", "value": "2.0", "type": "number" }
+      ]
+    },
+    {
+      "id": "S1",
+      "entity_type": ["Servico"],
+      "attributes": [
+        { "key": "contractId", "value": "C1", "type": "string" },
+        { "key": "unit",       "value": "100", "type": "number" }
+      ]
+    },
+    {
+      "id": "M1",
+      "entity_type": ["Medicao"],
+      "attributes": [
+        { "key": "serviceId", "value": "S1", "type": "string" },
+        { "key": "q",         "value": "10", "type": "number" }
+      ]
+    },
+    {
+      "id": "M2",
+      "entity_type": ["Medicao"],
+      "attributes": [
+        { "key": "serviceId", "value": "S1", "type": "string" },
+        { "key": "q",         "value": "5",  "type": "number" }
+      ]
+    }
+  ],
+  "formulas": [
+    "SUM(Contract.Servico.unit * Contract.Servico.Medicao.q)",
+    "Contract.ISS * TotalDosServicos",
+    "Contract.ISS * TotalDosServicos * (1 if TotalDosServicos > 1000 else 0.9)"
+  ]
+}
+
+
+{
+    "direct_results": [
+        {
+            "entity_id": "S1",
+            "formula": "SUM(Contract.Servico.unit * Contract.Servico.Medicao.q)",
+            "resolved_formula": "SUM(unit * q)",
+            "result": 1500.0,
+            "result_type": "float",
+            "success": true
+        },
+        {
+            "entity_id": "C1",
+            "formula": "Contract.ISS * TotalDosServicos",
+            "resolved_formula": "2.0 * TotalDosServicos",
+            "error": "name 'TotalDosServicos' is not defined",
+            "success": false
+        },
+        {
+            "entity_id": "C1",
+            "formula": "Contract.ISS * TotalDosServicos * (1 if TotalDosServicos > 1000 else 0.9)",
+            "resolved_formula": "2.0 * TotalDosServicos * (1 if TotalDosServicos > 1000 else 0.9)",
+            "error": "name 'TotalDosServicos' is not defined",
+            "success": false
+        },
+        {
+            "entity_id": "C1",
+            "formula": "Contract.ISS * TotalDosServicos",
+            "resolved_formula": "ISS (2.0) * TotalDosServicos (1500.0)",
+            "result": 3000.0,
+            "result_type": "float",
+            "success": true
+        },
+        {
+            "entity_id": "C1",
+            "formula": "Contract.ISS * TotalDosServicos * (1 if TotalDosServicos > 1000 else 0.9)",
+            "resolved_formula": "ISS (2.0) * TotalDosServicos (1500.0)",
+            "result": 3000.0,
+            "result_type": "float",
+            "success": true
+        }
+    ],
+    "aggregated_entities": [
+        {
+            "id": "C1",
+            "entity_type": [
+                "Contract"
+            ],
+            "computed": [
+                {
+                    "key": "Tributo",
+                    "value": 3000.0,
+                    "description": "ISS (2.0) * TotalDosServicos (1500.0)"
+                },
+                {
+                    "key": "Tributo",
+                    "value": 3000.0,
+                    "description": "ISS (2.0) * TotalDosServicos (1500.0)"
+                }
+            ]
+        },
+        {
+            "id": "S1",
+            "entity_type": [
+                "Servico"
+            ],
+            "computed": [
+                {
+                    "key": "SUM(unit * q)",
+                    "value": 1500.0,
+                    "description": "SUM(unit * q)"
+                }
+            ]
+        }
+    ]
+}
+Expandir (75 linhas)

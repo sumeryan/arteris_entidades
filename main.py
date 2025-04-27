@@ -99,6 +99,8 @@ def main():
         else:
             print(f"Aviso: Nenhuma chave encontrada para o DocType {doctype_name}.")
 
+    print(f"\nDados: {all_doctype_data}")
+
     print(f"\n--- Fim da execução ---")
 
     # Mensagem final opcional

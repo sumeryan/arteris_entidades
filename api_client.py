@@ -16,7 +16,8 @@ def get_arteris_doctypes(api_base_url, api_token):
     doctype_url = f"{api_base_url}/DocType"
     params = {
         # Filtra para buscar apenas DocTypes do módulo específico 'Arteris' e que não são tabelas (Child Item)
-        "filters": json.dumps([["module", "=", "Arteris"],["istable","!=","1"]])
+        # "filters": json.dumps([["module", "=", "Arteris"],["istable","!=","1"]])
+        "filters": json.dumps([["module", "=", "Arteris"],["istable","!=","1"],["name","=","Asset"]])
         # Poderia adicionar 'fields' se precisasse de mais informações do DocType aqui
     }
     headers = {"Authorization": api_token}
@@ -54,7 +55,7 @@ def get_arteris_doctypes_child(api_base_url, api_token):
     doctype_url = f"{api_base_url}/DocType"
     params = {
         # Filtra para buscar apenas DocTypes do módulo específico 'Arteris' e que não são tabelas (Child Item)
-        "filters": json.dumps([["module", "=", "Arteris"],["istable","=","1"]])
+        "filters": json.dumps([["module", "=", "Arteris"],["istable","=","1"],["name","=","Asset Operator"]])
         # Poderia adicionar 'fields' se precisasse de mais informações do DocType aqui
     }
     headers = {"Authorization": api_token}
@@ -98,7 +99,7 @@ def get_docfields_for_doctype(api_base_url, api_token, doctype_name, child=False
     params = {
         # Define quais campos do DocField queremos retornar
         # Se child=True adiciona "parent" aos fields
-        "fields": json.dumps(["fieldname", "label", "fieldtype", "options"] + (["parent"] if child else [])),
+        "fields": json.dumps(["fieldname", "label", "fieldtype", "options", "hidden"] + (["parent"] if child else [])),
         # Define os filtros:
         "filters": json.dumps([
             ["parent", "=", doctype_name],          # Campo pertence ao DocType pai especificado
