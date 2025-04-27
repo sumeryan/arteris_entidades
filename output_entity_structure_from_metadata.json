@@ -126,7 +126,18 @@
                         "description": "Data final do contrato"
                     }
                 ],
-                "relationships": []
+                "relationships": [
+                    {
+                        "sourceKey": "modeloformula",
+                        "destinationEntity": "Formula Template",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "contratada",
+                        "destinationEntity": "Contracted Company",
+                        "destinationKey": "name"
+                    }
+                ]
             }
         },
         {
@@ -199,7 +210,28 @@
                         "description": "Is Group"
                     }
                 ],
-                "relationships": []
+                "relationships": [
+                    {
+                        "sourceKey": "old_parent",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "contrato",
+                        "destinationEntity": "Contract",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "parent_contract_item",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "modeloformula",
+                        "destinationEntity": "Formula Template",
+                        "destinationKey": "name"
+                    }
+                ]
             }
         },
         {
@@ -385,6 +417,11 @@
                         "sourceKey": "parent",
                         "destinationEntity": "Asset",
                         "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "operador",
+                        "destinationEntity": "Work Role",
+                        "destinationKey": "name"
                     }
                 ]
             }
@@ -429,6 +466,11 @@
                         "sourceKey": "parent",
                         "destinationEntity": "Contract Item",
                         "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "asset",
+                        "destinationEntity": "Asset",
+                        "destinationKey": "name"
                     }
                 ]
             }
@@ -467,6 +509,11 @@
                     {
                         "sourceKey": "parent",
                         "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "cidade",
+                        "destinationEntity": "City",
                         "destinationKey": "name"
                     }
                 ]
@@ -511,6 +558,11 @@
                     {
                         "sourceKey": "parent",
                         "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "pedidosap",
+                        "destinationEntity": "SAP Order",
                         "destinationKey": "name"
                     }
                 ]
@@ -560,6 +612,11 @@
                     {
                         "sourceKey": "parent",
                         "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "funcao",
+                        "destinationEntity": "Work Role",
                         "destinationKey": "name"
                     }
                 ]

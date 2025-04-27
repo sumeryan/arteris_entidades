@@ -148,6 +148,25 @@ def create_entity(doctype_name, fields_metadata, is_child=False, parent_doctype=
             "destinationKey": "name" # A chave na entidade pai (geralmente 'name')
         })
 
+    # Adicionar relacionamentos para campos do tipo Link
+    for field in fields_metadata:
+        if field.get("fieldtype") == "Link":
+            field_name = field.get("fieldname")
+            destination_entity = field.get("options")
+            # Ignorar links para Web Page ou Report, ou se não houver 'options'
+            if destination_entity and destination_entity not in ["Web Page", "Report"]:
+                 # Evitar adicionar relacionamento duplicado se já existir (ex: parent)
+                 is_duplicate = any(
+                     rel["sourceKey"] == field_name and rel["destinationEntity"] == destination_entity
+                     for rel in relationships
+                 )
+                 if not is_duplicate:
+                    relationships.append({
+                        "sourceKey": field_name,
+                        "destinationEntity": destination_entity,
+                        "destinationKey": "name" # Assumindo que a chave de destino é 'name'
+                    })
+
     # Criar estrutura da entidade
     entity = {
         "entity": {
