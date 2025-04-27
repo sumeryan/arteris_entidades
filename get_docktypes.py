@@ -2,6 +2,9 @@ import api_client # Importa o módulo api_client
 
 def process_arteris_doctypes(api_base_url, api_token): # Renomeia a função
 
+    # Lista para armazenar os DocTypes e seus campos
+    doctypes_with_fields = {}
+
     # --- Etapa 1: Buscar DocTypes ---
     print("--- Etapa 1: Buscando DocTypes ---")
     # Chama a função de api_client
@@ -11,19 +14,10 @@ def process_arteris_doctypes(api_base_url, api_token): # Renomeia a função
         return None, None, None # Retorna None para indicar falha
     print(f"Encontrados {len(all_doctypes)} DocTypes no módulo Arteris.")
 
-    print("--- Etapa 1.1: Buscando DocTypes Child ---")
-    # Chama a função de api_client
-    all_doctypes_child = api_client.get_arteris_doctypes_child(api_base_url, api_token)
-    if all_doctypes_child is None:
-        print("Não foi possível obter a lista de DocTypes Child. Encerrando.")
-        return None, None, None # Retorna None para indicar falha
-    print(f"Encontrados {len(all_doctypes_child)} DocTypes Child no módulo Arteris.")
-
-    # --- Etapa 2: Buscar DocFields para cada DocType ---
+    # --- Etapa 1.1: Buscar DocFields para cada DocType ---
     print("\n--- Etapa 2: Buscando DocFields ---")
-    combined_doctypes = all_doctypes + all_doctypes_child # Combina as duas listas
-    doctypes_with_fields = {}
-    for doc in combined_doctypes:
+
+    for doc in all_doctypes:
         doctype_name = doc.get("name")
         if doctype_name:
             # Chama a função de api_client
@@ -35,7 +29,31 @@ def process_arteris_doctypes(api_base_url, api_token): # Renomeia a função
                 doctypes_with_fields[doctype_name] = None # Marca erro
         else:
             print("Aviso: Encontrado DocType sem nome.")
-    print("Busca de DocFields concluída.")
+    print("Busca de DocFields concluída.")    
+
+    print("--- Etapa 2: Buscando DocTypes Child ---")
+    # Chama a função de api_client
+    all_doctypes_child = api_client.get_arteris_doctypes_child(api_base_url, api_token)
+    if all_doctypes_child is None:
+        print("Não foi possível obter a lista de DocTypes Child. Encerrando.")
+        return None, None, None # Retorna None para indicar falha
+    print(f"Encontrados {len(all_doctypes_child)} DocTypes Child no módulo Arteris.")
+
+    # --- Etapa 2.1: Buscar DocFields para cada DocType Child---
+    print("\n--- Etapa 2: Buscando DocFields Child ---")
+    for doc in all_doctypes_child:
+        doctype_name = doc.get("name")
+        if doctype_name:
+            # Chama a função de api_client
+            docfields = api_client.get_docfields_for_doctype(api_base_url, api_token, doctype_name, True)
+            if docfields is not None:
+                doctypes_with_fields[doctype_name] = docfields
+            else:
+                print(f"Erro ao buscar DocFields para {doctype_name}. Marcando como None.")
+                doctypes_with_fields[doctype_name] = None # Marca erro
+        else:
+            print("Aviso: Encontrado DocType sem nome.")
+    print("Busca de DocFields Child concluída.")    
 
     # --- Etapa 3: Localizar os "Parents" ---
     print("\n--- Etapa 3: Localizando os 'Parents' ---")
@@ -65,70 +83,71 @@ def process_arteris_doctypes(api_base_url, api_token): # Renomeia a função
     child_to_parent = {mapping["child"]: mapping["parent"] for mapping in child_parent_mapping}
     print(f"Mapeamento Child -> Parent: {child_to_parent}") # Log para depuração
 
-    # --- Etapa 4: Buscar Dados Reais para cada DocType ---
-    print("\n--- Etapa 4: Buscando Dados Reais ---")
-    all_doctype_data = {}
-    for doctype_name, fields in doctypes_with_fields.items():
+    # # --- Etapa 4: Buscar Dados Reais para cada DocType ---
+    # print("\n--- Etapa 4: Buscando Dados Reais ---")
+    # all_doctype_data = {}
+    # for doctype_name, fields in doctypes_with_fields.items():
 
-        # Verificar se este doctype está em all_doctypes_child
-        is_child_doctype = any(doc.get("name") == doctype_name for doc in all_doctypes_child)
+    #     # Verificar se este doctype está em all_doctypes_child
+    #     is_child_doctype = any(doc.get("name") == doctype_name for doc in all_doctypes_child)
 
-        if fields is None:
-            print(f"Pulando busca de dados para {doctype_name} devido a erro anterior na busca de campos.")
-            all_doctype_data[doctype_name] = None
-            continue
-        # Não pular se não tiver fields, pode ser um DocType sem campos mas com dados (pelo menos 'name')
-        # if not fields:
-        #     print(f"Pulando busca de dados para {doctype_name} pois não foram encontrados campos (DocFields).")
-        #     all_doctype_data[doctype_name] = []
-        #     continue
+    #     if fields is None:
+    #         print(f"Pulando busca de dados para {doctype_name} devido a erro anterior na busca de campos.")
+    #         all_doctype_data[doctype_name] = None
+    #         continue
+    #     # Não pular se não tiver fields, pode ser um DocType sem campos mas com dados (pelo menos 'name')
+    #     # if not fields:
+    #     #     print(f"Pulando busca de dados para {doctype_name} pois não foram encontrados campos (DocFields).")
+    #     #     all_doctype_data[doctype_name] = []
+    #     #     continue
 
-        # Extrai apenas os 'fieldname' da lista de dicionários 'fields' que não são Link ou Table
-        # Inclui 'name' por padrão, pois é a chave primária
-        fieldnames = ["name"] + [
-            f.get("fieldname") for f in fields
-            if f.get("fieldname") and f.get("fieldtype") not in ["Link", "Table", "Read Only", "HTML", "Button", "Image"] # Adiciona mais tipos a ignorar se necessário
-        ]
-        # Remove duplicatas caso 'name' já esteja na lista de fields
-        fieldnames = list(dict.fromkeys(fieldnames))
+    #     # Extrai apenas os 'fieldname' da lista de dicionários 'fields' que não são Link ou Table
+    #     # Inclui 'name' por padrão, pois é a chave primária
+    #     fieldnames = ["name"] + [
+    #         f.get("fieldname") for f in fields
+    #         if f.get("fieldname") and f.get("fieldtype") not in ["Link", "Table"] # Adiciona mais tipos a ignorar se necessário
+    #     ]
+    #     # Remove duplicatas caso 'name' já esteja na lista de fields
+    #     fieldnames = list(dict.fromkeys(fieldnames))
 
-        if not fieldnames or len(fieldnames) == 1 and fieldnames[0] == 'name':
-             print(f"Aviso: Nenhum 'fieldname' adicional válido encontrado para {doctype_name}. Buscando apenas 'name'.")
-             fieldnames = ["name"] # Garante que pelo menos 'name' seja buscado
+    #     if not fieldnames or len(fieldnames) == 1 and fieldnames[0] == 'name':
+    #          print(f"Aviso: Nenhum 'fieldname' adicional válido encontrado para {doctype_name}. Buscando apenas 'name'.")
+    #          fieldnames = ["name"] # Garante que pelo menos 'name' seja buscado
 
-        print(f"\nBuscando dados para {doctype_name} com os seguintes fieldnames {fieldnames}...")
-        parent_name_to_pass = None # Inicializa como None
-        if is_child_doctype:
-            # Obter o parent diretamente do dicionário
-            parent_name_to_pass = child_to_parent.get(doctype_name)
-            if parent_name_to_pass:
-                 print(f"É um Child DocType. Parent encontrado no mapeamento: {parent_name_to_pass}")
-            else:
-                 print(f"Aviso: {doctype_name} é um Child DocType, mas seu Parent não foi encontrado no mapeamento. Tentando buscar diretamente.")
+    #     print(f"\nBuscando dados para {doctype_name} com os seguintes fieldnames {fieldnames}...")
+    #     parent_name_to_pass = None # Inicializa como None
+    #     if is_child_doctype:
+    #         # Obter o parent diretamente do dicionário
+    #         parent_name_to_pass = child_to_parent.get(doctype_name)
+    #         if parent_name_to_pass:
+    #              print(f"É um Child DocType. Parent encontrado no mapeamento: {parent_name_to_pass}")
+    #         else:
+    #              print(f"Aviso: {doctype_name} é um Child DocType, mas seu Parent não foi encontrado no mapeamento. Tentando buscar diretamente.")
 
-        # Chama a função de api_client
-        doctype_data = api_client.get_data_for_doctype(api_base_url, api_token, doctype_name, fieldnames, parent_name_to_pass) # Removido parent_name_to_pass por enquanto
+    #     # Chama a função de api_client
+    #     doctype_data = api_client.get_data_for_doctype(api_base_url, api_token, doctype_name, fieldnames, parent_name_to_pass) # Removido parent_name_to_pass por enquanto
 
-        if doctype_data is not None:
-            all_doctype_data[doctype_name] = doctype_data
-            print(f"Dados para {doctype_name} obtidos. Quantidade: {len(doctype_data)}")
-        else:
-            all_doctype_data[doctype_name] = None # Marca erro
-            print(f"Erro ao buscar dados para {doctype_name}.")
+    #     if doctype_data is not None:
+    #         all_doctype_data[doctype_name] = doctype_data
+    #         print(f"Dados para {doctype_name} obtidos. Quantidade: {len(doctype_data)}")
+    #     else:
+    #         all_doctype_data[doctype_name] = None # Marca erro
+    #         print(f"Erro ao buscar dados para {doctype_name}.")
 
-    print("\nBusca de dados reais concluída.")
+    # print("\nBusca de dados reais concluída.")
 
-    # --- Exibição de Mapeamento ---
-    print("\n--- Mapeamento de Childs para Parents ---")
-    if child_parent_mapping:
-        for mapping in child_parent_mapping:
-            print(f"Child: {mapping.get('child')}, Parent: {mapping.get('parent')}")
-    else:
-        print("Nenhum mapeamento Child-Parent encontrado.")
+    # # --- Exibição de Mapeamento ---
+    # print("\n--- Mapeamento de Childs para Parents ---")
+    # if child_parent_mapping:
+    #     for mapping in child_parent_mapping:
+    #         print(f"Child: {mapping.get('child')}, Parent: {mapping.get('parent')}")
+    # else:
+    #     print("Nenhum mapeamento Child-Parent encontrado.")
 
     # --- Retorno dos Dados ---
     # Retorna os dados coletados e o mapeamento
-    return doctypes_with_fields, all_doctype_data, child_parent_mapping
+    # return doctypes_with_fields, all_doctype_data, child_parent_mapping
+    return doctypes_with_fields, all_doctypes_child, child_parent_mapping
 
 # Código de teste (opcional, pode ser removido ou comentado)
 # if __name__ == '__main__':
