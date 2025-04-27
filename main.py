@@ -17,8 +17,10 @@ import json
 from dotenv import load_dotenv
 
 # Importa as funções dos módulos refatorados
-from transformer import transform_to_entity_structure
-from get_docktypes import process_arteris_doctypes # Importa a função refatorada
+#from transformer import transform_to_entity_structure
+from get_docktypes import process_arteris_doctypes 
+from api_client_data import get_keys, get_data_from_key
+from json_to_entity_transformer import transform_entity_structure
 
 # Carrega variáveis de ambiente do arquivo .env na raiz do projeto
 load_dotenv()
@@ -38,87 +40,67 @@ def main():
         return
 
     # --- Etapa 1: Processar DocTypes, Fields e Dados ---
-    print("--- Iniciando processamento de DocTypes, Fields e Dados ---")
+    print("--- Iniciando processamento de DocTypes e Fields---")
     # Chama a função refatorada que encapsula a lógica de busca
-    doctypes_with_fields, all_doctype_data, child_parent_mapping = process_arteris_doctypes(api_base_url, api_token)
-
-    # Verifica se o processamento foi bem-sucedido
-    if doctypes_with_fields is None or all_doctype_data is None or child_parent_mapping is None:
-        print("Erro durante o processamento de DocTypes/Fields/Dados. Encerrando.")
-        return
+    all_doctypes, child_parent_mapping, doctypes_with_fields = process_arteris_doctypes(api_base_url, api_token)
 
     print("\n--- Processamento de busca concluído ---")
 
-    # --- Etapa 2: Transformar Metadados (Opcional, dependendo do objetivo) ---
-    # Se a transformação ainda for necessária:
-    print("\n--- Etapa 2: Transformando Metadados ---")
-    entity_structure = transform_to_entity_structure(doctypes_with_fields)
-    if entity_structure:
-        print("Estrutura de entidades gerada com sucesso.")
-        # Opcional: Salvar a estrutura em um arquivo JSON
-        # try:
-        #     with open("arteris_entity_structure.json", "w", encoding="utf-8") as f:
-        #         json.dump(entity_structure, f, indent=4, ensure_ascii=False)
-        #     print("Estrutura de entidades salva em arteris_entity_structure.json")
-        # except IOError as e:
-        #     print(f"Erro ao salvar a estrutura de entidades: {e}")
-    else:
-        print("Não foi possível gerar a estrutura de entidades.")
+    # --- Etapa 1: Processar DocTypes, Fields e Dados ---
+    print("--- Iniciando processamento de Dados ---")
 
-    # --- Etapa 3: Exibir Resultados ---
-    # Exibe o mapeamento Child-Parent (já é feito dentro de process_arteris_doctypes, mas pode exibir aqui se preferir)
-    print("\n--- Mapeamento de Childs para Parents ---")
-    if child_parent_mapping:
-        for mapping in child_parent_mapping:
-            print(f"Child: {mapping.get('child')}, Parent: {mapping.get('parent')}")
-    else:
-        print("Nenhum mapeamento Child-Parent encontrado.")
+    # Lista para armazenar os DocTypes com suas respectivas chaves
+    doctypes_with_keys = []
 
-    # Exibe exemplo dos dados coletados
-    print("\n--- Exemplo de Dados Coletados (Primeiro registro dos primeiros 3 DocTypes com dados) ---")
-    count = 0
-    count = 0
-    if all_doctype_data: # Verifica se o dicionário não está vazio
-        for doctype_name, data_list in all_doctype_data.items():
-            if count >= 3:
-                break
-            print(f"\nDocType: {doctype_name}")
-            if data_list is None:
-                print("  Erro ao buscar dados.")
-            elif not data_list: # Verifica se a lista está vazia
-                print("  Nenhum registro encontrado.")
-            else:
-                print(f"  Total de registros: {len(data_list)}")
-                print(f"  Primeiro registro: {data_list[0]}") # Acessa o primeiro item diretamente
-                count += 1 # Incrementa apenas se mostrou dados válidos
-    else:
-        print("Nenhum dado foi coletado ou houve erro em todas as buscas.")
+    # Percorre a lista de all_doctypes e obtém as chaves usando o método get_keys
+    for doctype in all_doctypes:
+        doctype_name = doctype.get("name")
+        if doctype_name:
+            keys = get_keys(api_base_url, api_token, doctype_name)
+            doctypes_with_keys.append({"doctype": doctype_name, "keys": keys})
 
-    # --- Etapa 3: Montagem das entidades ---
-    entity_structure = transform_to_entity_structure(doctypes_with_fields)
-    if entity_structure:
-        print("\nEstrutura de entidades gerada com sucesso.")
-        # Opcional: Salvar a estrutura em um arquivo JSON
-        try:
-            #check if the file already exists
-            if os.path.exists("arteris_entity_structure.json"):
-                print("O arquivo arteris_entity_structure.json já existe. Deseja sobrescrever? (s/n)")
-                choice = input().strip().lower()
-                if choice == 's':
-                    #excluir o arquivo
-                    os.remove("arteris_entity_structure.json")
+    #Transforma DocTypes em entidades
+    print("--- Iniciando processamento de Entidades ---")
 
-            with open("arteris_entity_structure.json", "w", encoding="utf-8") as f:
-                json.dump(entity_structure, f, indent=4, ensure_ascii=False)
+    # Transformar os metadados em estrutura de entidades
+    # Usando a nova função e os novos dados de exemplo
+    entity_structure = transform_entity_structure(
+        doctypes_with_fields,
+        child_parent_mapping
+    )
 
-            print("Estrutura de entidades salva em arteris_entity_structure.json")
+    print(f"Encontrados {len(entity_structure.get('entities', []))} DocTypes no módulo Arteris.")
+    print(f"Entididades: {entity_structure}")
 
-        except IOError as e:
-            print(f"Erro ao salvar a estrutura de entidades: {e}")
-    else:
-        print("Não foi possível gerar a estrutura de entidades.")
+    # Salvar resultado em um arquivo com novo nome
+    output_filename = "output_entity_structure_from_metadata.json"
+    try:
+        with open(output_filename, "w", encoding="utf-8") as f:
+            json.dump(entity_structure, f, indent=4, ensure_ascii=False)
+        print(f"\nEstrutura de entidades salva em {output_filename}")
+    except IOError as e:
+        print(f"\nErro ao salvar o arquivo {output_filename}: {e}")
+
+    print("\n--- DocTypes com suas respectivas chaves ---")
+    print(json.dumps(doctypes_with_keys, indent=4, ensure_ascii=False))
+
+    # Para cada DocType, busca os dados usando o método get_data_from_key
+    all_doctype_data = []
+    for doctype in doctypes_with_keys:
+        doctype_name = doctype.get("doctype")
+        keys = doctype.get("keys")
+        if keys:
+            for key in keys:
+                data = get_data_from_key(api_base_url, api_token, doctype_name, key)
+                if data:
+                    all_doctype_data.append({"doctype": doctype_name, "key": key, "data": data})
+                else:
+                    print(f"Erro ao buscar dados para {doctype_name} com chave {key}.")
+        else:
+            print(f"Aviso: Nenhuma chave encontrada para o DocType {doctype_name}.")
 
     print(f"\n--- Fim da execução ---")
+
     # Mensagem final opcional
     print(f"\nTotal de {len(all_doctype_data)} DocTypes tiveram seus dados buscados.")
     # if 'entity_structure' in locals() and entity_structure:

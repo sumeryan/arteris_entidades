@@ -34,67 +34,38 @@ def get_keys(api_base_url, api_token, doctype_name):
         print(f"Erro ao decodificar a resposta JSON das chaves para {doctype_name}.")
         return None
 
-
-
-def get_data_for_doctype(api_base_url, api_token, doctype_name, fieldnames, parent_name=None):
+def get_data_from_key(api_base_url, api_token, doctype_name, key):
     """
-    Busca dados para um DocType específico, selecionando os campos desejados.
-    Permite filtrar por um DocType pai, se aplicável (para Child Doctypes).
-
+    Busca os dados de um DocType específico na API Arteris usando uma chave.
     Args:
         api_base_url (str): A URL base da API de recursos (ex: 'https://host/api/resource').
-        api_token (str): O token de autorização no formato 'token key:secret'.
+        api_token (str): O token de autorização no formato 'token key
         doctype_name (str): O nome do DocType do qual buscar os dados (ex: 'Asset').
-        fieldnames (list): Uma lista de strings contendo os nomes dos campos a serem retornados.
-        parent_name (str, optional): O nome do registro pai para filtrar os dados (usado para Child Doctypes).
-                                     Defaults to None.
-
+        key (str): A chave do DocType para buscar os dados.
     Returns:
-        list or None: Uma lista de dicionários, onde cada dicionário representa um registro
-                      do DocType com os campos solicitados.
-                      Retorna None em caso de erro na requisição ou na decodificação JSON.
-                      Retorna uma lista vazia se nenhum dado for encontrado.
+        Um JSON contendo os dados do DocType ou None em caso de erro.
     """
-    resource_url = f"{api_base_url}/{doctype_name}"
-    params = {
-        # Converte a lista de fieldnames para uma string JSON para o parâmetro 'fields'
-        "fields": json.dumps(fieldnames)
-        # Poderíamos adicionar 'filters' aqui se necessário no futuro
-        # "filters": json.dumps([["campo", "operador", "valor"]])
-        # Poderíamos adicionar 'limit_page_length' se precisássemos de paginação
-        # "limit_page_length": 1000 # Ou outro valor, ou None para o padrão da API
-    }
-    # Adiciona o filtro de parent se fornecido
-    if parent_name:
-        params["parent"] = parent_name
-        print(f"Filtrando por parent: {parent_name}")
-
+    resource_url = f"{api_base_url}/{doctype_name}/{key}"
+    params = {}
     headers = {"Authorization": api_token}
 
     try:
-        print(f"Buscando dados para DocType '{doctype_name}' em: {resource_url}")
-        print(f"Campos solicitados: {fieldnames}")
-        # Define um timeout maior, pois a busca de dados pode demorar mais
-        response = requests.get(resource_url, headers=headers, params=params, timeout=60)
+        print(f"Buscando dados para DocType '{doctype_name}' usando a chave '{key}' em: {resource_url}")
+        response = requests.get(resource_url, headers=headers, params=params, timeout=30)
         response.raise_for_status() # Lança HTTPError para respostas 4xx/5xx
         data = response.json()
-        print(f"Dados para '{doctype_name}' recebidos com sucesso!")
-        # Retorna a lista de dados contida na chave 'data' da resposta JSON
-        return data.get("data", [])
-    except requests.exceptions.Timeout:
-        print(f"Erro: Timeout ao buscar dados para {doctype_name}.")
-        return None
+        # Verifica se a resposta contém dados
+        if "data" in data:
+            print(f"Dados para '{doctype_name}' com chave '{key}' recebidos com sucesso!")
+            return data["data"]
+        else:
+            print(f"Nenhum dado encontrado para '{doctype_name}' com chave '{key}'.")
+            return None
     except requests.exceptions.RequestException as e:
-        # Captura outros erros de conexão, status HTTP, etc.
-        print(f"Erro ao buscar dados para {doctype_name}: {e}")
-        # Imprime a resposta se houver erro para depuração
-        if hasattr(e, 'response') and e.response is not None:
-            print(f"Resposta da API (Status {e.response.status_code}): {e.response.text}")
+        # Captura erros de conexão, timeout, etc.
+        print(f"Erro ao buscar chaves para {doctype_name}: {e}")
         return None
     except json.JSONDecodeError:
         # Captura erro se a resposta não for um JSON válido
-        print(f"Erro ao decodificar a resposta JSON dos dados para {doctype_name}.")
-        # Imprime a resposta bruta para depuração
-        if 'response' in locals() and response is not None:
-             print(f"Resposta bruta da API: {response.text}")
-        return None
+        print(f"Erro ao decodificar a resposta JSON das chaves para {doctype_name}.")
+        return None    

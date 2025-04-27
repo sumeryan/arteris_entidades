@@ -1,177 +1,13 @@
 import json
 
-def transform_json_to_entity_structure(json_data, doctypes_metadata):
-    """
-    Transforma dados JSON de um DocType em uma estrutura de entidades.
-    
-    Args:
-        json_data (dict): Dados JSON do DocType
-        doctypes_metadata (dict): Metadados dos campos dos DocTypes
-        
-    Returns:
-        dict: Estrutura de entidades no formato especificado
-    """
-    # Extrair informações do DocType principal
-    doctype_name, doctype_data = extract_doctype_info(json_data)
-    
-    # Verificar se temos metadados para este DocType
-    if doctype_name not in doctypes_metadata:
-        print(f"Aviso: DocType {doctype_name} não encontrado nos metadados.")
-        fields_metadata = []
-    else:
-        fields_metadata = doctypes_metadata[doctype_name]
-    
-    # Criar entidade principal
-    entity = create_entity(doctype_name, doctype_data, fields_metadata)
-    
-    # Lista para armazenar todas as entidades
-    entities = [entity]
-    
-    # Processar campos do tipo Table (entidades filhas)
-    child_entities, relationships = process_table_fields(entity, fields_metadata, json_data, doctypes_metadata)
-    
-    # Adicionar entidades filhas à lista de entidades
-    entities.extend(child_entities)
-    
-    # Processar campos do tipo Link (relacionamentos)
-    link_relationships = process_link_fields(entity, fields_metadata, doctypes_metadata)
-    
-    # Adicionar relacionamentos de Link à lista de relacionamentos
-    relationships.extend(link_relationships)
-    
-    # Adicionar relacionamentos às entidades
-    for i, entity_data in enumerate(entities):
-        if entity_data["entity"]["type"] == doctype_name:
-            entities[i]["entity"]["relationships"] = relationships
-    
-    # Retornar estrutura final
-    return {"entities": entities}
-
-def extract_doctype_info(json_data):
-    """
-    Extrai informações do DocType principal do JSON de entrada.
-    
-    Args:
-        json_data (dict): Dados JSON do DocType
-        
-    Returns:
-        tuple: (doctype_name, doctype_data)
-    """
-    # Verificar se o JSON tem a estrutura esperada
-    if "data" not in json_data:
-        raise ValueError("JSON inválido: chave 'data' não encontrada")
-    
-    data = json_data["data"]
-    
-    # Extrair nome do DocType
-    if "doctype" not in data:
-        raise ValueError("JSON inválido: chave 'doctype' não encontrada em 'data'")
-    
-    doctype_name = data["doctype"]
-    
-    return doctype_name, data
-
-def create_entity(doctype_name, doctype_data, fields_metadata):
-    """
-    Cria uma entidade a partir dos dados do DocType.
-    
-    Args:
-        doctype_name (str): Nome do DocType
-        doctype_data (dict): Dados do DocType
-        fields_metadata (list): Metadados dos campos do DocType
-        
-    Returns:
-        dict: Entidade no formato especificado
-    """
-    # Processar atributos
-    attributes = process_attributes(doctype_data, fields_metadata)
-    
-    # Criar estrutura da entidade
-    entity = {
-        "entity": {
-            "type": doctype_name,
-            "description": f"Entidade representando o DocType {doctype_name}",
-            "attributes": attributes,
-            "relationships": []
-        }
-    }
-    
-    return entity
-
-def process_attributes(doctype_data, fields_metadata):
-    """
-    Processa os atributos da entidade.
-    
-    Args:
-        doctype_data (dict): Dados do DocType
-        fields_metadata (list): Metadados dos campos
-        
-    Returns:
-        list: Lista de atributos processados
-    """
-    attributes = []
-    
-    # Criar um dicionário para acesso rápido aos metadados dos campos
-    fields_dict = {}
-    if fields_metadata:
-        for field in fields_metadata:
-            if "fieldname" in field:
-                fields_dict[field["fieldname"]] = field
-    
-    # Processar cada campo nos dados
-    for key, value in doctype_data.items():
-        # Ignorar campos especiais e listas (serão tratados como relacionamentos)
-        if key in ["doctype", "name", "parentfield", "parenttype"] or isinstance(value, list):
-            continue
-        
-        # Verificar se temos metadados para este campo
-        if key in fields_dict:
-            field_metadata = fields_dict[key]
-            field_type = field_metadata.get("fieldtype", "Data")
-            description = field_metadata.get("label", key)
-            
-            # Mapear tipo de campo para tipo genérico
-            generic_type = map_field_type(field_type, key)
-            
-            # Criar atributo
-            attribute = {
-                "key": key,
-                "value": value if value is not None else None,
-                "type": generic_type,
-                "description": description
-            }
-            
-            attributes.append(attribute)
-        elif key == "parent":
-            # Incluir o campo parent como atributo para relacionamento
-            field_type = "Link"
-            description = "Parent DocType"
-            
-            # Mapear tipo de campo para tipo genérico
-            generic_type = map_field_type(field_type, key)
-            
-            # Criar atributo
-            attribute = {
-                "key": key,
-                "value": value if value is not None else None,
-                "type": generic_type,
-                "description": description
-            }
-            
-            attributes.append(attribute)
-        
-    # Não precisamos do código aqui, pois já estamos criando os atributos acima
-    
-    return attributes
-
 def map_field_type(field_type, key=None):
     """
     Mapeia tipos de campo do DocType para tipos genéricos.
-    
+
     Args:
         field_type (str): Tipo de campo do DocType
         key (str, optional): Nome do campo, usado para campos especiais
-        
+
     Returns:
         str: Tipo genérico (string, numeric, datetime, boolean, etc.)
     """
@@ -186,30 +22,30 @@ def map_field_type(field_type, key=None):
         "Link": "string",
         "Select": "string",
         "Read Only": "string",
-        
+
         # Tipos numéricos
         "Int": "numeric",
         "Float": "numeric",
         "Currency": "numeric",
         "Percent": "numeric",
-        
+
         # Tipos de data/hora
         "Date": "datetime",
         "Datetime": "datetime",
         "Time": "datetime",
-        
+
         # Tipos booleanos
         "Check": "boolean",
-        
+
         # Outros tipos
-        "Table": "table",
+        "Table": "table", # Mantido para referência, mas ignorado em process_attributes
         "Attach": "file",
         "Attach Image": "image",
         "Signature": "image",
         "Color": "string",
         "Geolocation": "geolocation"
     }
-    
+
     # Campos especiais que têm tipos específicos
     special_fields = {
         "creation": "datetime",
@@ -217,176 +53,179 @@ def map_field_type(field_type, key=None):
         "docstatus": "numeric",
         "idx": "numeric"
     }
-    
+
     # Verificar se é um campo especial
     if field_type in type_mapping:
         return type_mapping[field_type]
     elif key in special_fields:
         return special_fields[key]
     else:
+        # Retorna 'string' como padrão se o tipo não for mapeado
         return "string"
-    
-    # Este código não será executado devido à modificação acima
-    # Mantido apenas para referência
-    return type_mapping.get(field_type, "string")
 
-def process_table_fields(entity, fields_metadata, json_data, doctypes_metadata):
+def process_attributes(fields_metadata, is_child=False):
     """
-    Processa campos do tipo Table e cria entidades filhas.
-    
+    Processa os atributos da entidade a partir dos metadados dos campos.
+
     Args:
-        entity (dict): Entidade principal
         fields_metadata (list): Metadados dos campos
-        json_data (dict): Dados JSON completos
-        doctypes_metadata (dict): Metadados de todos os DocTypes
-        
+        is_child (bool): Indica se é uma entidade filha
+
     Returns:
-        tuple: (entidades_filhas, relacionamentos)
+        list: Lista de atributos processados (sem o campo 'value')
     """
-    child_entities = []
-    relationships = []
-    
-    # Extrair nome do DocType principal
-    doctype_name = entity["entity"]["type"]
-    doctype_data = json_data["data"]
-    
-    # Identificar campos do tipo Table
-    table_fields = []
-    if fields_metadata:
-        for field in fields_metadata:
-            if field.get("fieldtype") == "Table" and field.get("fieldname") in doctype_data:
-                table_fields.append(field)
-    
-    # Processar cada campo Table
-    for field in table_fields:
+    attributes = []
+
+    # Processar cada campo nos metadados
+    for field in fields_metadata:
         field_name = field.get("fieldname")
-        child_doctype = field.get("options")
-        
-        # Verificar se temos dados para este campo
-        if field_name not in doctype_data or not isinstance(doctype_data[field_name], list):
+        field_type = field.get("fieldtype")
+
+        # Ignorar campos do tipo Table (serão tratados como entidades separadas)
+        if field_type == "Table":
             continue
-        
-        # Verificar se temos metadados para o DocType filho
-        if child_doctype not in doctypes_metadata:
-            print(f"Aviso: DocType filho {child_doctype} não encontrado nos metadados.")
-            child_fields_metadata = []
-        else:
-            child_fields_metadata = doctypes_metadata[child_doctype]
-        
-        # Processar cada item na lista
-        for child_data in doctype_data[field_name]:
-            # Criar entidade filha
-            child_entity = create_entity(child_doctype, child_data, child_fields_metadata)
-            
-            # Adicionar relacionamento na entidade filha
-            child_relationship = create_relationship(
-                child_doctype,
-                "parent",
-                doctype_name,
-                "name"
-            )
-            
-            # Adicionar relacionamento à entidade filha
-            if "relationships" not in child_entity["entity"]:
-                child_entity["entity"]["relationships"] = []
-            
-            child_entity["entity"]["relationships"].append(child_relationship)
-            
-            child_entities.append(child_entity)
-    
-    # Retornamos apenas as entidades filhas, os relacionamentos já foram adicionados a elas
-    return child_entities, []
 
-def process_link_fields(entity, fields_metadata, doctypes_metadata):
+        # Ignorar campos internos/específicos que não devem ser atributos diretos,
+        # incluindo 'parent', que é tratado separadamente em create_entity.
+        if field_name in ["name", "owner", "creation", "modified", "modified_by",
+                          "docstatus", "idx", "parentfield", "parenttype", "doctype",
+                          "parent"]: # Adicionado 'parent' à lista de ignorados
+            continue
+
+        # Mapear tipo de campo para tipo genérico
+        generic_type = map_field_type(field_type, field_name)
+
+        # Criar atributo sem o campo 'value'
+        attribute = {
+            "key": field_name,
+            "type": generic_type,
+            "description": field.get("label", field_name) # Usa label ou fieldname
+        }
+
+        # A lógica de adicionar 'parent' ao atributo foi movida para create_entity
+        # if is_child and field.get("parent"):
+        #     attribute["parent"] = field.get("parent") # Esta linha foi removida
+
+        attributes.append(attribute)
+
+    return attributes
+
+def create_entity(doctype_name, fields_metadata, is_child=False, parent_doctype=None):
     """
-    Processa campos do tipo Link e cria relacionamentos.
-    
+    Cria uma entidade a partir dos metadados dos campos.
+
     Args:
-        entity (dict): Entidade principal
-        fields_metadata (list): Metadados dos campos
-        doctypes_metadata (dict): Metadados de todos os DocTypes
-        
+        doctype_name (str): Nome do DocType
+        fields_metadata (list): Metadados dos campos do DocType
+        is_child (bool): Indica se é uma entidade filha
+        parent_doctype (str): Nome do DocType pai, se for uma entidade filha
+
     Returns:
-        list: Lista de relacionamentos
+        dict: Entidade no formato especificado
     """
+    # Processar atributos (sem valores)
+    attributes = process_attributes(fields_metadata, is_child)
+
+    # Adicionar atributo 'parent' explicitamente para entidades filhas
+    if is_child and parent_doctype:
+        # Verifica se o atributo 'parent' já existe (caso venha dos metadados)
+        parent_attr_exists = any(attr['key'] == 'parent' for attr in attributes)
+        if not parent_attr_exists:
+             attributes.append({
+                 "key": "parent",
+                 "type": "string", # Assumindo que a referência ao pai é uma string (ID/nome)
+                 "description": "Parent DocType"
+             })
+
+    # Criar relacionamentos (apenas para entidades filhas, apontando para o pai)
     relationships = []
-    
-    # Extrair nome do DocType e atributos
-    doctype_name = entity["entity"]["type"]
-    attributes = entity["entity"]["attributes"]
-    
-    # Identificar campos do tipo Link
-    link_fields = []
-    if fields_metadata:
-        for field in fields_metadata:
-            if field.get("fieldtype") == "Link":
-                link_fields.append(field)
-    
-    # Processar cada campo Link
-    for field in link_fields:
-        field_name = field.get("fieldname")
-        linked_doctype = field.get("options")
-        
-        # Verificar se temos um atributo para este campo
-        has_attribute = False
-        for attr in attributes:
-            if attr["key"] == field_name:
-                has_attribute = True
-                # Criar relacionamento
-                relationship = create_relationship(
-                    doctype_name,
-                    field_name,
-                    linked_doctype,
-                    "name"
-                )
-                relationships.append(relationship)
-                break
-    
-    return relationships
+    if is_child and parent_doctype:
+        relationships.append({
+            "sourceKey": "parent", # A chave na entidade filha que aponta para o pai
+            "destinationEntity": parent_doctype, # O tipo da entidade pai
+            "destinationKey": "name" # A chave na entidade pai (geralmente 'name')
+        })
 
-def create_relationship(source_entity, source_key, destination_entity, destination_key):
-    """
-    Cria um relacionamento entre entidades.
-    
-    Args:
-        source_entity (str): Nome da entidade de origem
-        source_key (str): Chave na entidade de origem
-        destination_entity (str): Nome da entidade de destino
-        destination_key (str): Chave na entidade de destino
-        
-    Returns:
-        dict: Relacionamento no formato especificado
-    """
-    return {
-        "sourceKey": source_key,
-        "destinationEntity": destination_entity,
-        "destinationKey": destination_key
+    # Criar estrutura da entidade
+    entity = {
+        "entity": {
+            "type": doctype_name,
+            "description": f"Entidade representando o DocType {doctype_name}",
+            "attributes": attributes,
+            "relationships": relationships
+        }
     }
 
-# Exemplo de uso (comentado)
-"""
-# Exemplo de como o módulo será usado
-import json
-from json_to_entity_transformer import transform_json_to_entity_structure
-from get_docktypes import process_arteris_doctypes
+    return entity
 
-# Carregar JSON de entrada
-with open('input.json', 'r') as f:
-    json_data = json.load(f)
+def transform_entity_structure(doctypes_with_fields, child_parent_mapping):
+    """
+    Transforma metadados de DocTypes em uma estrutura de entidades,
+    baseado apenas nos metadados e no mapeamento child-parent.
 
-# Obter metadados dos campos
-api_base_url = "https://example.com/api/resource"
-api_token = "token key:secret"
-doctypes_metadata, _, _ = process_arteris_doctypes(api_base_url, api_token)
+    Args:
+        doctypes_with_fields (dict): Dicionário onde as chaves são nomes de DocTypes
+                                     e os valores são listas de metadados de campos.
+        child_parent_mapping (list): Lista de dicionários, cada um com chaves 'child'
+                                     e 'parent', representando relacionamentos Table.
 
-# Transformar JSON em estrutura de entidades
-entity_structure = transform_json_to_entity_structure(json_data, doctypes_metadata)
+    Returns:
+        dict: Estrutura de entidades no formato {"entities": [...]}.
+    """
+    entities = []
 
-# Salvar resultado
-with open('output.json', 'w') as f:
-    json.dump(entity_structure, f, indent=4)
-"""
+    # 1. Criar um dicionário para mapear child -> parent para acesso rápido
+    child_to_parent = {}
+    if child_parent_mapping:
+        for mapping in child_parent_mapping:
+            child = mapping.get("child")
+            parent = mapping.get("parent")
+            if child and parent:
+                child_to_parent[child] = parent
 
-if __name__ == "__main__":
-    # Código de teste pode ser adicionado aqui
-    pass
+    # 2. Processar cada DocType presente nos metadados
+    processed_doctypes = set() # Para evitar duplicatas se um DocType aparecer como pai e filho
+    for doctype_name, fields_metadata in doctypes_with_fields.items():
+        # Ignorar DocTypes sem metadados de campos válidos
+        if not fields_metadata or not isinstance(fields_metadata, list):
+            print(f"Aviso: Metadados inválidos ou vazios para DocType {doctype_name}. Ignorando.")
+            continue
+
+        # Verificar se este DocType é um child
+        is_child = doctype_name in child_to_parent
+        parent_doctype = child_to_parent.get(doctype_name) if is_child else None
+
+        # Criar a entidade
+        entity_data = create_entity(doctype_name, fields_metadata, is_child, parent_doctype)
+
+        # Adicionar a entidade à lista
+        entities.append(entity_data)
+        processed_doctypes.add(doctype_name)
+
+    # 3. Garantir que todos os DocTypes (pais e filhos) foram incluídos
+    #    Esta etapa pode não ser necessária se doctypes_with_fields já contém todos.
+    #    Mas é uma verificação extra.
+    all_involved_doctypes = set(doctypes_with_fields.keys())
+    if child_parent_mapping:
+        for mapping in child_parent_mapping:
+            all_involved_doctypes.add(mapping.get("child"))
+            all_involved_doctypes.add(mapping.get("parent"))
+
+    for doctype_name in all_involved_doctypes:
+        if doctype_name and doctype_name not in processed_doctypes:
+            # Se um DocType (provavelmente um pai que não tem filhos diretos listados
+            # ou um filho sem metadados) não foi processado, processa agora.
+            fields_metadata = doctypes_with_fields.get(doctype_name, []) # Pega metadados ou lista vazia
+            if not fields_metadata:
+                 print(f"Aviso: DocType {doctype_name} mencionado em mapeamento mas sem metadados de campos. Criando entidade vazia.")
+
+            is_child = doctype_name in child_to_parent
+            parent_doctype = child_to_parent.get(doctype_name) if is_child else None
+
+            entity_data = create_entity(doctype_name, fields_metadata, is_child, parent_doctype)
+            entities.append(entity_data)
+            processed_doctypes.add(doctype_name)
+
+
+    # Retornar estrutura final
+    return {"entities": entities}
