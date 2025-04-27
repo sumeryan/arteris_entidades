@@ -1,0 +1,842 @@
+[
+    {
+        "doctype": "Asset",
+        "key": "01967343-b7d4-7e20-908c-c48e8cf68789",
+        "data": {
+            "name": "01967343-b7d4-7e20-908c-c48e8cf68789",
+            "nomeativo": "Automovel",
+            "operadoresoumotoristas": [
+                {
+                    "name": "0196778f-92d5-71e2-aea3-e2fbf6faffdb",
+                    "operador": "0196778e-f60f-79f3-8043-3f3089d2a9ac",
+                    "quantidade": 1
+                }
+            ]
+        }
+    },
+    {
+        "doctype": "Asset",
+        "key": "01967346-0d87-7ba1-82b4-1fad84d539d0",
+        "data": {
+            "name": "01967346-0d87-7ba1-82b4-1fad84d539d0",
+            "nomeativo": "Equipamentos e ferramentas em geral",
+            "operadoresoumotoristas": []
+        }
+    },
+    {
+        "doctype": "City",
+        "key": "Mairiporã-SP",
+        "data": {
+            "name": "Mairiporã-SP",
+            "uf": "SP",
+            "municipio": "Mairiporã",
+            "iss": 0.0
+        }
+    },
+    {
+        "doctype": "City",
+        "key": "Vargem-SP",
+        "data": {
+            "name": "Vargem-SP",
+            "uf": "SP",
+            "municipio": "Vargem",
+            "iss": 0.0
+        }
+    },
+    {
+        "doctype": "City",
+        "key": "Cambuí-MG",
+        "data": {
+            "name": "Cambuí-MG",
+            "uf": "MG",
+            "municipio": "Cambuí",
+            "iss": 0.0
+        }
+    },
+    {
+        "doctype": "City",
+        "key": "São Gonçalo do Sapucaí-MG",
+        "data": {
+            "name": "São Gonçalo do Sapucaí-MG",
+            "uf": "MG",
+            "municipio": "São Gonçalo do Sapucaí",
+            "iss": 0.0
+        }
+    },
+    {
+        "doctype": "City",
+        "key": "Carmo da Cachoeira-MG",
+        "data": {
+            "name": "Carmo da Cachoeira-MG",
+            "uf": "MG",
+            "municipio": "Carmo da Cachoeira",
+            "iss": 0.0
+        }
+    },
+    {
+        "doctype": "City",
+        "key": "Santo Antônio do Amparo-MG",
+        "data": {
+            "name": "Santo Antônio do Amparo-MG",
+            "uf": "MG",
+            "municipio": "Santo Antônio do Amparo",
+            "iss": 0.0
+        }
+    },
+    {
+        "doctype": "City",
+        "key": "Carmópolis de Minas-MG",
+        "data": {
+            "name": "Carmópolis de Minas-MG",
+            "uf": "MG",
+            "municipio": "Carmópolis de Minas",
+            "iss": 0.0
+        }
+    },
+    {
+        "doctype": "City",
+        "key": "Itatiaiuçu-MG",
+        "data": {
+            "name": "Itatiaiuçu-MG",
+            "uf": "MG",
+            "municipio": "Itatiaiuçu",
+            "iss": 0.0
+        }
+    },
+    {
+        "doctype": "City",
+        "key": "Curitiba-PR",
+        "data": {
+            "name": "Curitiba-PR",
+            "uf": "PR",
+            "municipio": "Curitiba",
+            "iss": 0.0
+        }
+    },
+    {
+        "doctype": "Contract",
+        "key": "01966f13-c251-7093-9534-e5ae31671748",
+        "data": {
+            "name": "01966f13-c251-7093-9534-e5ae31671748",
+            "contrato": "CW32567",
+            "contratada": "01966f01-1ae9-72a1-86e1-464b5faba430",
+            "datainicial": "2023-07-14",
+            "datafinal": "2023-07-31",
+            "obra": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
+            "descricao": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
+            "valortotal": 4486174.16,
+            "percentualreidi": 0.0
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f53-8232-7060-80af-b7dd2993d17e",
+        "data": {
+            "name": "01966f53-8232-7060-80af-b7dd2993d17e",
+            "lft": 1,
+            "rgt": 28,
+            "is_group": 1,
+            "old_parent": "",
+            "codigo": "0",
+            "descricao": "Contrato CW32567",
+            "quantidade": 0.0,
+            "valorunitario": 0.0,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [],
+            "tabcidades": [],
+            "tablemaodeobra": [],
+            "tableassets": []
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f56-d3ca-77d1-a962-df501cc6ef11",
+        "data": {
+            "name": "01966f56-d3ca-77d1-a962-df501cc6ef11",
+            "lft": 2,
+            "rgt": 27,
+            "is_group": 1,
+            "old_parent": "01966f53-8232-7060-80af-b7dd2993d17e",
+            "parent_contract_item": "01966f53-8232-7060-80af-b7dd2993d17e",
+            "codigo": "1",
+            "descricao": "1. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
+            "quantidade": 0.0,
+            "valorunitario": 0.0,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [],
+            "tabcidades": [],
+            "tablemaodeobra": [],
+            "tableassets": []
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+        "data": {
+            "name": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+            "lft": 3,
+            "rgt": 26,
+            "is_group": 1,
+            "old_parent": "01966f56-d3ca-77d1-a962-df501cc6ef11",
+            "parent_contract_item": "01966f56-d3ca-77d1-a962-df501cc6ef11",
+            "codigo": "1.1",
+            "descricao": "1.1. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
+            "quantidade": 0.0,
+            "valorunitario": 0.0,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [],
+            "tabcidades": [],
+            "tablemaodeobra": [],
+            "tableassets": []
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f58-2d31-7f83-824f-f73c2a1490e9",
+        "data": {
+            "name": "01966f58-2d31-7f83-824f-f73c2a1490e9",
+            "lft": 4,
+            "rgt": 5,
+            "is_group": 1,
+            "old_parent": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+            "parent_contract_item": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+            "codigo": "1.1.1",
+            "descricao": "1.1.1. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
+            "quantidade": 0.0,
+            "valorunitario": 0.0,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [],
+            "tabcidades": [],
+            "tablemaodeobra": [],
+            "tableassets": []
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+        "data": {
+            "name": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "lft": 6,
+            "rgt": 25,
+            "is_group": 1,
+            "old_parent": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+            "parent_contract_item": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+            "codigo": "1.1.2",
+            "descricao": "1.1.2. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
+            "quantidade": 0.0,
+            "valorunitario": 0.0,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [],
+            "tabcidades": [],
+            "tablemaodeobra": [],
+            "tableassets": []
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f89-7148-7163-93dd-c2e6e9b8d5bf",
+        "data": {
+            "name": "01966f89-7148-7163-93dd-c2e6e9b8d5bf",
+            "lft": 7,
+            "rgt": 8,
+            "is_group": 0,
+            "old_parent": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "parent_contract_item": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "codigo": "1.1.2.1",
+            "descricao": "1.1.2.1. Praça P-01-Norte km 65+700 CC- Mairiporã (SP)",
+            "quantidade": 23.03,
+            "valorunitario": 14035.99,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [
+                {
+                    "name": "01966fb6-8f8b-76c3-846b-3a12208ef922",
+                    "pedidosap": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "centrocusto": "FD38134101",
+                    "valortotal": 4363200.0,
+                    "percentual": 11.11
+                }
+            ],
+            "tabcidades": [
+                {
+                    "name": "87cdmeqcd9",
+                    "cidade": "Mairiporã-SP",
+                    "iss": "0",
+                    "participacaopercentual": 50.0
+                }
+            ],
+            "tablemaodeobra": [
+                {
+                    "name": "01967374-d549-7d91-9b62-e14b371b9f20",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade": 1,
+                    "pagamentohora": 1,
+                    "valorporhora": 42.32,
+                    "valortotalmensal": 0.0
+                }
+            ],
+            "tableassets": []
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f89-a62b-75d1-aef5-fab65638be12",
+        "data": {
+            "name": "01966f89-a62b-75d1-aef5-fab65638be12",
+            "lft": 9,
+            "rgt": 10,
+            "is_group": 0,
+            "old_parent": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "parent_contract_item": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "codigo": "1.1.2.2",
+            "descricao": "1.1.2.2. Praça P-01-Sul  e Defasada km 66+680 CC- Mairiporã (SP)",
+            "quantidade": 23.03,
+            "valorunitario": 14035.99,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [
+                {
+                    "name": "01966fb7-b8be-74e1-8252-86023958705c",
+                    "pedidosap": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "centrocusto": "FD38134101",
+                    "valortotal": 4363200.0,
+                    "percentual": 11.11
+                }
+            ],
+            "tabcidades": [
+                {
+                    "name": "a1v5jjui4h",
+                    "cidade": "Mairiporã-SP",
+                    "iss": "0",
+                    "participacaopercentual": 50.0
+                }
+            ],
+            "tablemaodeobra": [
+                {
+                    "name": "01967375-c2bc-75a1-95bc-a4c2f4ab35d9",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade": 1,
+                    "pagamentohora": 1,
+                    "valorporhora": 42.32,
+                    "valortotalmensal": 0.0
+                }
+            ],
+            "tableassets": []
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+        "data": {
+            "name": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+            "lft": 11,
+            "rgt": 12,
+            "is_group": 0,
+            "old_parent": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "parent_contract_item": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "codigo": "1.1.2.3",
+            "descricao": "1.1.2.3. Praça P-02 km 7+576 CC- Vargem (SP)",
+            "quantidade": 23.03,
+            "valorunitario": 14035.99,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [
+                {
+                    "name": "01966fb8-82f0-78e1-b4fb-387a2c5d182f",
+                    "pedidosap": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "centrocusto": "FD38134101",
+                    "valortotal": 4363200.0,
+                    "percentual": 11.11
+                }
+            ],
+            "tabcidades": [
+                {
+                    "name": "ai4fsup7tb",
+                    "cidade": "Vargem-SP",
+                    "iss": "0",
+                    "participacaopercentual": 100.0
+                }
+            ],
+            "tablemaodeobra": [
+                {
+                    "name": "0196737a-329c-7203-bdc6-55265ce0a401",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade": 1,
+                    "pagamentohora": 1,
+                    "valorporhora": 42.32,
+                    "valortotalmensal": 0.0
+                }
+            ],
+            "tableassets": [
+                {
+                    "name": "0196737a-329e-7591-b9d0-95b4910e6b8f",
+                    "asset": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "descricao": "GM Corsa (ENL-0214)",
+                    "quantidade": 1,
+                    "valormensal": 3918.96
+                }
+            ]
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f8a-7e88-7870-aeb3-ac166733b461",
+        "data": {
+            "name": "01966f8a-7e88-7870-aeb3-ac166733b461",
+            "lft": 13,
+            "rgt": 14,
+            "is_group": 0,
+            "old_parent": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "parent_contract_item": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "codigo": "1.1.2.4",
+            "descricao": "1.1.2.4. Praça P-03 km 900+875 CC- Cambuí (MG)",
+            "quantidade": 23.03,
+            "valorunitario": 14035.99,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [
+                {
+                    "name": "01966fc0-8504-7310-8d69-c9ca78d608e3",
+                    "pedidosap": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "centrocusto": "FD38134101",
+                    "valortotal": 4363200.0,
+                    "percentual": 11.11
+                }
+            ],
+            "tabcidades": [
+                {
+                    "name": "fm5l9a0gb9",
+                    "cidade": "Cambuí-MG",
+                    "iss": "0",
+                    "participacaopercentual": 100.0
+                }
+            ],
+            "tablemaodeobra": [
+                {
+                    "name": "0196737c-6476-7190-b691-9ac1988ab36a",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade": 1,
+                    "pagamentohora": 1,
+                    "valorporhora": 42.32,
+                    "valortotalmensal": 0.0
+                }
+            ],
+            "tableassets": [
+                {
+                    "name": "0196737c-6477-7150-b721-e5f43302efdf",
+                    "asset": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "descricao": "FIAT - Punto (HLR-5955)",
+                    "quantidade": 1,
+                    "valormensal": 3918.96
+                }
+            ]
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+        "data": {
+            "name": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+            "lft": 15,
+            "rgt": 16,
+            "is_group": 0,
+            "old_parent": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "parent_contract_item": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "codigo": "1.1.2.5",
+            "descricao": "1.1.2.5. Praça P-04 Km 805+151 CC- São Gonçalo do Sapucaí (MG)",
+            "quantidade": 23.03,
+            "valorunitario": 14035.99,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [
+                {
+                    "name": "01966fc1-6185-77f0-9660-d08a68e4a454",
+                    "pedidosap": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "centrocusto": "FD38134101",
+                    "valortotal": 4363200.0,
+                    "percentual": 11.11
+                }
+            ],
+            "tabcidades": [
+                {
+                    "name": "g7p18bndsf",
+                    "cidade": "São Gonçalo do Sapucaí-MG",
+                    "iss": "0",
+                    "participacaopercentual": 100.0
+                }
+            ],
+            "tablemaodeobra": [
+                {
+                    "name": "0196737d-4724-7103-b25b-920993479712",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade": 1,
+                    "pagamentohora": 1,
+                    "valorporhora": 42.32,
+                    "valortotalmensal": 0.0
+                }
+            ],
+            "tableassets": [
+                {
+                    "name": "0196737d-4724-7103-b25b-921a87ab0bbe",
+                    "asset": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "descricao": "GM - Celta (EAU-3317)",
+                    "quantidade": 1,
+                    "valormensal": 3918.96
+                }
+            ]
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f8b-0b72-7232-817e-9315e536cde2",
+        "data": {
+            "name": "01966f8b-0b72-7232-817e-9315e536cde2",
+            "lft": 17,
+            "rgt": 18,
+            "is_group": 0,
+            "old_parent": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "parent_contract_item": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "codigo": "1.1.2.6",
+            "descricao": "1.1.2.6. Praça P-05 Km 735+506 CC- Carmo da Cachoeira (MG)",
+            "quantidade": 0.0,
+            "valorunitario": 0.0,
+            "tablepedidossap": [
+                {
+                    "name": "01966fc2-2288-73e2-9e46-efe6d8b93b8e",
+                    "pedidosap": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "centrocusto": "FD38134101",
+                    "valortotal": 4363200.0,
+                    "percentual": 11.11
+                }
+            ],
+            "tabcidades": [
+                {
+                    "name": "gn7hn669ov",
+                    "cidade": "Carmo da Cachoeira-MG",
+                    "iss": "0",
+                    "participacaopercentual": 100.0
+                }
+            ],
+            "tablemaodeobra": [
+                {
+                    "name": "0196737e-234b-7af1-b5fe-71aa57ccb166",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade": 1,
+                    "pagamentohora": 1,
+                    "valorporhora": 42.32,
+                    "valortotalmensal": 0.0
+                }
+            ],
+            "tableassets": [
+                {
+                    "name": "0196737e-234b-7af1-b5fe-71b8b46dcf84",
+                    "asset": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "descricao": "VW - Gol (GUD-8255)",
+                    "quantidade": 1,
+                    "valormensal": 3918.96
+                }
+            ]
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f8b-30ad-7fe3-9a64-d7178c9d4d06",
+        "data": {
+            "name": "01966f8b-30ad-7fe3-9a64-d7178c9d4d06",
+            "lft": 19,
+            "rgt": 20,
+            "is_group": 0,
+            "old_parent": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "parent_contract_item": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "codigo": "1.1.2.7",
+            "descricao": "1.1.2.7. Praça P-06 Km 658+027 CC - Santo Antônio do Amparo (MG)",
+            "quantidade": 23.03,
+            "valorunitario": 14035.99,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [
+                {
+                    "name": "01966fc3-4cc6-7670-97c4-0005faa8332d",
+                    "pedidosap": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "centrocusto": "FD38134101",
+                    "valortotal": 4363200.0,
+                    "percentual": 11.11
+                }
+            ],
+            "tabcidades": [
+                {
+                    "name": "hf3vf6p17c",
+                    "cidade": "Santo Antônio do Amparo-MG",
+                    "iss": "0",
+                    "participacaopercentual": 100.0
+                }
+            ],
+            "tablemaodeobra": [
+                {
+                    "name": "0196737e-ddf5-72a1-9eb7-2c09773ced3d",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade": 1,
+                    "pagamentohora": 1,
+                    "valorporhora": 42.32,
+                    "valortotalmensal": 0.0
+                }
+            ],
+            "tableassets": []
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f8b-56dd-7361-a69b-9a459c8466e5",
+        "data": {
+            "name": "01966f8b-56dd-7361-a69b-9a459c8466e5",
+            "lft": 21,
+            "rgt": 22,
+            "is_group": 0,
+            "old_parent": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "parent_contract_item": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "codigo": "1.1.2.8",
+            "descricao": "1.1.2.8. Praça P-07 - Km 597+678 CC - Carmópolis de Minas (MG)",
+            "quantidade": 23.03,
+            "valorunitario": 14035.99,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [
+                {
+                    "name": "01966fc4-5143-7392-8465-e53a1b2f9ea4",
+                    "pedidosap": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "centrocusto": "FD38134101",
+                    "valortotal": 4363200.0,
+                    "percentual": 11.11
+                }
+            ],
+            "tabcidades": [
+                {
+                    "name": "i3uu3vfrj7",
+                    "cidade": "Carmópolis de Minas-MG",
+                    "iss": "0",
+                    "participacaopercentual": 100.0
+                }
+            ],
+            "tablemaodeobra": [
+                {
+                    "name": "0196737f-ba03-7211-bf9a-7a1ee05d660e",
+                    "funcao": "01967344-d3f1-7060-88f7-7ca7dd3b434a",
+                    "quantidade": 1,
+                    "pagamentohora": 1,
+                    "valorporhora": 42.32,
+                    "valortotalmensal": 0.0
+                }
+            ],
+            "tableassets": [
+                {
+                    "name": "0196737f-ba03-7211-bf9a-7a2094d0c948",
+                    "asset": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "descricao": "FORD - Fiesta (OMB-9652)",
+                    "quantidade": 1,
+                    "valormensal": 3918.96
+                }
+            ]
+        }
+    },
+    {
+        "doctype": "Contract Item",
+        "key": "01966f8b-79a4-7650-b3db-5e9db17f8644",
+        "data": {
+            "name": "01966f8b-79a4-7650-b3db-5e9db17f8644",
+            "lft": 23,
+            "rgt": 24,
+            "is_group": 0,
+            "old_parent": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "parent_contract_item": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "codigo": "1.1.2.9",
+            "descricao": "1.1.2.9. Praça P-08 - Km 545+800 CC - Itatiaiuçu (MG)",
+            "quantidade": 23.03,
+            "valorunitario": 14035.99,
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "tablepedidossap": [
+                {
+                    "name": "01966fc5-252f-73a0-b938-79d8c6c00d24",
+                    "pedidosap": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "centrocusto": "FD38134101",
+                    "valortotal": 4363200.0,
+                    "percentual": 11.11
+                }
+            ],
+            "tabcidades": [
+                {
+                    "name": "iks1oc7kdo",
+                    "cidade": "Itatiaiuçu-MG",
+                    "iss": "0",
+                    "participacaopercentual": 100.0
+                }
+            ],
+            "tablemaodeobra": [
+                {
+                    "name": "01967381-55da-77c3-b65f-d2ac6a393cc0",
+                    "funcao": "01967344-d3f1-7060-88f7-7ca7dd3b434a",
+                    "quantidade": 1,
+                    "pagamentohora": 0,
+                    "valorporhora": 0.0,
+                    "valortotalmensal": 9276.26
+                },
+                {
+                    "name": "01967381-55da-77c3-b65f-d2b6570cb53d",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade": 1,
+                    "pagamentohora": 1,
+                    "valorporhora": 42.32,
+                    "valortotalmensal": 0.0
+                }
+            ],
+            "tableassets": [
+                {
+                    "name": "01967381-55da-77c3-b65f-d2ce4588db00",
+                    "asset": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "descricao": "VW - Saveiro (PUD-4405)",
+                    "quantidade": 1,
+                    "valormensal": 4690.24
+                },
+                {
+                    "name": "01967381-55da-77c3-b65f-d2dd6b67b101",
+                    "asset": "01967346-0d87-7ba1-82b4-1fad84d539d0",
+                    "quantidade": 1,
+                    "valormensal": 7295.94
+                }
+            ]
+        }
+    },
+    {
+        "doctype": "Contract Measurement",
+        "key": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+        "data": {
+            "name": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "contratada": "01966f01-1ae9-72a1-86e1-464b5faba430",
+            "data_ejak": "2023-07-14",
+            "data_final_do_contrato": "2023-07-31",
+            "obra": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
+            "table_iqgd": [
+                {
+                    "name": "019678be-2991-7893-9056-a82503920e00",
+                    "data_e_hora": "2025-04-03 16:30:22",
+                    "item": "01966f89-7148-7163-93dd-c2e6e9b8d5bf",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "01967374-d549-7d91-9b62-e14b371b9f20"
+                },
+                {
+                    "name": "019678c3-054f-7e30-95d1-0dc63fcd01c3",
+                    "data_e_hora": "2025-04-04 16:37:41",
+                    "item": "01966f89-a62b-75d1-aef5-fab65638be12",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "01967375-c2bc-75a1-95bc-a4c2f4ab35d9"
+                },
+                {
+                    "name": "019678c3-0550-77c2-8f16-be4e31a16d19",
+                    "data_e_hora": "2025-04-04 16:37:41",
+                    "item": "01966f89-a62b-75d1-aef5-fab65638be12",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "01967375-c2bc-75a1-95bc-a4c2f4ab35d9"
+                },
+                {
+                    "name": "019678c3-0550-77c2-8f16-be50ccad36fd",
+                    "data_e_hora": "2025-04-04 16:38:17",
+                    "item": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "0196737a-329c-7203-bdc6-55265ce0a401"
+                },
+                {
+                    "name": "019678c3-0550-77c2-8f16-be66d3f09d33",
+                    "data_e_hora": "2025-04-07 16:39:02",
+                    "item": "01966f8a-7e88-7870-aeb3-ac166733b461",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "0196737c-6476-7190-b691-9ac1988ab36a"
+                },
+                {
+                    "name": "0196792f-6a67-7272-9724-8207fb3dba25",
+                    "data_e_hora": "2025-04-16 18:37:33",
+                    "item": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "0196737d-4724-7103-b25b-920993479712"
+                }
+            ],
+            "table_juun": [
+                {
+                    "name": "019678cb-9ace-76b0-b955-9bba2a0bfe6f",
+                    "data_e_hora": "2025-04-09 16:47:56",
+                    "item": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+                    "maquina_equipamento_ou_ferramenta": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "quantidade_medida": 30.0
+                },
+                {
+                    "name": "019678cb-9ace-76b0-b955-9bc9e2ecb680",
+                    "data_e_hora": "2025-04-11 16:48:35",
+                    "item": "01966f8a-7e88-7870-aeb3-ac166733b461",
+                    "maquina_equipamento_ou_ferramenta": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "quantidade_medida": 30.0
+                }
+            ]
+        }
+    },
+    {
+        "doctype": "Contracted Company",
+        "key": "01966f01-1ae9-72a1-86e1-464b5faba430",
+        "data": {
+            "name": "01966f01-1ae9-72a1-86e1-464b5faba430",
+            "nome": "KRONOS - ENGENHARIA LTDA - ME",
+            "razaosocial": "KRONOS - ENGENHARIA LTDA - ME",
+            "cnpj": "14.157.156/0001-95",
+            "endereco": "Rua Coronel Otávio Meyer , 160, sala 227, Centro - Pouso Alegre, MG, BRASIL"
+        }
+    },
+    {
+        "doctype": "Formula",
+        "key": "0196727a-a6fc-7f90-a9b5-c286fca9a065",
+        "data": {
+            "name": "0196727a-a6fc-7f90-a9b5-c286fca9a065",
+            "formula": "TESTE"
+        }
+    },
+    {
+        "doctype": "Formula Template",
+        "key": "01967389-eb01-7e20-a48e-7dca19939d69",
+        "data": {
+            "name": "01967389-eb01-7e20-a48e-7dca19939d69",
+            "nome": "Total do serviço",
+            "descricao": "Calcula o valor total para o serviço considerando mão de obra e veiculos",
+            "formula": "Formula"
+        }
+    },
+    {
+        "doctype": "SAP Order",
+        "key": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+        "data": {
+            "name": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+            "numeropedido": "4500771063",
+            "centrocusto": "FD38134101",
+            "valortotal": 4363200.0
+        }
+    },
+    {
+        "doctype": "Work Role",
+        "key": "01967344-d3f1-7060-88f7-7ca7dd3b434a",
+        "data": {
+            "name": "01967344-d3f1-7060-88f7-7ca7dd3b434a",
+            "funcao": "Supervisor de manutenção"
+        }
+    },
+    {
+        "doctype": "Work Role",
+        "key": "01967345-0e75-7200-8d82-84d37b4f010c",
+        "data": {
+            "name": "01967345-0e75-7200-8d82-84d37b4f010c",
+            "funcao": "Técnico de manutenção"
+        }
+    },
+    {
+        "doctype": "Work Role",
+        "key": "0196778e-f60f-79f3-8043-3f3089d2a9ac",
+        "data": {
+            "name": "0196778e-f60f-79f3-8043-3f3089d2a9ac",
+            "funcao": "Motorista A/B"
+        }
+    }
+]

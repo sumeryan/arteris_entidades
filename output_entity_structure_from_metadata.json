@@ -20,6 +20,389 @@
         },
         {
             "entity": {
+                "type": "City",
+                "description": "City",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "uf",
+                        "type": "string",
+                        "description": "UF"
+                    },
+                    {
+                        "key": "municipio",
+                        "type": "string",
+                        "description": "Município"
+                    },
+                    {
+                        "key": "iss",
+                        "type": "numeric",
+                        "description": "ISS"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract",
+                "description": "Contract",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "obra",
+                        "type": "string",
+                        "description": "Obra"
+                    },
+                    {
+                        "key": "inicioservicos",
+                        "type": "datetime",
+                        "description": "Início real dos serviços"
+                    },
+                    {
+                        "key": "modeloformula",
+                        "type": "string",
+                        "description": "Modelo de fórmula"
+                    },
+                    {
+                        "key": "inicioservicosprevisto",
+                        "type": "datetime",
+                        "description": "Início dos serviços conf. contrato"
+                    },
+                    {
+                        "key": "percentualreidi",
+                        "type": "numeric",
+                        "description": "Percentual"
+                    },
+                    {
+                        "key": "contratada",
+                        "type": "string",
+                        "description": "Contratada"
+                    },
+                    {
+                        "key": "terminoservicos",
+                        "type": "datetime",
+                        "description": "Término previsto dos serviços"
+                    },
+                    {
+                        "key": "terminoservicosprevisto",
+                        "type": "datetime",
+                        "description": "Término serviços conf. contrato"
+                    },
+                    {
+                        "key": "valortotal",
+                        "type": "numeric",
+                        "description": "Valor total do contrato"
+                    },
+                    {
+                        "key": "datainicial",
+                        "type": "datetime",
+                        "description": "Data inicial do contrato"
+                    },
+                    {
+                        "key": "descricao",
+                        "type": "string",
+                        "description": "Descrição"
+                    },
+                    {
+                        "key": "contrato",
+                        "type": "string",
+                        "description": "Nº do Contrato"
+                    },
+                    {
+                        "key": "datafinal",
+                        "type": "datetime",
+                        "description": "Data final do contrato"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "modeloformula",
+                        "destinationEntity": "Formula Template",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "contratada",
+                        "destinationEntity": "Contracted Company",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Item",
+                "description": "Contract Item",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "is_group",
+                        "type": "boolean",
+                        "description": "Is Group"
+                    },
+                    {
+                        "key": "valorunitario",
+                        "type": "numeric",
+                        "description": "Valor unitário"
+                    },
+                    {
+                        "key": "codigo",
+                        "type": "string",
+                        "description": "Código"
+                    },
+                    {
+                        "key": "quantidade",
+                        "type": "numeric",
+                        "description": "Quantidade"
+                    },
+                    {
+                        "key": "contrato",
+                        "type": "string",
+                        "description": "Nº do contrato"
+                    },
+                    {
+                        "key": "descricao",
+                        "type": "string",
+                        "description": "Descrição"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "fm_modeloformula",
+                        "destinationEntity": "Formula Template",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "old_parent",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "contrato",
+                        "destinationEntity": "Contract",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "parent_contract_item",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Measurement",
+                "description": "Contract Measurement",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "data_final_do_contrato",
+                        "type": "string",
+                        "description": "Data final do contrato"
+                    },
+                    {
+                        "key": "contratada",
+                        "type": "string",
+                        "description": "Contratada"
+                    },
+                    {
+                        "key": "data_ejak",
+                        "type": "string",
+                        "description": "Data inicial do contrato"
+                    },
+                    {
+                        "key": "contrato",
+                        "type": "string",
+                        "description": "Nº do contrato"
+                    },
+                    {
+                        "key": "obra",
+                        "type": "string",
+                        "description": "Obra"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "contratada",
+                        "destinationEntity": "Contracted Company",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "contrato",
+                        "destinationEntity": "Contract",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contracted Company",
+                "description": "Contracted Company",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "razaosocial",
+                        "type": "string",
+                        "description": "Razão Social"
+                    },
+                    {
+                        "key": "endereco",
+                        "type": "string",
+                        "description": "Endereço"
+                    },
+                    {
+                        "key": "cnpj",
+                        "type": "string",
+                        "description": "CNPJ"
+                    },
+                    {
+                        "key": "nome",
+                        "type": "string",
+                        "description": "Nome"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Formula",
+                "description": "Formula",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "formula",
+                        "type": "string",
+                        "description": "Formula"
+                    },
+                    {
+                        "key": "open",
+                        "type": "string",
+                        "description": "Open"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Formula Template",
+                "description": "Formula Template",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "nome",
+                        "type": "string",
+                        "description": "Nome"
+                    },
+                    {
+                        "key": "formula",
+                        "type": "string",
+                        "description": "Fórmula"
+                    },
+                    {
+                        "key": "configurar",
+                        "type": "string",
+                        "description": "Configurar"
+                    },
+                    {
+                        "key": "descricao",
+                        "type": "string",
+                        "description": "Descrrção"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "SAP Order",
+                "description": "SAP Order",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "numeropedido",
+                        "type": "string",
+                        "description": "Nº do pedido"
+                    },
+                    {
+                        "key": "valortotal",
+                        "type": "numeric",
+                        "description": "Valor total"
+                    },
+                    {
+                        "key": "centrocusto",
+                        "type": "string",
+                        "description": "Centro de custo"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Subsidiary",
+                "description": "Subsidiary",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "nome",
+                        "type": "string",
+                        "description": "Subsidiária"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
+                "type": "Work Role",
+                "description": "Work Role",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "funcao",
+                        "type": "string",
+                        "description": "Função"
+                    }
+                ],
+                "relationships": []
+            }
+        },
+        {
+            "entity": {
                 "type": "Asset Operator",
                 "description": "Asset Operator",
                 "attributes": [
@@ -50,6 +433,314 @@
                     },
                     {
                         "sourceKey": "operador",
+                        "destinationEntity": "Work Role",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Item Asset",
+                "description": "Contract Item Asset",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "descricao",
+                        "type": "string",
+                        "description": "Descrição"
+                    },
+                    {
+                        "key": "valormensal",
+                        "type": "numeric",
+                        "description": "Valor mensal"
+                    },
+                    {
+                        "key": "asset",
+                        "type": "string",
+                        "description": "Máquina, equipamento ou veículos"
+                    },
+                    {
+                        "key": "quantidade",
+                        "type": "numeric",
+                        "description": "Quantidade"
+                    },
+                    {
+                        "key": "parent",
+                        "type": "string"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "parent",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "asset",
+                        "destinationEntity": "Asset",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Item City",
+                "description": "Contract Item City",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "iss",
+                        "type": "string",
+                        "description": "ISS"
+                    },
+                    {
+                        "key": "cidade",
+                        "type": "string",
+                        "description": "Cidade"
+                    },
+                    {
+                        "key": "participacaopercentual",
+                        "type": "numeric",
+                        "description": "Participação %"
+                    },
+                    {
+                        "key": "parent",
+                        "type": "string"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "parent",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "cidade",
+                        "destinationEntity": "City",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Item Order",
+                "description": "Contract Item Order",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "percentual",
+                        "type": "numeric",
+                        "description": "Percentual"
+                    },
+                    {
+                        "key": "valortotal",
+                        "type": "numeric",
+                        "description": "Valor total"
+                    },
+                    {
+                        "key": "pedidosap",
+                        "type": "string",
+                        "description": "Nº do pedido SAP"
+                    },
+                    {
+                        "key": "centrocusto",
+                        "type": "string",
+                        "description": "Centro de custo"
+                    },
+                    {
+                        "key": "parent",
+                        "type": "string"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "parent",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "pedidosap",
+                        "destinationEntity": "SAP Order",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Item Work Role",
+                "description": "Contract Item Work Role",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "valortotalmensal",
+                        "type": "numeric",
+                        "description": "Valor total mensal"
+                    },
+                    {
+                        "key": "pagamentohora",
+                        "type": "boolean",
+                        "description": "Pagamento por hora"
+                    },
+                    {
+                        "key": "quantidade",
+                        "type": "numeric",
+                        "description": "Quantidade"
+                    },
+                    {
+                        "key": "funcao",
+                        "type": "string",
+                        "description": "Função"
+                    },
+                    {
+                        "key": "valorporhora",
+                        "type": "numeric",
+                        "description": "Valor por hora"
+                    },
+                    {
+                        "key": "parent",
+                        "type": "string"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "parent",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "funcao",
+                        "destinationEntity": "Work Role",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Measurement Asset",
+                "description": "Contract Measurement Asset",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "maquina_equipamento_ou_ferramenta",
+                        "type": "string",
+                        "description": "Maquina, equipamento ou ferramenta"
+                    },
+                    {
+                        "key": "item",
+                        "type": "string",
+                        "description": "Item"
+                    },
+                    {
+                        "key": "quantidade_medida",
+                        "type": "numeric",
+                        "description": "Quantidade medida"
+                    },
+                    {
+                        "key": "data_e_hora",
+                        "type": "datetime",
+                        "description": "Data e hora"
+                    },
+                    {
+                        "key": "parent",
+                        "type": "string"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "parent",
+                        "destinationEntity": "Contract Measurement",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "maquina_equipamento_ou_ferramenta",
+                        "destinationEntity": "Asset",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "item",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Measurement Work Role",
+                "description": "Contract Measurement Work Role",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "funcaoitem",
+                        "type": "string",
+                        "description": "Função do item"
+                    },
+                    {
+                        "key": "item",
+                        "type": "string",
+                        "description": "Item"
+                    },
+                    {
+                        "key": "funcao",
+                        "type": "string",
+                        "description": "Função"
+                    },
+                    {
+                        "key": "data_e_hora",
+                        "type": "datetime",
+                        "description": "Data e hora"
+                    },
+                    {
+                        "key": "quantidade_medida",
+                        "type": "numeric",
+                        "description": "Quantidade medida"
+                    },
+                    {
+                        "key": "parent",
+                        "type": "string"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "parent",
+                        "destinationEntity": "Contract Measurement",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "funcaoitem",
+                        "destinationEntity": "Contract Item Work Role",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "item",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "funcao",
                         "destinationEntity": "Work Role",
                         "destinationKey": "name"
                     }

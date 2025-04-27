@@ -1,0 +1,28 @@
+{
+    "entities": 
+    [
+      {"id":"P1","entity_type":["Parent"],"attributes":[
+                  {"key":"id","value":"P1","type":"string"}
+      ]},
+      {"id":"C1","entity_type":["Child"],"attributes":[
+          {"key":"parentId","value":"P1","type":"string"},
+          {"key":"x","value":"3","type":"number"}
+      ]},
+      {"id":"C2","entity_type":["Child"],"attributes":[
+          {"key":"parentId","value":"P1","type":"string"},
+          {"key":"x","value":"7","type":"number"}
+      ]},
+      {"id":"G1","entity_type":["Grand"],"attributes":[
+          {"key":"childId","value":"C1","type":"string"},
+          {"key":"y","value":"2","type":"number"}
+      ]},
+      {"id":"G2","entity_type":["Grand"],"attributes":[
+          {"key":"childId","value":"C1","type":"string"},
+          {"key":"y","value":"4","type":"number"}
+      ]},
+      {"id":"G3","entity_type":["Grand"],"attributes":[
+          {"key":"childId","value":"C2","type":"string"},
+          {"key":"y","value":"1","type":"number"}
+      ]}
+    ]
+}

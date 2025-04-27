@@ -18,9 +18,10 @@ from dotenv import load_dotenv
 
 # Importa as funções dos módulos refatorados
 #from transformer import transform_to_entity_structure
-from get_docktypes import process_arteris_doctypes 
+from get_docktypes import process_arteris_doctypes
 from api_client_data import get_keys, get_data_from_key
 from json_to_entity_transformer import transform_entity_structure
+from data_to_engine_entities import transform_data_to_engine_entities
 
 # Carrega variáveis de ambiente do arquivo .env na raiz do projeto
 load_dotenv()
@@ -99,12 +100,35 @@ def main():
         else:
             print(f"Aviso: Nenhuma chave encontrada para o DocType {doctype_name}.")
 
-    print(f"\nDados: {all_doctype_data}")
+    # Salva os dados em um arquivo
+    output_data_filename = "output_data.json"
+    try:
+        with open(output_data_filename, "w", encoding="utf-8") as f:
+            json.dump(all_doctype_data, f, indent=4, ensure_ascii=False)
+        print(f"\nDados salvos em {output_data_filename}")
+    except IOError as e:
+        print(f"\nErro ao salvar o arquivo {output_data_filename}: {e}")
 
+    # --- Etapa 3: Transformar dados para o formato engine_entities ---
+    print("\n--- Iniciando transformação para formato engine_entities ---")
+    
+    # Transformar dados para o formato engine_entities
+    engine_entities = transform_data_to_engine_entities(all_doctype_data, entity_structure)
+    
+    # Salvar o resultado
+    output_engine_filename = "engine_entities_output.json"
+    try:
+        with open(output_engine_filename, "w", encoding="utf-8") as f:
+            json.dump(engine_entities, f, indent=4, ensure_ascii=False)
+        print(f"\nEntidades no formato engine salvas em {output_engine_filename}")
+    except IOError as e:
+        print(f"\nErro ao salvar o arquivo {output_engine_filename}: {e}")
+    
     print(f"\n--- Fim da execução ---")
 
     # Mensagem final opcional
     print(f"\nTotal de {len(all_doctype_data)} DocTypes tiveram seus dados buscados.")
+    print(f"Total de {len(engine_entities.get('entities', []))} entidades geradas no formato engine.")
     # if 'entity_structure' in locals() and entity_structure:
     #      print(f"Estrutura de entidades gerada para {len(entity_structure.get('entities', []))} DocTypes.")
 
