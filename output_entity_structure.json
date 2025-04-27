@@ -6,55 +6,13 @@
                 "description": "Entidade representando o DocType Asset",
                 "attributes": [
                     {
-                        "key": "owner",
-                        "value": "Administrator",
-                        "type": "string",
-                        "description": "owner"
-                    },
-                    {
-                        "key": "creation",
-                        "value": "2025-04-26 15:02:19.987104",
-                        "type": "datetime",
-                        "description": "creation"
-                    },
-                    {
-                        "key": "modified",
-                        "value": "2025-04-27 11:03:40.115750",
-                        "type": "datetime",
-                        "description": "modified"
-                    },
-                    {
-                        "key": "modified_by",
-                        "value": "Administrator",
-                        "type": "string",
-                        "description": "modified_by"
-                    },
-                    {
-                        "key": "docstatus",
-                        "value": 0,
-                        "type": "numeric",
-                        "description": "docstatus"
-                    },
-                    {
-                        "key": "idx",
-                        "value": 6,
-                        "type": "numeric",
-                        "description": "idx"
-                    },
-                    {
                         "key": "nomeativo",
                         "value": "Automovel",
                         "type": "string",
                         "description": "Nome do Ativo"
                     }
                 ],
-                "relationships": [
-                    {
-                        "sourceKey": "name",
-                        "destinationEntity": "Asset Operator",
-                        "destinationKey": "parent"
-                    }
-                ]
+                "relationships": []
             }
         },
         {
@@ -62,42 +20,6 @@
                 "type": "Asset Operator",
                 "description": "Entidade representando o DocType Asset Operator",
                 "attributes": [
-                    {
-                        "key": "owner",
-                        "value": "Administrator",
-                        "type": "string",
-                        "description": "owner"
-                    },
-                    {
-                        "key": "creation",
-                        "value": "2025-04-26 15:02:19.987104",
-                        "type": "datetime",
-                        "description": "creation"
-                    },
-                    {
-                        "key": "modified",
-                        "value": "2025-04-27 11:03:40.115750",
-                        "type": "datetime",
-                        "description": "modified"
-                    },
-                    {
-                        "key": "modified_by",
-                        "value": "Administrator",
-                        "type": "string",
-                        "description": "modified_by"
-                    },
-                    {
-                        "key": "docstatus",
-                        "value": 0,
-                        "type": "numeric",
-                        "description": "docstatus"
-                    },
-                    {
-                        "key": "idx",
-                        "value": 1,
-                        "type": "numeric",
-                        "description": "idx"
-                    },
                     {
                         "key": "operador",
                         "value": "0196778e-f60f-79f3-8043-3f3089d2a9ac",
@@ -109,9 +31,21 @@
                         "value": 1,
                         "type": "numeric",
                         "description": "Quantidade"
+                    },
+                    {
+                        "key": "parent",
+                        "value": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                        "type": "string",
+                        "description": "Parent DocType"
                     }
                 ],
-                "relationships": []
+                "relationships": [
+                    {
+                        "sourceKey": "parent",
+                        "destinationEntity": "Asset",
+                        "destinationKey": "name"
+                    }
+                ]
             }
         }
     ]
