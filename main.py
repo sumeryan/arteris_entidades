@@ -63,9 +63,10 @@ def main():
     print(f"Entididades: \n{entity_structure}")
 
     # Salvar resultado 
+    output_dir = "output"
     output_filename = "output_hierarchical.json"
     try:
-        with open(output_filename, "w", encoding="utf-8") as f:
+        with open(os.path.join(output_dir, output_filename), "w", encoding="utf-8") as f:
             json.dump(entity_structure, f, indent=4, ensure_ascii=False)
         print(f"\nEstrutura hierarquica de entidades salva em {output_filename}")
     except IOError as e:
@@ -90,9 +91,10 @@ def main():
             print(f"Aviso: Nenhuma chave encontrada para o DocType {doctype_name}.")
 
     # Salva os dados em um arquivo
+    output_dir = "output"
     output_data_filename = "output_data.json"
     try:
-        with open(output_data_filename, "w", encoding="utf-8") as f:
+        with open(os.path.join(output_dir, output_data_filename), "w", encoding="utf-8") as f:
             json.dump(all_doctype_data, f, indent=4, ensure_ascii=False)
         print(f"\nDados salvos em {output_data_filename}")
     except IOError as e:
@@ -110,9 +112,10 @@ def main():
     print(f"Entidades hierárquicas: {h_entities}")  
     
     # Salvar o resultado
+    output_dir = "output"
     output_engine_filename = "engine_entities_output.json"
     try:
-        with open(output_engine_filename, "w", encoding="utf-8") as f:
+        with open(os.path.join(output_dir, output_engine_filename), "w", encoding="utf-8") as f:
             json.dump(engine_entities, f, indent=4, ensure_ascii=False)
         print(f"\nEntidades no formato engine salvas em {output_engine_filename}")
     except IOError as e:
