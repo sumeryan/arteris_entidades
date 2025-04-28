@@ -121,9 +121,12 @@ def process_attributes(fields_metadata):
         # Ignorar campos do tipo Table (serão tratados como entidades separadas)
         if field_type == "Table":
             continue
-        if field_hidden == 1: # Ignorar campos ocultos
+        # Ignorar campos ocultos
+        if field_hidden == 1:
             continue
-        if field_name[:2] == "f_" or field_name[:3] == "fm_": # Ignorar campos de fórmula
+        # Ignorar campos do tipo formula (f_ ou fm_)
+        # Formulas
+        if field_name[:2] == "f_" or field_name[:3] == "fm_":
             continue
         # Ignorar campos internos/específicos que não devem ser atributos diretos,
         # incluindo 'parent', que é tratado separadamente em create_entity.
@@ -173,7 +176,7 @@ def create_entity(
     """
     # Processar atributos (sem valores)
     attributes = process_attributes(fields_metadata)
-
+    
     # Adiciona o atributo 'name' como primeiro item da lista
     attributes.insert(0, {"key": "name", "type": "string"})
 
@@ -227,8 +230,81 @@ def create_entity(
 
     return entity
 
+def transform_entity_structure(doctypes_with_fields, child_parent_mapping):
+    """
+    Transforma metadados de DocTypes em uma estrutura de entidades,
+    baseado apenas nos metadados e no mapeamento child-parent.
 
-def process_fields_for_hierarchy(fields_metadata, all_doctypes_data, process_nested_relationships=True):
+    Args:
+        doctypes_with_fields (dict): Dicionário onde as chaves são nomes de DocTypes
+                                     e os valores são listas de metadados de campos.
+        child_parent_mapping (list): Lista de dicionários, cada um com chaves 'child'
+                                     e 'parent', representando relacionamentos Table.
+
+    Returns:
+        dict: Estrutura de entidades no formato {"entities": [...]}.
+    """
+    entities = []
+
+    # 1. Criar um dicionário para mapear child -> parent para acesso rápido
+    child_to_parent = {}
+    if child_parent_mapping:
+        for mapping in child_parent_mapping:
+            child = mapping.get("child")
+            parent = mapping.get("parent")
+            if child and parent:
+                child_to_parent[child] = parent
+
+    # 2. Processar cada DocType presente nos metadados
+    processed_doctypes = set() # Para evitar duplicatas se um DocType aparecer como pai e filho
+    for doctype_name, fields_metadata in doctypes_with_fields.items():
+        # Ignorar DocTypes sem metadados de campos válidos
+        if not fields_metadata or not isinstance(fields_metadata, list):
+            print(f"Aviso: Metadados inválidos ou vazios para DocType {doctype_name}. Ignorando.")
+            continue
+
+        # Verificar se este DocType é um child
+        is_child = doctype_name in child_to_parent
+        parent_doctype = child_to_parent.get(doctype_name) if is_child else None
+
+        # Criar a entidade
+        entity_data = create_entity(doctype_name, fields_metadata, is_child, parent_doctype)
+
+        # Adicionar a entidade à lista
+        entities.append(entity_data)
+        processed_doctypes.add(doctype_name)
+
+    # 3. Garantir que todos os DocTypes (pais e filhos) foram incluídos
+    #    Esta etapa pode não ser necessária se doctypes_with_fields já contém todos.
+    #    Mas é uma verificação extra.
+    all_involved_doctypes = set(doctypes_with_fields.keys())
+    if child_parent_mapping:
+        for mapping in child_parent_mapping:
+            all_involved_doctypes.add(mapping.get("child"))
+            all_involved_doctypes.add(mapping.get("parent"))
+
+    for doctype_name in all_involved_doctypes:
+        if doctype_name and doctype_name not in processed_doctypes:
+            # Se um DocType (provavelmente um pai que não tem filhos diretos listados
+            # ou um filho sem metadados) não foi processado, processa agora.
+            fields_metadata = doctypes_with_fields.get(doctype_name, []) # Pega metadados ou lista vazia
+            if not fields_metadata:
+                 print(f"Aviso: DocType {doctype_name} mencionado em mapeamento mas sem metadados de campos. Criando entidade vazia.")
+
+            is_child = doctype_name in child_to_parent
+            parent_doctype = child_to_parent.get(doctype_name) if is_child else None
+
+            entity_data = create_entity(doctype_name, fields_metadata, is_child, parent_doctype)
+            entities.append(entity_data)
+            processed_doctypes.add(doctype_name)
+
+
+    # Retornar estrutura final
+    return {"entities": entities}
+
+# Função auxiliar para processar campos para a hierarquia
+# Função auxiliar refatorada para lidar com recursão controlada
+def _process_fields_for_hierarchy(fields_metadata, all_doctypes_data, process_nested_relationships=True):
     """
     Processa metadados de campos para a estrutura hierárquica com recursão controlada.
 
@@ -243,7 +319,7 @@ def process_fields_for_hierarchy(fields_metadata, all_doctypes_data, process_nes
     """
     processed_nodes = []
     if not isinstance(fields_metadata, list):
-        print(f"Aviso: Metadados de campos inválidos recebidos por process_fields_for_hierarchy.")
+        print(f"Aviso: Metadados de campos inválidos recebidos por _process_fields_for_hierarchy.")
         return processed_nodes
 
     for field in fields_metadata:
@@ -259,9 +335,9 @@ def process_fields_for_hierarchy(fields_metadata, all_doctypes_data, process_nes
         # --- Ignorar campos irrelevantes ---
         if not field_name or not field_type:
             continue
-        if field_hidden == 1: # Ignorar campos ocultos
+        if field_hidden == 1:
             continue
-        if field_name.startswith("f_") or field_name.startswith("fm_"): # Ignorar campos de fórmula
+        if field_name.startswith("f_") or field_name.startswith("fm_"):
             continue
         if field_name in ["owner", "creation", "modified", "modified_by",
                           "docstatus", "idx", "parentfield", "parenttype", "doctype",
@@ -277,7 +353,7 @@ def process_fields_for_hierarchy(fields_metadata, all_doctypes_data, process_nes
                 # Obter metadados do DocType vinculado
                 linked_fields_metadata = all_doctypes_data.get(destination_entity, [])
                 # Chamar recursivamente SEM processar mais relações aninhadas
-                linked_fields = process_fields_for_hierarchy(
+                linked_fields = _process_fields_for_hierarchy(
                     linked_fields_metadata, all_doctypes_data, process_nested_relationships=False
                 )
                 # Criar nó para o DocType vinculado
@@ -294,9 +370,13 @@ def process_fields_for_hierarchy(fields_metadata, all_doctypes_data, process_nes
 
         # 2. Ignorar Tabelas se não estiver no nível principal?
         if field_type == "Table" and not process_nested_relationships:
-            continue 
-        
-        # 3. Ignorar Tabelas no nível principal (serão tratadas pelo child_parent_mapping)
+            continue # Ignora tabelas dentro de DocTypes vinculados por Link
+
+        # 3. Tratar Links como campos normais se não estiver no nível principal?
+        #    (Ou se for Link para Web Page/Report)
+        #    A lógica abaixo já faz isso tratando como um campo normal se não caiu no 'if' acima.
+
+        # 4. Ignorar Tabelas no nível principal (serão tratadas pelo child_parent_mapping)
         if field_type == "Table" and process_nested_relationships:
              continue # Ignora tabelas no nível principal
 
@@ -310,12 +390,12 @@ def process_fields_for_hierarchy(fields_metadata, all_doctypes_data, process_nes
             "fieldname": field_name, # Nova propriedade fieldname
             "type": generic_type
         }
-        
+        # Adiciona 'children: []' explicitamente para campos normais para consistência? Não, deixa sem.
         processed_nodes.append(field_node)
 
     return processed_nodes
 
-
+# Função principal ajustada para passar all_doctypes_data
 def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_mapping):
     """
     Cria uma estrutura JSON hierárquica de DocTypes e seus campos (Refatorada v2).
@@ -342,7 +422,7 @@ def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_map
     nodes = {}
     child_doctypes = set()
 
-    # --- 1. Criar nós DocType e processar seus campos (nível principal) ---
+    # --- Passo 1: Criar nós DocType e processar seus campos (nível principal) ---
     all_doctype_names = list(doctypes_with_fields.keys()) # Para iteração segura se modificarmos o dict
     for doctype_name in all_doctype_names:
         if not doctype_name: continue
@@ -356,12 +436,12 @@ def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_map
                 "fieldname": doctype_name, # Nova propriedade fieldname
                 "type": "doctype",
                 # Chama processador de campos para o nível principal (process_nested_relationships=True)
-                "children": process_fields_for_hierarchy(fields_metadata, doctypes_with_fields, True)
+                "children": _process_fields_for_hierarchy(fields_metadata, doctypes_with_fields, True)
             }
         else:
              # Se o nó já existe (criado por mapeamento), processa e adiciona/atualiza os campos
              current_children = nodes[doctype_name].get("children", [])
-             processed_fields = process_fields_for_hierarchy(fields_metadata, doctypes_with_fields, True)
+             processed_fields = _process_fields_for_hierarchy(fields_metadata, doctypes_with_fields, True)
              # Evita duplicar campos se o DocType for processado múltiplas vezes (improvável, mas seguro)
              existing_field_keys = {child.get("key") for child in current_children if child.get("type") != "doctype"}
              for field_node in processed_fields:
@@ -370,7 +450,8 @@ def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_map
              nodes[doctype_name]["children"] = current_children
 
 
-    # --- 2. Processar mapeamento pai-filho para aninhar DocTypes ---
+    # --- Passo 2: Processar mapeamento pai-filho para aninhar DocTypes ---
+
     # Garante que a relação Contract -> Contract Item exista
     specific_mapping = {"child": "Contract Item", "parent": "Contract"}
     mapping_exists = any(
@@ -378,7 +459,7 @@ def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_map
         for m in child_parent_mapping if isinstance(m, dict)
     )
     if not mapping_exists:
-        # print("Info: Adicionando mapeamento implícito: Contract Item -> Contract")
+        print("Info: Adicionando mapeamento implícito: Contract Item -> Contract")
         child_parent_mapping.append(specific_mapping) # Modifica a lista diretamente (ou uma cópia se preferir imutabilidade)
 
     # Continua o processamento dos mapeamentos (incluindo o adicionado, se for o caso)
@@ -404,7 +485,7 @@ def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_map
                     "fieldname": name, # Nova propriedade fieldname
                     "type": "doctype",
                     # Processa campos no nível principal ao criar nó básico
-                    "children": process_fields_for_hierarchy(node_fields_metadata, doctypes_with_fields, True)
+                    "children": _process_fields_for_hierarchy(node_fields_metadata, doctypes_with_fields, True)
                 }
 
         # Adiciona a REFERÊNCIA do nó filho completo à lista de filhos do nó pai
@@ -417,13 +498,15 @@ def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_map
 
             if not is_already_child:
                 parent_node_children.append(child_node_ref)
+            # else: # Comentado para reduzir verbosidade
+                # print(f"Aviso: Tentativa de adicionar filho duplicado '{child_name}' a '{parent_name}'. Ignorando.")
 
             child_doctypes.add(child_name)
         else:
              print(f"Erro Crítico: Nó pai ('{parent_name}') ou filho ('{child_name}') não pôde ser encontrado ou criado. Mapeamento ignorado.")
 
 
-    # --- 3. Ordenar filhos (campos primeiro, depois doctypes) ---
+    # --- Passo 2.5: Ordenar filhos (campos primeiro, depois doctypes) ---
     for node in nodes.values():
         # Verifica se é um nó doctype e se possui a chave 'children'
         if isinstance(node, dict) and node.get("type") == "doctype" and "children" in node:
@@ -433,7 +516,7 @@ def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_map
                 # Chave de ordenação: 0 para campos (não doctype), 1 para doctypes
                 children_list.sort(key=lambda child: 0 if isinstance(child, dict) and child.get("type") != "doctype" else 1)
 
-    # --- 4. Identificar e coletar nós raiz ---
+    # --- Passo 3: Identificar e coletar nós raiz ---
     root_nodes = []
     all_processed_doctypes = list(nodes.keys())
 
@@ -441,13 +524,11 @@ def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_map
         if doctype_name not in child_doctypes: # Se não for filho de ninguém, é raiz
              root_nodes.append(nodes[doctype_name])
 
-    # --- 5. Adicionar a propriedade 'path' recursivamente ---
+    # --- Passo 4: Adicionar a propriedade 'path' recursivamente ---
     for root_node in root_nodes:
         add_paths_recursively(root_node) # Inicia a recursão para cada raiz
 
     return {"entities": root_nodes}
-
-
 
 def add_paths_recursively(node, current_path=""):
     """

@@ -1,0 +1,169 @@
+{
+    "entities": [
+        {
+            "entity": {
+                "type": "Contract Measurement",
+                "description": "Contract_Measurement",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "data_final_do_contrato",
+                        "type": "string",
+                        "description": "Data_final_do_contrato"
+                    },
+                    {
+                        "key": "contratada",
+                        "type": "string",
+                        "description": "Contratada"
+                    },
+                    {
+                        "key": "data_ejak",
+                        "type": "string",
+                        "description": "Data_inicial_do_contrato"
+                    },
+                    {
+                        "key": "contrato",
+                        "type": "string",
+                        "description": "No_do_contrato"
+                    },
+                    {
+                        "key": "obra",
+                        "type": "string",
+                        "description": "Obra"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "contratada",
+                        "destinationEntity": "Contracted Company",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "contrato",
+                        "destinationEntity": "Contract",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Measurement Asset",
+                "description": "Contract_Measurement_Asset",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "maquina_equipamento_ou_ferramenta",
+                        "type": "string",
+                        "description": "Maquina_equipamento_ou_ferramenta"
+                    },
+                    {
+                        "key": "item",
+                        "type": "string",
+                        "description": "Item"
+                    },
+                    {
+                        "key": "quantidade_medida",
+                        "type": "numeric",
+                        "description": "Quantidade_medida"
+                    },
+                    {
+                        "key": "data_e_hora",
+                        "type": "datetime",
+                        "description": "Data_e_hora"
+                    },
+                    {
+                        "key": "parent",
+                        "type": "string"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "parent",
+                        "destinationEntity": "Contract Measurement",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "maquina_equipamento_ou_ferramenta",
+                        "destinationEntity": "Asset",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "item",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        },
+        {
+            "entity": {
+                "type": "Contract Measurement Work Role",
+                "description": "Contract_Measurement_Work_Role",
+                "attributes": [
+                    {
+                        "key": "name",
+                        "type": "string"
+                    },
+                    {
+                        "key": "funcaoitem",
+                        "type": "string",
+                        "description": "Funcao_do_item"
+                    },
+                    {
+                        "key": "item",
+                        "type": "string",
+                        "description": "Item"
+                    },
+                    {
+                        "key": "funcao",
+                        "type": "string",
+                        "description": "Funcao"
+                    },
+                    {
+                        "key": "data_e_hora",
+                        "type": "datetime",
+                        "description": "Data_e_hora"
+                    },
+                    {
+                        "key": "quantidade_medida",
+                        "type": "numeric",
+                        "description": "Quantidade_medida"
+                    },
+                    {
+                        "key": "parent",
+                        "type": "string"
+                    }
+                ],
+                "relationships": [
+                    {
+                        "sourceKey": "parent",
+                        "destinationEntity": "Contract Measurement",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "funcaoitem",
+                        "destinationEntity": "Contract Item Work Role",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "item",
+                        "destinationEntity": "Contract Item",
+                        "destinationKey": "name"
+                    },
+                    {
+                        "sourceKey": "funcao",
+                        "destinationEntity": "Work Role",
+                        "destinationKey": "name"
+                    }
+                ]
+            }
+        }
+    ]
+}

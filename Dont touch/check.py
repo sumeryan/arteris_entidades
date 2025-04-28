@@ -1,0 +1,4 @@
+if (Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Pagamento_por_hora==1)
+    SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)
+else
+    Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_total_mensal

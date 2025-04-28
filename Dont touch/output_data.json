@@ -1,0 +1,97 @@
+[
+    {
+        "doctype": "Contract Measurement",
+        "key": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+        "data": {
+            "name": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+            "contrato": "01966f13-c251-7093-9534-e5ae31671748",
+            "contratada": "01966f01-1ae9-72a1-86e1-464b5faba430",
+            "data_ejak": "2023-07-14",
+            "data_final_do_contrato": "2023-07-31",
+            "obra": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
+            "doctype": "Contract Measurement",
+            "table_iqgd": [
+                {
+                    "name": "019678be-2991-7893-9056-a82503920e00",
+                    "data_e_hora": "2025-04-03 16:30:22",
+                    "item": "01966f89-7148-7163-93dd-c2e6e9b8d5bf",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "01967374-d549-7d91-9b62-e14b371b9f20",
+                    "parent": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "doctype": "Contract Measurement Work Role"
+                },
+                {
+                    "name": "019678c3-054f-7e30-95d1-0dc63fcd01c3",
+                    "data_e_hora": "2025-04-04 16:37:41",
+                    "item": "01966f89-a62b-75d1-aef5-fab65638be12",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "01967375-c2bc-75a1-95bc-a4c2f4ab35d9",
+                    "parent": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "doctype": "Contract Measurement Work Role"
+                },
+                {
+                    "name": "019678c3-0550-77c2-8f16-be4e31a16d19",
+                    "data_e_hora": "2025-04-04 16:37:41",
+                    "item": "01966f89-a62b-75d1-aef5-fab65638be12",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "01967375-c2bc-75a1-95bc-a4c2f4ab35d9",
+                    "parent": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "doctype": "Contract Measurement Work Role"
+                },
+                {
+                    "name": "019678c3-0550-77c2-8f16-be50ccad36fd",
+                    "data_e_hora": "2025-04-04 16:38:17",
+                    "item": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "0196737a-329c-7203-bdc6-55265ce0a401",
+                    "parent": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "doctype": "Contract Measurement Work Role"
+                },
+                {
+                    "name": "019678c3-0550-77c2-8f16-be66d3f09d33",
+                    "data_e_hora": "2025-04-07 16:39:02",
+                    "item": "01966f8a-7e88-7870-aeb3-ac166733b461",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "0196737c-6476-7190-b691-9ac1988ab36a",
+                    "parent": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "doctype": "Contract Measurement Work Role"
+                },
+                {
+                    "name": "0196792f-6a67-7272-9724-8207fb3dba25",
+                    "data_e_hora": "2025-04-16 18:37:33",
+                    "item": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+                    "funcao": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "quantidade_medida": 202.0,
+                    "funcaoitem": "0196737d-4724-7103-b25b-920993479712",
+                    "parent": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "doctype": "Contract Measurement Work Role"
+                }
+            ],
+            "table_juun": [
+                {
+                    "name": "019678cb-9ace-76b0-b955-9bba2a0bfe6f",
+                    "data_e_hora": "2025-04-09 16:47:56",
+                    "item": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+                    "maquina_equipamento_ou_ferramenta": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "quantidade_medida": 30.0,
+                    "parent": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "doctype": "Contract Measurement Asset"
+                },
+                {
+                    "name": "019678cb-9ace-76b0-b955-9bc9e2ecb680",
+                    "data_e_hora": "2025-04-11 16:48:35",
+                    "item": "01966f8a-7e88-7870-aeb3-ac166733b461",
+                    "maquina_equipamento_ou_ferramenta": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "quantidade_medida": 30.0,
+                    "parent": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "doctype": "Contract Measurement Asset"
+                }
+            ]
+        }
+    }
+]

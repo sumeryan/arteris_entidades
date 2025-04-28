@@ -16,7 +16,7 @@ def get_arteris_doctypes(api_base_url, api_token):
     doctype_url = f"{api_base_url}/DocType"
     params = {
         # Filtra para buscar apenas DocTypes do módulo específico 'Arteris' e que não são tabelas (Child Item)
-        "filters": json.dumps([["module", "=", "Arteris"],["istable","!=","1"]])
+        "filters": json.dumps([["module", "=", "Arteris"],["istable","!=","1"],["name","like","%Meas%"]])
         # "filters": json.dumps([["module", "=", "Arteris"],["istable","!=","1"],["name","=","Asset"]])
         # Poderia adicionar 'fields' se precisasse de mais informações do DocType aqui
     }
@@ -55,7 +55,7 @@ def get_arteris_doctypes_child(api_base_url, api_token):
     doctype_url = f"{api_base_url}/DocType"
     params = {
         # Filtra para buscar apenas DocTypes do módulo específico 'Arteris' e que não são tabelas (Child Item)
-        "filters": json.dumps([["module", "=", "Arteris"],["istable","=","1"]])
+        "filters": json.dumps([["module", "=", "Arteris"],["istable","=","1"],["name","like","%Meas%"]])
         # "filters": json.dumps([["module", "=", "Arteris"],["istable","=","1"],["name","=","Asset Operator"]])
         # Poderia adicionar 'fields' se precisasse de mais informações do DocType aqui
     }
