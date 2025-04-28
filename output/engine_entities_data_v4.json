@@ -1,0 +1,177 @@
+{
+    "entities": [
+        {
+            "id": "01967343-b7d4-7e20-908c-c48e8cf68789",
+            "entity_type": "Asset",
+            "attributes": {
+                "Nome_do_ativo": "Automovel"
+            }
+        },
+        {
+            "id": "01967346-0d87-7ba1-82b4-1fad84d539d0",
+            "entity_type": "Asset",
+            "attributes": {
+                "Nome_do_ativo": "Equipamentos e ferramentas em geral"
+            }
+        },
+        {
+            "id": "Mairiporã-SP",
+            "entity_type": "City",
+            "attributes": {
+                "UF": "SP",
+                "Municipio": "Mairiporã",
+                "ISS": 0.0
+            }
+        },
+        {
+            "id": "Vargem-SP",
+            "entity_type": "City",
+            "attributes": {
+                "UF": "SP",
+                "Municipio": "Vargem",
+                "ISS": 0.0
+            }
+        },
+        {
+            "id": "Cambuí-MG",
+            "entity_type": "City",
+            "attributes": {
+                "UF": "MG",
+                "Municipio": "Cambuí",
+                "ISS": 0.0
+            }
+        },
+        {
+            "id": "São Gonçalo do Sapucaí-MG",
+            "entity_type": "City",
+            "attributes": {
+                "UF": "MG",
+                "Municipio": "São Gonçalo do Sapucaí",
+                "ISS": 0.0
+            }
+        },
+        {
+            "id": "Carmo da Cachoeira-MG",
+            "entity_type": "City",
+            "attributes": {
+                "UF": "MG",
+                "Municipio": "Carmo da Cachoeira",
+                "ISS": 0.0
+            }
+        },
+        {
+            "id": "Santo Antônio do Amparo-MG",
+            "entity_type": "City",
+            "attributes": {
+                "UF": "MG",
+                "Municipio": "Santo Antônio do Amparo",
+                "ISS": 0.0
+            }
+        },
+        {
+            "id": "Carmópolis de Minas-MG",
+            "entity_type": "City",
+            "attributes": {
+                "UF": "MG",
+                "Municipio": "Carmópolis de Minas",
+                "ISS": 0.0
+            }
+        },
+        {
+            "id": "Itatiaiuçu-MG",
+            "entity_type": "City",
+            "attributes": {
+                "UF": "MG",
+                "Municipio": "Itatiaiuçu",
+                "ISS": 0.0
+            }
+        },
+        {
+            "id": "Curitiba-PR",
+            "entity_type": "City",
+            "attributes": {
+                "UF": "PR",
+                "Municipio": "Curitiba",
+                "ISS": 0.0
+            }
+        },
+        {
+            "id": "01966f13-c251-7093-9534-e5ae31671748",
+            "entity_type": "Contract",
+            "attributes": {
+                "No_do_Contrato": "CW32567",
+                "Data_inicial_do_contrato": "2023-07-14",
+                "Data_final_do_contrato": "2023-07-31",
+                "Obra": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
+                "Descricao": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
+                "Valor_total_do_contrato": 4486174.16,
+                "Percentual": 0.0
+            }
+        },
+        {
+            "id": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+            "entity_type": "Contract_Measurement",
+            "attributes": {
+                "Data_inicial_do_contrato": "2023-07-14",
+                "Data_final_do_contrato": "2023-07-31",
+                "Obra": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO"
+            }
+        },
+        {
+            "id": "01966f01-1ae9-72a1-86e1-464b5faba430",
+            "entity_type": "Contracted_Company",
+            "attributes": {
+                "Nome": "KRONOS - ENGENHARIA LTDA - ME",
+                "Razao_Social": "KRONOS - ENGENHARIA LTDA - ME",
+                "CNPJ": "14.157.156/0001-95",
+                "Endereco": "Rua Coronel Otávio Meyer , 160, sala 227, Centro - Pouso Alegre, MG, BRASIL"
+            }
+        },
+        {
+            "id": "0196727a-a6fc-7f90-a9b5-c286fca9a065",
+            "entity_type": "Formula",
+            "attributes": {
+                "Formula": "TESTE"
+            }
+        },
+        {
+            "id": "01967389-eb01-7e20-a48e-7dca19939d69",
+            "entity_type": "Formula_Template",
+            "attributes": {
+                "Nome": "Total do serviço",
+                "Descrrcao": "Calcula o valor total para o serviço considerando mão de obra e veiculos",
+                "Formula": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)"
+            }
+        },
+        {
+            "id": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+            "entity_type": "SAP_Order",
+            "attributes": {
+                "No_do_pedido": "4500771063",
+                "Centro_de_custo": "FD38134101",
+                "Valor_total": 4363200.0
+            }
+        },
+        {
+            "id": "01967344-d3f1-7060-88f7-7ca7dd3b434a",
+            "entity_type": "Work_Role",
+            "attributes": {
+                "Funcao": "Supervisor de manutenção"
+            }
+        },
+        {
+            "id": "01967345-0e75-7200-8d82-84d37b4f010c",
+            "entity_type": "Work_Role",
+            "attributes": {
+                "Funcao": "Técnico de manutenção"
+            }
+        },
+        {
+            "id": "0196778e-f60f-79f3-8043-3f3089d2a9ac",
+            "entity_type": "Work_Role",
+            "attributes": {
+                "Funcao": "Motorista A/B"
+            }
+        }
+    ]
+}

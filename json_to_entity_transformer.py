@@ -35,7 +35,6 @@ def normalize_string(text):
         # Em caso de erro inesperado, retorna uma versão simplificada (minúscula, espaços por _)
         return re.sub(r'\s+', '_', str(text).lower()).strip('_')
 
-
 def map_field_type(field_type, key=None):
     """
     Mapeia tipos de campo do DocType para tipos genéricos.
@@ -446,7 +445,6 @@ def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_map
         add_paths_recursively(root_node) # Inicia a recursão para cada raiz
 
     return {"entities": root_nodes}
-
 
 
 def add_paths_recursively(node, current_path=""):

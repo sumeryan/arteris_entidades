@@ -4,7 +4,7 @@ import os
 def data_to_engine_entities_v3(output_data, output_hierarchical):
     """
     Converte dados do formato output_data para o formato entity_engine,
-    respeitando toda a estrutura hierárquica definida em output_hierarchical.
+    usando as chaves hierárquicas em output_hierarchical.
     
     Args:
         output_data (list): Lista de dados dos DocTypes
@@ -15,175 +15,60 @@ def data_to_engine_entities_v3(output_data, output_hierarchical):
     """
     result = {"entities": []}
     
-    # Função auxiliar para obter o tipo de um campo baseado na estrutura hierárquica
-    def get_field_type(field_name, entity_type_key):
-        for entity in output_hierarchical.get("entities", []):
-            if entity["key"] == entity_type_key:
-                # Busca direta nos filhos da entidade
-                for child in entity.get("children", []):
-                    if child["fieldname"] == field_name:
-                        return child["type"]
-                
-                # Busca recursiva nas entidades filhas
-                for child in entity.get("children", []):
-                    if child["type"] == "doctype":
-                        result = get_field_type(field_name, child["key"])
-                        if result:
-                            return result
-        return "string"  # Tipo padrão se não encontrado
+    # Mapeamento de doctypes para seus entity_types
+    doctype_entity_map = {}
+    # Mapeamento de fieldname para key hierárquica
+    field_key_map = {}
     
-    # Função auxiliar para obter o entity_type a partir de um doctype
-    def get_entity_type(doctype):
-        for entity in output_hierarchical.get("entities", []):
-            if entity["description"] == doctype:
-                return entity["key"]
-            
-            # Busca em entidades filhas
-            for child in entity.get("children", []):
-                if child["type"] == "doctype" and child["description"] == doctype:
-                    return child["key"]
+    # Constrói o mapeamento para entity_types e chaves de campos
+    for entity in output_hierarchical.get("entities", []):
+        doctype_entity_map[entity["description"]] = entity["key"]
         
-        # Se não encontrar, substitui espaços por underscores
-        return doctype.replace(" ", "_")
-    
-    # Função auxiliar para processar entidades e criar relacionamentos
-    def process_entity(data, doctype, entity_id, parent_entity=None, parent_field=None):
-        entity_type = get_entity_type(doctype)
-        
-        # Cria a entidade
-        entity = {
-            "id": entity_id,
-            "entity_type": entity_type,
-            "attributes": []
-        }
-        
-        # Se tiver um parent, adiciona como primeiro atributo
-        if parent_entity and parent_field:
-            entity["attributes"].append({
-                "key": parent_field,
-                "value": parent_entity,
-                "type": "string"
-            })
-        
-        # Adiciona os demais atributos da entidade
-        for field_name, field_value in data.items():
-            # Ignora campos especiais e tabelas filhas
-            if field_name in ["name", "doctype", "parent"] or isinstance(field_value, list):
-                continue
-                
-            # Determina o tipo do campo
-            field_type = get_field_type(field_name, entity_type)
-            
-            # Adiciona o atributo
-            entity["attributes"].append({
-                "key": field_name,
-                "value": field_value,
-                "type": field_type
-            })
-        
-        result["entities"].append(entity)
-        
-        # Processa tabelas filhas (relações)
-        for field_name, field_value in data.items():
-            if isinstance(field_value, list):
-                for child_item in field_value:
-                    if "doctype" in child_item and "name" in child_item:
-                        child_doctype = child_item["doctype"]
-                        child_id = child_item["name"]
-                        
-                        # Processo recursivamente a entidade filha
-                        process_entity(
-                            child_item, 
-                            child_doctype, 
-                            child_id, 
-                            entity_id, 
-                            entity_type
-                        )
-    
-    # Processa cada documento principal
-    for doc in output_data:
-        doctype = doc["doctype"]
-        key = doc["key"]
-        data = doc["data"]
-        
-        # Processa a entidade principal e suas relações
-        process_entity(data, doctype, key)
-    
-    return result
-
-def get_doctype_mapping(hierarchical_data):
-    """
-    Cria um mapeamento entre nomes de DocType e suas chaves na hierarquia.
-    
-    Args:
-        hierarchical_data (dict): Dados hierárquicos
-        
-    Returns:
-        dict: Mapeamento de nomes de DocType para chaves
-    """
-    mapping = {}
-    
-    def process_entity(entity):
-        if entity["type"] == "doctype":
-            mapping[entity["description"]] = entity["key"]
-        
+        # Mapeia campos diretos
         for child in entity.get("children", []):
-            process_entity(child)
-    
-    for entity in hierarchical_data.get("entities", []):
-        process_entity(entity)
-    
-    return mapping
-
-def get_data_engine_full_hierarquical(output_data, output_hierarchical):
-    """
-    Versão melhorada do data_to_engine_entities que processa entidades
-    respeitando completamente a estrutura hierárquica.
-    
-    Args:
-        output_data (list): Lista de dados dos DocTypes
-        output_hierarchical (dict): Dados hierárquicos dos DocTypes
-        
-    Returns:
-        dict: Dados no formato entity_engine
-    """
-    result = {"entities": []}
-    doctype_mapping = get_doctype_mapping(output_hierarchical)
-    
-    # Função para encontrar o tipo de um campo na hierarquia
-    def find_field_type(entity_type, field_name):
-        for entity in output_hierarchical.get("entities", []):
-            if entity["key"] == entity_type:
-                # Busca direta nos filhos
-                for child in entity.get("children", []):
-                    if child["fieldname"] == field_name:
-                        return child["type"]
+            if "fieldname" in child:
+                field_key = f"{entity['key']}.{child['fieldname']}"
+                field_key_map[field_key] = {
+                    "key": child["key"],
+                    "type": child["type"]
+                }
+            
+            # Processa entidades filhas recursivamente
+            if child.get("type") == "doctype":
+                doctype_entity_map[child["description"]] = child["key"]
                 
-                # Busca em entidades filhas
-                for child in entity.get("children", []):
-                    if child["type"] == "doctype":
-                        child_result = find_field_type(child["key"], field_name)
-                        if child_result:
-                            return child_result
-        
-        return "string"  # Tipo padrão
+                # Mapeia campos da entidade filha
+                for grandchild in child.get("children", []):
+                    if "fieldname" in grandchild:
+                        field_key = f"{child['key']}.{grandchild['fieldname']}"
+                        field_key_map[field_key] = {
+                            "key": grandchild["key"],
+                            "type": grandchild["type"]
+                        }
     
+    # Função para obter entity_type a partir do doctype
+    def get_entity_type(doctype):
+        return doctype_entity_map.get(doctype, doctype.replace(" ", "_"))
+    
+    # Função para obter informações do campo (key e type)
+    def get_field_info(entity_type, field_name):
+        field_key = f"{entity_type}.{field_name}"
+        field_info = field_key_map.get(field_key, None)
+        
+        if field_info:
+            return field_info["key"], field_info["type"]
+        
+        # Se não encontrou, retorna o próprio nome do campo e tipo padrão
+        return field_name, "string"
+    
+    # Função recursiva para processar entidades e suas relações
     def process_entity(data, parent_info=None):
-        """
-        Processa uma entidade e suas relações.
-        
-        Args:
-            data (dict): Dados da entidade
-            parent_info (tuple, optional): Informações do parent (id, type). Defaults to None.
-        """
-        doctype = data.get("doctype")
-        entity_id = data.get("name")
-        
-        if not doctype or not entity_id:
+        if not isinstance(data, dict) or "doctype" not in data or "name" not in data:
             return
         
-        # Obtém o entity_type a partir do doctype
-        entity_type = doctype_mapping.get(doctype, doctype.replace(" ", "_"))
+        doctype = data["doctype"]
+        entity_id = data["name"]
+        entity_type = get_entity_type(doctype)
         
         # Cria a entidade
         entity = {
@@ -201,35 +86,39 @@ def get_data_engine_full_hierarquical(output_data, output_hierarchical):
                 "type": "string"
             })
         
-        # Adiciona os demais atributos
+        # Adiciona atributos usando as chaves hierárquicas
         for field_name, field_value in data.items():
             # Ignora campos especiais e listas
             if field_name in ["name", "doctype", "parent"] or isinstance(field_value, list):
                 continue
             
-            # Determina o tipo do campo
-            field_type = find_field_type(entity_type, field_name)
+            # Obtém a chave hierárquica e o tipo do campo
+            field_key, field_type = get_field_info(entity_type, field_name)
             
             # Adiciona o atributo
             entity["attributes"].append({
-                "key": field_name,
+                "key": field_key,
                 "value": field_value,
                 "type": field_type
             })
         
+        # Adiciona a entidade ao resultado
         result["entities"].append(entity)
         
-        # Processa relações
+        # Processa tabelas filhas (relações)
         for field_name, field_value in data.items():
             if isinstance(field_value, list):
                 for child_item in field_value:
-                    if isinstance(child_item, dict) and "doctype" in child_item:
+                    if isinstance(child_item, dict) and "doctype" in child_item and "name" in child_item:
+                        # Processa recursivamente a entidade filha
                         process_entity(child_item, (entity_id, entity_type))
     
-    # Processa cada documento principal
+    # Processa cada entrada de dados
     for doc in output_data:
-        if isinstance(doc.get("data"), dict):
+        if "data" in doc:
             process_entity(doc["data"])
+        else:
+            process_entity(doc)
     
     return result
 
@@ -245,45 +134,74 @@ def main():
     
     # Carrega os arquivos de exemplo
     try:
-        with open(os.path.join(output_dir, 'output_data.json'), 'r', encoding='utf-8') as f:
+        with open('output_data.json', 'r', encoding='utf-8') as f:
             output_data = json.load(f)
         
-        with open(os.path.join(output_dir, 'output_hierarchical.json'), 'r', encoding='utf-8') as f:
+        with open('output_hierarchical_entities.json', 'r', encoding='utf-8') as f:
             output_hierarchical = json.load(f)
         
         print("Arquivos de exemplo carregados com sucesso.")
 
-        # Processa usando a função data_to_engine_entities_v3
-        result_v3 = data_to_engine_entities_v3(output_data, output_hierarchical)
+        # Processa os dados usando a função atualizada
+        result = data_to_engine_entities_v3(output_data, output_hierarchical)
         
         # Salva o resultado em um arquivo JSON
-        with open(os.path.join(output_dir, 'engine_entities_output_v3'), 'w', encoding='utf-8') as f:
-            json.dump(result_v3, f, indent=2, ensure_ascii=False)
+        result_file = os.path.join(output_dir, 'result_entities_v3.json')
+        with open(result_file, 'w', encoding='utf-8') as f:
+            json.dump(result, f, indent=2, ensure_ascii=False)
         
-        print(f"Resultado da função data_to_engine_entities_v3 salvo em {os.path.join(output_dir, 'engine_entities_output_v3')}")
-        
-        # Processa usando a função process_entities_with_hierarchy
-        result_hierarchy = get_data_engine_full_hierarquical(output_data, output_hierarchical)
-        
-        # Salva o resultado em um arquivo JSON
-        with open(os.path.join(output_dir, 'result_hierarchy.json'), 'w', encoding='utf-8') as f:
-            json.dump(result_hierarchy, f, indent=2, ensure_ascii=False)
-        
-        print(f"Resultado da função process_entities_with_hierarchy salvo em {os.path.join(output_dir, 'result_hierarchy.json')}")
+        print(f"Resultado salvo em {result_file}")
         
         # Imprime estatísticas
-        print("\nEstatísticas dos resultados:")
-        print(f"data_to_engine_entities_v3: {len(result_v3['entities'])} entidades")
-        print(f"process_entities_with_hierarchy: {len(result_hierarchy['entities'])} entidades")
+        print("\nEstatísticas do resultado:")
+        print(f"Total de entidades: {len(result['entities'])}")
+        
+        # Contagem por tipo de entidade
+        entity_types = {}
+        for entity in result["entities"]:
+            entity_type = entity["entity_type"]
+            entity_types[entity_type] = entity_types.get(entity_type, 0) + 1
+        
+        print("\nContagem por tipo de entidade:")
+        for entity_type, count in entity_types.items():
+            print(f"  {entity_type}: {count} entidades")
+            
+        # Verifica a cobertura dos nós na hierarquia
+        print("\nVerificação de cobertura de nós:")
+        
+        hierarchy_keys = set()
+        for entity in output_hierarchical.get("entities", []):
+            hierarchy_keys.add(entity["key"])
+            for child in entity.get("children", []):
+                if child.get("type") == "doctype":
+                    hierarchy_keys.add(child["key"])
+        
+        result_keys = set()
+        for entity in result["entities"]:
+            result_keys.add(entity["entity_type"])
+        
+        covered_keys = hierarchy_keys.intersection(result_keys)
+        missing_keys = hierarchy_keys - result_keys
+        
+        print(f"  Nós na hierarquia: {len(hierarchy_keys)}")
+        print(f"  Nós presentes no resultado: {len(covered_keys)}")
+        print(f"  Nós faltantes: {len(missing_keys)}")
+        
+        if missing_keys:
+            print("  Lista de nós faltantes:")
+            for key in missing_keys:
+                print(f"    - {key}")
         
     except FileNotFoundError as e:
         print(f"Erro ao carregar arquivos: {e}")
-        print("Certifique-se de que os arquivos output_data.json e output_hierarchical.json estão no mesmo diretório deste script.")
+        print("Certifique-se de que os arquivos output_data.json e output_hierarchical_entities.json estão no mesmo diretório deste script.")
     except json.JSONDecodeError as e:
         print(f"Erro ao decodificar JSON: {e}")
         print("Verifique se os arquivos JSON estão formatados corretamente.")
     except Exception as e:
         print(f"Erro inesperado: {e}")
+        import traceback
+        traceback.print_exc()
 
 if __name__ == "__main__":
     main()

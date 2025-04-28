@@ -1,0 +1,2582 @@
+{
+    "entities": [
+        {
+            "id": "01967343-b7d4-7e20-908c-c48e8cf68789",
+            "entity_type": "Asset",
+            "attributes": [
+                {
+                    "key": "Nome_do_ativo",
+                    "value": "Automovel",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "0196778f-92d5-71e2-aea3-e2fbf6faffdb",
+            "entity_type": "Asset_Operator",
+            "attributes": [
+                {
+                    "key": "Asset",
+                    "value": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "type": "string"
+                },
+                {
+                    "key": "operador",
+                    "value": "0196778e-f60f-79f3-8043-3f3089d2a9ac",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01967346-0d87-7ba1-82b4-1fad84d539d0",
+            "entity_type": "Asset",
+            "attributes": [
+                {
+                    "key": "Nome_do_ativo",
+                    "value": "Equipamentos e ferramentas em geral",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "Mairiporã-SP",
+            "entity_type": "City",
+            "attributes": [
+                {
+                    "key": "UF",
+                    "value": "SP",
+                    "type": "string"
+                },
+                {
+                    "key": "Municipio",
+                    "value": "Mairiporã",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "Vargem-SP",
+            "entity_type": "City",
+            "attributes": [
+                {
+                    "key": "UF",
+                    "value": "SP",
+                    "type": "string"
+                },
+                {
+                    "key": "Municipio",
+                    "value": "Vargem",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "Cambuí-MG",
+            "entity_type": "City",
+            "attributes": [
+                {
+                    "key": "UF",
+                    "value": "MG",
+                    "type": "string"
+                },
+                {
+                    "key": "Municipio",
+                    "value": "Cambuí",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "São Gonçalo do Sapucaí-MG",
+            "entity_type": "City",
+            "attributes": [
+                {
+                    "key": "UF",
+                    "value": "MG",
+                    "type": "string"
+                },
+                {
+                    "key": "Municipio",
+                    "value": "São Gonçalo do Sapucaí",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "Carmo da Cachoeira-MG",
+            "entity_type": "City",
+            "attributes": [
+                {
+                    "key": "UF",
+                    "value": "MG",
+                    "type": "string"
+                },
+                {
+                    "key": "Municipio",
+                    "value": "Carmo da Cachoeira",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "Santo Antônio do Amparo-MG",
+            "entity_type": "City",
+            "attributes": [
+                {
+                    "key": "UF",
+                    "value": "MG",
+                    "type": "string"
+                },
+                {
+                    "key": "Municipio",
+                    "value": "Santo Antônio do Amparo",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "Carmópolis de Minas-MG",
+            "entity_type": "City",
+            "attributes": [
+                {
+                    "key": "UF",
+                    "value": "MG",
+                    "type": "string"
+                },
+                {
+                    "key": "Municipio",
+                    "value": "Carmópolis de Minas",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "Itatiaiuçu-MG",
+            "entity_type": "City",
+            "attributes": [
+                {
+                    "key": "UF",
+                    "value": "MG",
+                    "type": "string"
+                },
+                {
+                    "key": "Municipio",
+                    "value": "Itatiaiuçu",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "Curitiba-PR",
+            "entity_type": "City",
+            "attributes": [
+                {
+                    "key": "UF",
+                    "value": "PR",
+                    "type": "string"
+                },
+                {
+                    "key": "Municipio",
+                    "value": "Curitiba",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966f13-c251-7093-9534-e5ae31671748",
+            "entity_type": "Contract",
+            "attributes": [
+                {
+                    "key": "No_do_Contrato",
+                    "value": "CW32567",
+                    "type": "string"
+                },
+                {
+                    "key": "Contratada",
+                    "value": "01966f01-1ae9-72a1-86e1-464b5faba430",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_inicial_do_contrato",
+                    "value": "2023-07-14",
+                    "type": "datetime"
+                },
+                {
+                    "key": "Data_final_do_contrato",
+                    "value": "2023-07-31",
+                    "type": "datetime"
+                },
+                {
+                    "key": "Obra",
+                    "value": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total_do_contrato",
+                    "value": 4486174.16,
+                    "type": "number"
+                },
+                {
+                    "key": "Percentual",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966f53-8232-7060-80af-b7dd2993d17e",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 28,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "0",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "Contrato CW32567",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01966f56-d3ca-77d1-a962-df501cc6ef11",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 2,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 27,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f53-8232-7060-80af-b7dd2993d17e",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f53-8232-7060-80af-b7dd2993d17e",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 3,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 26,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f56-d3ca-77d1-a962-df501cc6ef11",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f56-d3ca-77d1-a962-df501cc6ef11",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01966f58-2d31-7f83-824f-f73c2a1490e9",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 4,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 5,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.1",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.1. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 6,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 25,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f57-6c35-75a1-a2eb-77953f905c4c",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.2",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.2. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01966f89-7148-7163-93dd-c2e6e9b8d5bf",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 7,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 8,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.2.1",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.2.1. Praça P-01-Norte km 65+700 CC- Mairiporã (SP)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 23.03,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 14035.99,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                },
+                {
+                    "key": "fm_modeloformula",
+                    "value": "01967389-eb01-7e20-a48e-7dca19939d69",
+                    "type": "string"
+                },
+                {
+                    "key": "f_calculomedicaoservico",
+                    "value": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967374-d549-7d91-9b62-e14b371b9f20",
+            "entity_type": "Contract_Item_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f89-7148-7163-93dd-c2e6e9b8d5bf",
+                    "type": "string"
+                },
+                {
+                    "key": "Funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Pagamento_por_hora",
+                    "value": 1,
+                    "type": "boolean"
+                },
+                {
+                    "key": "Valor_por_hora",
+                    "value": 42.32,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_total_mensal",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "87cdmeqcd9",
+            "entity_type": "Contract_Item_City",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f89-7148-7163-93dd-c2e6e9b8d5bf",
+                    "type": "string"
+                },
+                {
+                    "key": "cidade",
+                    "value": "Mairiporã-SP",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": "0",
+                    "type": "string"
+                },
+                {
+                    "key": "Participacao",
+                    "value": 50.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966fb6-8f8b-76c3-846b-3a12208ef922",
+            "entity_type": "Contract_Item_Order",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f89-7148-7163-93dd-c2e6e9b8d5bf",
+                    "type": "string"
+                },
+                {
+                    "key": "pedidosap",
+                    "value": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "type": "string"
+                },
+                {
+                    "key": "Centro_de_custo",
+                    "value": "FD38134101",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total",
+                    "value": 4363200.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Percentual",
+                    "value": 11.11,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966f89-a62b-75d1-aef5-fab65638be12",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 9,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 10,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.2.2",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.2.2. Praça P-01-Sul  e Defasada km 66+680 CC- Mairiporã (SP)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 23.03,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 14035.99,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                },
+                {
+                    "key": "fm_modeloformula",
+                    "value": "01967389-eb01-7e20-a48e-7dca19939d69",
+                    "type": "string"
+                },
+                {
+                    "key": "f_calculomedicaoservico",
+                    "value": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967375-c2bc-75a1-95bc-a4c2f4ab35d9",
+            "entity_type": "Contract_Item_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f89-a62b-75d1-aef5-fab65638be12",
+                    "type": "string"
+                },
+                {
+                    "key": "Funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Pagamento_por_hora",
+                    "value": 1,
+                    "type": "boolean"
+                },
+                {
+                    "key": "Valor_por_hora",
+                    "value": 42.32,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_total_mensal",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "a1v5jjui4h",
+            "entity_type": "Contract_Item_City",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f89-a62b-75d1-aef5-fab65638be12",
+                    "type": "string"
+                },
+                {
+                    "key": "cidade",
+                    "value": "Mairiporã-SP",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": "0",
+                    "type": "string"
+                },
+                {
+                    "key": "Participacao",
+                    "value": 50.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966fb7-b8be-74e1-8252-86023958705c",
+            "entity_type": "Contract_Item_Order",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f89-a62b-75d1-aef5-fab65638be12",
+                    "type": "string"
+                },
+                {
+                    "key": "pedidosap",
+                    "value": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "type": "string"
+                },
+                {
+                    "key": "Centro_de_custo",
+                    "value": "FD38134101",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total",
+                    "value": 4363200.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Percentual",
+                    "value": 11.11,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 11,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 12,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.2.3",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.2.3. Praça P-02 km 7+576 CC- Vargem (SP)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 23.03,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 14035.99,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                },
+                {
+                    "key": "fm_modeloformula",
+                    "value": "01967389-eb01-7e20-a48e-7dca19939d69",
+                    "type": "string"
+                },
+                {
+                    "key": "f_calculomedicaoservico",
+                    "value": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "0196737a-329e-7591-b9d0-95b4910e6b8f",
+            "entity_type": "Contract_Item_Asset",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+                    "type": "string"
+                },
+                {
+                    "key": "asset",
+                    "value": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "GM Corsa (ENL-0214)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_mensal",
+                    "value": 3918.96,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "0196737a-329c-7203-bdc6-55265ce0a401",
+            "entity_type": "Contract_Item_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+                    "type": "string"
+                },
+                {
+                    "key": "Funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Pagamento_por_hora",
+                    "value": 1,
+                    "type": "boolean"
+                },
+                {
+                    "key": "Valor_por_hora",
+                    "value": 42.32,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_total_mensal",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "ai4fsup7tb",
+            "entity_type": "Contract_Item_City",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+                    "type": "string"
+                },
+                {
+                    "key": "cidade",
+                    "value": "Vargem-SP",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": "0",
+                    "type": "string"
+                },
+                {
+                    "key": "Participacao",
+                    "value": 100.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966fb8-82f0-78e1-b4fb-387a2c5d182f",
+            "entity_type": "Contract_Item_Order",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+                    "type": "string"
+                },
+                {
+                    "key": "pedidosap",
+                    "value": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "type": "string"
+                },
+                {
+                    "key": "Centro_de_custo",
+                    "value": "FD38134101",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total",
+                    "value": 4363200.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Percentual",
+                    "value": 11.11,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966f8a-7e88-7870-aeb3-ac166733b461",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 13,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 14,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.2.4",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.2.4. Praça P-03 km 900+875 CC- Cambuí (MG)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 23.03,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 14035.99,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                },
+                {
+                    "key": "fm_modeloformula",
+                    "value": "01967389-eb01-7e20-a48e-7dca19939d69",
+                    "type": "string"
+                },
+                {
+                    "key": "f_calculomedicaoservico",
+                    "value": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "0196737c-6477-7150-b721-e5f43302efdf",
+            "entity_type": "Contract_Item_Asset",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-7e88-7870-aeb3-ac166733b461",
+                    "type": "string"
+                },
+                {
+                    "key": "asset",
+                    "value": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "FIAT - Punto (HLR-5955)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_mensal",
+                    "value": 3918.96,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "0196737c-6476-7190-b691-9ac1988ab36a",
+            "entity_type": "Contract_Item_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-7e88-7870-aeb3-ac166733b461",
+                    "type": "string"
+                },
+                {
+                    "key": "Funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Pagamento_por_hora",
+                    "value": 1,
+                    "type": "boolean"
+                },
+                {
+                    "key": "Valor_por_hora",
+                    "value": 42.32,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_total_mensal",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "fm5l9a0gb9",
+            "entity_type": "Contract_Item_City",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-7e88-7870-aeb3-ac166733b461",
+                    "type": "string"
+                },
+                {
+                    "key": "cidade",
+                    "value": "Cambuí-MG",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": "0",
+                    "type": "string"
+                },
+                {
+                    "key": "Participacao",
+                    "value": 100.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966fc0-8504-7310-8d69-c9ca78d608e3",
+            "entity_type": "Contract_Item_Order",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-7e88-7870-aeb3-ac166733b461",
+                    "type": "string"
+                },
+                {
+                    "key": "pedidosap",
+                    "value": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "type": "string"
+                },
+                {
+                    "key": "Centro_de_custo",
+                    "value": "FD38134101",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total",
+                    "value": 4363200.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Percentual",
+                    "value": 11.11,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 15,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 16,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.2.5",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.2.5. Praça P-04 Km 805+151 CC- São Gonçalo do Sapucaí (MG)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 23.03,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 14035.99,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                },
+                {
+                    "key": "fm_modeloformula",
+                    "value": "01967389-eb01-7e20-a48e-7dca19939d69",
+                    "type": "string"
+                },
+                {
+                    "key": "f_calculomedicaoservico",
+                    "value": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "0196737d-4724-7103-b25b-921a87ab0bbe",
+            "entity_type": "Contract_Item_Asset",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+                    "type": "string"
+                },
+                {
+                    "key": "asset",
+                    "value": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "GM - Celta (EAU-3317)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_mensal",
+                    "value": 3918.96,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "0196737d-4724-7103-b25b-920993479712",
+            "entity_type": "Contract_Item_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+                    "type": "string"
+                },
+                {
+                    "key": "Funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Pagamento_por_hora",
+                    "value": 1,
+                    "type": "boolean"
+                },
+                {
+                    "key": "Valor_por_hora",
+                    "value": 42.32,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_total_mensal",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "g7p18bndsf",
+            "entity_type": "Contract_Item_City",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+                    "type": "string"
+                },
+                {
+                    "key": "cidade",
+                    "value": "São Gonçalo do Sapucaí-MG",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": "0",
+                    "type": "string"
+                },
+                {
+                    "key": "Participacao",
+                    "value": 100.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966fc1-6185-77f0-9660-d08a68e4a454",
+            "entity_type": "Contract_Item_Order",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+                    "type": "string"
+                },
+                {
+                    "key": "pedidosap",
+                    "value": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "type": "string"
+                },
+                {
+                    "key": "Centro_de_custo",
+                    "value": "FD38134101",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total",
+                    "value": 4363200.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Percentual",
+                    "value": 11.11,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966f8b-0b72-7232-817e-9315e536cde2",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 17,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 18,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.2.6",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.2.6. Praça P-05 Km 735+506 CC- Carmo da Cachoeira (MG)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "fm_modeloformula",
+                    "value": "01967389-eb01-7e20-a48e-7dca19939d69",
+                    "type": "string"
+                },
+                {
+                    "key": "f_calculomedicaoservico",
+                    "value": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "0196737e-234b-7af1-b5fe-71b8b46dcf84",
+            "entity_type": "Contract_Item_Asset",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-0b72-7232-817e-9315e536cde2",
+                    "type": "string"
+                },
+                {
+                    "key": "asset",
+                    "value": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "VW - Gol (GUD-8255)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_mensal",
+                    "value": 3918.96,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "0196737e-234b-7af1-b5fe-71aa57ccb166",
+            "entity_type": "Contract_Item_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-0b72-7232-817e-9315e536cde2",
+                    "type": "string"
+                },
+                {
+                    "key": "Funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Pagamento_por_hora",
+                    "value": 1,
+                    "type": "boolean"
+                },
+                {
+                    "key": "Valor_por_hora",
+                    "value": 42.32,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_total_mensal",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "gn7hn669ov",
+            "entity_type": "Contract_Item_City",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-0b72-7232-817e-9315e536cde2",
+                    "type": "string"
+                },
+                {
+                    "key": "cidade",
+                    "value": "Carmo da Cachoeira-MG",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": "0",
+                    "type": "string"
+                },
+                {
+                    "key": "Participacao",
+                    "value": 100.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966fc2-2288-73e2-9e46-efe6d8b93b8e",
+            "entity_type": "Contract_Item_Order",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-0b72-7232-817e-9315e536cde2",
+                    "type": "string"
+                },
+                {
+                    "key": "pedidosap",
+                    "value": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "type": "string"
+                },
+                {
+                    "key": "Centro_de_custo",
+                    "value": "FD38134101",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total",
+                    "value": 4363200.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Percentual",
+                    "value": 11.11,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966f8b-30ad-7fe3-9a64-d7178c9d4d06",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 19,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 20,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.2.7",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.2.7. Praça P-06 Km 658+027 CC - Santo Antônio do Amparo (MG)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 23.03,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 14035.99,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                },
+                {
+                    "key": "fm_modeloformula",
+                    "value": "01967389-eb01-7e20-a48e-7dca19939d69",
+                    "type": "string"
+                },
+                {
+                    "key": "f_calculomedicaoservico",
+                    "value": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "0196737e-ddf5-72a1-9eb7-2c09773ced3d",
+            "entity_type": "Contract_Item_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-30ad-7fe3-9a64-d7178c9d4d06",
+                    "type": "string"
+                },
+                {
+                    "key": "Funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Pagamento_por_hora",
+                    "value": 1,
+                    "type": "boolean"
+                },
+                {
+                    "key": "Valor_por_hora",
+                    "value": 42.32,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_total_mensal",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "hf3vf6p17c",
+            "entity_type": "Contract_Item_City",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-30ad-7fe3-9a64-d7178c9d4d06",
+                    "type": "string"
+                },
+                {
+                    "key": "cidade",
+                    "value": "Santo Antônio do Amparo-MG",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": "0",
+                    "type": "string"
+                },
+                {
+                    "key": "Participacao",
+                    "value": 100.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966fc3-4cc6-7670-97c4-0005faa8332d",
+            "entity_type": "Contract_Item_Order",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-30ad-7fe3-9a64-d7178c9d4d06",
+                    "type": "string"
+                },
+                {
+                    "key": "pedidosap",
+                    "value": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "type": "string"
+                },
+                {
+                    "key": "Centro_de_custo",
+                    "value": "FD38134101",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total",
+                    "value": 4363200.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Percentual",
+                    "value": 11.11,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966f8b-56dd-7361-a69b-9a459c8466e5",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 21,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 22,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.2.8",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.2.8. Praça P-07 - Km 597+678 CC - Carmópolis de Minas (MG)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 23.03,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 14035.99,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                },
+                {
+                    "key": "fm_modeloformula",
+                    "value": "01967389-eb01-7e20-a48e-7dca19939d69",
+                    "type": "string"
+                },
+                {
+                    "key": "f_calculomedicaoservico",
+                    "value": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "0196737f-ba03-7211-bf9a-7a2094d0c948",
+            "entity_type": "Contract_Item_Asset",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-56dd-7361-a69b-9a459c8466e5",
+                    "type": "string"
+                },
+                {
+                    "key": "asset",
+                    "value": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "FORD - Fiesta (OMB-9652)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_mensal",
+                    "value": 3918.96,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "0196737f-ba03-7211-bf9a-7a1ee05d660e",
+            "entity_type": "Contract_Item_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-56dd-7361-a69b-9a459c8466e5",
+                    "type": "string"
+                },
+                {
+                    "key": "Funcao",
+                    "value": "01967344-d3f1-7060-88f7-7ca7dd3b434a",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Pagamento_por_hora",
+                    "value": 1,
+                    "type": "boolean"
+                },
+                {
+                    "key": "Valor_por_hora",
+                    "value": 42.32,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_total_mensal",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "i3uu3vfrj7",
+            "entity_type": "Contract_Item_City",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-56dd-7361-a69b-9a459c8466e5",
+                    "type": "string"
+                },
+                {
+                    "key": "cidade",
+                    "value": "Carmópolis de Minas-MG",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": "0",
+                    "type": "string"
+                },
+                {
+                    "key": "Participacao",
+                    "value": 100.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966fc4-5143-7392-8465-e53a1b2f9ea4",
+            "entity_type": "Contract_Item_Order",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-56dd-7361-a69b-9a459c8466e5",
+                    "type": "string"
+                },
+                {
+                    "key": "pedidosap",
+                    "value": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "type": "string"
+                },
+                {
+                    "key": "Centro_de_custo",
+                    "value": "FD38134101",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total",
+                    "value": 4363200.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Percentual",
+                    "value": 11.11,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966f8b-79a4-7650-b3db-5e9db17f8644",
+            "entity_type": "Contract_Item",
+            "attributes": [
+                {
+                    "key": "lft",
+                    "value": 23,
+                    "type": "number"
+                },
+                {
+                    "key": "rgt",
+                    "value": 24,
+                    "type": "number"
+                },
+                {
+                    "key": "old_parent",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "parent_contract_item",
+                    "value": "01966f88-9263-73b0-abdb-1f9e1c104a03",
+                    "type": "string"
+                },
+                {
+                    "key": "Codigo",
+                    "value": "1.1.2.9",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "1.1.2.9. Praça P-08 - Km 545+800 CC - Itatiaiuçu (MG)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 23.03,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_unitario",
+                    "value": 14035.99,
+                    "type": "number"
+                },
+                {
+                    "key": "No_do_contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                },
+                {
+                    "key": "fm_modeloformula",
+                    "value": "01967389-eb01-7e20-a48e-7dca19939d69",
+                    "type": "string"
+                },
+                {
+                    "key": "f_calculomedicaoservico",
+                    "value": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967381-55da-77c3-b65f-d2dd6b67b101",
+            "entity_type": "Contract_Item_Asset",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-79a4-7650-b3db-5e9db17f8644",
+                    "type": "string"
+                },
+                {
+                    "key": "asset",
+                    "value": "01967346-0d87-7ba1-82b4-1fad84d539d0",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_mensal",
+                    "value": 7295.94,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01967381-55da-77c3-b65f-d2ce4588db00",
+            "entity_type": "Contract_Item_Asset",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-79a4-7650-b3db-5e9db17f8644",
+                    "type": "string"
+                },
+                {
+                    "key": "asset",
+                    "value": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "type": "string"
+                },
+                {
+                    "key": "Descricao",
+                    "value": "VW - Saveiro (PUD-4405)",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_mensal",
+                    "value": 4690.24,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01967381-55da-77c3-b65f-d2b6570cb53d",
+            "entity_type": "Contract_Item_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-79a4-7650-b3db-5e9db17f8644",
+                    "type": "string"
+                },
+                {
+                    "key": "Funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Pagamento_por_hora",
+                    "value": 1,
+                    "type": "boolean"
+                },
+                {
+                    "key": "Valor_por_hora",
+                    "value": 42.32,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_total_mensal",
+                    "value": 0.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01967381-55da-77c3-b65f-d2ac6a393cc0",
+            "entity_type": "Contract_Item_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-79a4-7650-b3db-5e9db17f8644",
+                    "type": "string"
+                },
+                {
+                    "key": "Funcao",
+                    "value": "01967344-d3f1-7060-88f7-7ca7dd3b434a",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade",
+                    "value": 1,
+                    "type": "number"
+                },
+                {
+                    "key": "Pagamento_por_hora",
+                    "value": 0,
+                    "type": "boolean"
+                },
+                {
+                    "key": "Valor_por_hora",
+                    "value": 0.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Valor_total_mensal",
+                    "value": 9276.26,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "iks1oc7kdo",
+            "entity_type": "Contract_Item_City",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-79a4-7650-b3db-5e9db17f8644",
+                    "type": "string"
+                },
+                {
+                    "key": "cidade",
+                    "value": "Itatiaiuçu-MG",
+                    "type": "string"
+                },
+                {
+                    "key": "ISS",
+                    "value": "0",
+                    "type": "string"
+                },
+                {
+                    "key": "Participacao",
+                    "value": 100.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01966fc5-252f-73a0-b938-79d8c6c00d24",
+            "entity_type": "Contract_Item_Order",
+            "attributes": [
+                {
+                    "key": "Contract_Item",
+                    "value": "01966f8b-79a4-7650-b3db-5e9db17f8644",
+                    "type": "string"
+                },
+                {
+                    "key": "pedidosap",
+                    "value": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+                    "type": "string"
+                },
+                {
+                    "key": "Centro_de_custo",
+                    "value": "FD38134101",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total",
+                    "value": 4363200.0,
+                    "type": "number"
+                },
+                {
+                    "key": "Percentual",
+                    "value": 11.11,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+            "entity_type": "Contract_Measurement",
+            "attributes": [
+                {
+                    "key": "contrato",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
+                },
+                {
+                    "key": "contratada",
+                    "value": "01966f01-1ae9-72a1-86e1-464b5faba430",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_inicial_do_contrato",
+                    "value": "2023-07-14",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_final_do_contrato",
+                    "value": "2023-07-31",
+                    "type": "string"
+                },
+                {
+                    "key": "Obra",
+                    "value": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "019678cb-9ace-76b0-b955-9bc9e2ecb680",
+            "entity_type": "Contract_Measurement_Asset",
+            "attributes": [
+                {
+                    "key": "Contract_Measurement",
+                    "value": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_e_hora",
+                    "value": "2025-04-11 16:48:35",
+                    "type": "datetime"
+                },
+                {
+                    "key": "item",
+                    "value": "01966f8a-7e88-7870-aeb3-ac166733b461",
+                    "type": "string"
+                },
+                {
+                    "key": "maquina_equipamento_ou_ferramenta",
+                    "value": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade_medida",
+                    "value": 30.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "019678cb-9ace-76b0-b955-9bba2a0bfe6f",
+            "entity_type": "Contract_Measurement_Asset",
+            "attributes": [
+                {
+                    "key": "Contract_Measurement",
+                    "value": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_e_hora",
+                    "value": "2025-04-09 16:47:56",
+                    "type": "datetime"
+                },
+                {
+                    "key": "item",
+                    "value": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+                    "type": "string"
+                },
+                {
+                    "key": "maquina_equipamento_ou_ferramenta",
+                    "value": "01967343-b7d4-7e20-908c-c48e8cf68789",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade_medida",
+                    "value": 30.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "0196792f-6a67-7272-9724-8207fb3dba25",
+            "entity_type": "Contract_Measurement_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Measurement",
+                    "value": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_e_hora",
+                    "value": "2025-04-16 18:37:33",
+                    "type": "datetime"
+                },
+                {
+                    "key": "item",
+                    "value": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+                    "type": "string"
+                },
+                {
+                    "key": "funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade_medida",
+                    "value": 202.0,
+                    "type": "number"
+                },
+                {
+                    "key": "funcaoitem",
+                    "value": "0196737d-4724-7103-b25b-920993479712",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "019678c3-0550-77c2-8f16-be66d3f09d33",
+            "entity_type": "Contract_Measurement_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Measurement",
+                    "value": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_e_hora",
+                    "value": "2025-04-07 16:39:02",
+                    "type": "datetime"
+                },
+                {
+                    "key": "item",
+                    "value": "01966f8a-7e88-7870-aeb3-ac166733b461",
+                    "type": "string"
+                },
+                {
+                    "key": "funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade_medida",
+                    "value": 202.0,
+                    "type": "number"
+                },
+                {
+                    "key": "funcaoitem",
+                    "value": "0196737c-6476-7190-b691-9ac1988ab36a",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "019678c3-0550-77c2-8f16-be50ccad36fd",
+            "entity_type": "Contract_Measurement_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Measurement",
+                    "value": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_e_hora",
+                    "value": "2025-04-04 16:38:17",
+                    "type": "datetime"
+                },
+                {
+                    "key": "item",
+                    "value": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
+                    "type": "string"
+                },
+                {
+                    "key": "funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade_medida",
+                    "value": 202.0,
+                    "type": "number"
+                },
+                {
+                    "key": "funcaoitem",
+                    "value": "0196737a-329c-7203-bdc6-55265ce0a401",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "019678c3-0550-77c2-8f16-be4e31a16d19",
+            "entity_type": "Contract_Measurement_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Measurement",
+                    "value": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_e_hora",
+                    "value": "2025-04-04 16:37:41",
+                    "type": "datetime"
+                },
+                {
+                    "key": "item",
+                    "value": "01966f89-a62b-75d1-aef5-fab65638be12",
+                    "type": "string"
+                },
+                {
+                    "key": "funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade_medida",
+                    "value": 202.0,
+                    "type": "number"
+                },
+                {
+                    "key": "funcaoitem",
+                    "value": "01967375-c2bc-75a1-95bc-a4c2f4ab35d9",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "019678c3-054f-7e30-95d1-0dc63fcd01c3",
+            "entity_type": "Contract_Measurement_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Measurement",
+                    "value": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_e_hora",
+                    "value": "2025-04-04 16:37:41",
+                    "type": "datetime"
+                },
+                {
+                    "key": "item",
+                    "value": "01966f89-a62b-75d1-aef5-fab65638be12",
+                    "type": "string"
+                },
+                {
+                    "key": "funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade_medida",
+                    "value": 202.0,
+                    "type": "number"
+                },
+                {
+                    "key": "funcaoitem",
+                    "value": "01967375-c2bc-75a1-95bc-a4c2f4ab35d9",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "019678be-2991-7893-9056-a82503920e00",
+            "entity_type": "Contract_Measurement_Work_Role",
+            "attributes": [
+                {
+                    "key": "Contract_Measurement",
+                    "value": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+                    "type": "string"
+                },
+                {
+                    "key": "Data_e_hora",
+                    "value": "2025-04-03 16:30:22",
+                    "type": "datetime"
+                },
+                {
+                    "key": "item",
+                    "value": "01966f89-7148-7163-93dd-c2e6e9b8d5bf",
+                    "type": "string"
+                },
+                {
+                    "key": "funcao",
+                    "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+                    "type": "string"
+                },
+                {
+                    "key": "Quantidade_medida",
+                    "value": 202.0,
+                    "type": "number"
+                },
+                {
+                    "key": "funcaoitem",
+                    "value": "01967374-d549-7d91-9b62-e14b371b9f20",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01966f01-1ae9-72a1-86e1-464b5faba430",
+            "entity_type": "Contracted_Company",
+            "attributes": [
+                {
+                    "key": "Nome",
+                    "value": "KRONOS - ENGENHARIA LTDA - ME",
+                    "type": "string"
+                },
+                {
+                    "key": "Razao_Social",
+                    "value": "KRONOS - ENGENHARIA LTDA - ME",
+                    "type": "string"
+                },
+                {
+                    "key": "CNPJ",
+                    "value": "14.157.156/0001-95",
+                    "type": "string"
+                },
+                {
+                    "key": "Endereco",
+                    "value": "Rua Coronel Otávio Meyer , 160, sala 227, Centro - Pouso Alegre, MG, BRASIL",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "0196727a-a6fc-7f90-a9b5-c286fca9a065",
+            "entity_type": "Formula",
+            "attributes": [
+                {
+                    "key": "Formula",
+                    "value": "TESTE",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967389-eb01-7e20-a48e-7dca19939d69",
+            "entity_type": "Formula_Template",
+            "attributes": [
+                {
+                    "key": "Nome",
+                    "value": "Total do serviço",
+                    "type": "string"
+                },
+                {
+                    "key": "Descrrcao",
+                    "value": "Calcula o valor total para o serviço considerando mão de obra e veiculos",
+                    "type": "string"
+                },
+                {
+                    "key": "Formula",
+                    "value": "SUM(Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida*Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora)",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
+            "entity_type": "SAP_Order",
+            "attributes": [
+                {
+                    "key": "No_do_pedido",
+                    "value": "4500771063",
+                    "type": "string"
+                },
+                {
+                    "key": "Centro_de_custo",
+                    "value": "FD38134101",
+                    "type": "string"
+                },
+                {
+                    "key": "Valor_total",
+                    "value": 4363200.0,
+                    "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01967344-d3f1-7060-88f7-7ca7dd3b434a",
+            "entity_type": "Work_Role",
+            "attributes": [
+                {
+                    "key": "Funcao",
+                    "value": "Supervisor de manutenção",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967345-0e75-7200-8d82-84d37b4f010c",
+            "entity_type": "Work_Role",
+            "attributes": [
+                {
+                    "key": "Funcao",
+                    "value": "Técnico de manutenção",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "0196778e-f60f-79f3-8043-3f3089d2a9ac",
+            "entity_type": "Work_Role",
+            "attributes": [
+                {
+                    "key": "Funcao",
+                    "value": "Motorista A/B",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}
