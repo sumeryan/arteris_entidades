@@ -257,6 +257,11 @@
                     "type": "datetime"
                 },
                 {
+                    "key": "Subsidiaria",
+                    "value": "01967c0f-3239-7ea1-a090-38c3c2fd3873",
+                    "type": "string"
+                },
+                {
                     "key": "Obra",
                     "value": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
                     "type": "string"
@@ -2542,6 +2547,105 @@
                     "key": "Valor_total",
                     "value": 4363200.0,
                     "type": "number"
+                }
+            ]
+        },
+        {
+            "id": "01967c0f-3239-7ea1-a090-38c3c2fd3873",
+            "entity_type": "Subsidiary",
+            "attributes": [
+                {
+                    "key": "Subsidiaria",
+                    "value": "Autovias",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967c0f-6b94-7760-bd23-72eeea81bcb7",
+            "entity_type": "Subsidiary",
+            "attributes": [
+                {
+                    "key": "Subsidiaria",
+                    "value": "Centrovias",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967c0f-9762-7bf0-8572-f65924258867",
+            "entity_type": "Subsidiary",
+            "attributes": [
+                {
+                    "key": "Subsidiaria",
+                    "value": "Intervias",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967c0f-c04d-7852-813e-03e14bd09c3d",
+            "entity_type": "Subsidiary",
+            "attributes": [
+                {
+                    "key": "Subsidiaria",
+                    "value": "Entrevias",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967c0f-ec9f-7ea2-8e02-8da2cad0f7e5",
+            "entity_type": "Subsidiary",
+            "attributes": [
+                {
+                    "key": "Subsidiaria",
+                    "value": "Autopista Planalto Sul",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967c10-167e-75e1-8391-96937aaa64bf",
+            "entity_type": "Subsidiary",
+            "attributes": [
+                {
+                    "key": "Subsidiaria",
+                    "value": "Autopista Litoral Sul",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967c10-3a45-7833-8151-6d73076513af",
+            "entity_type": "Subsidiary",
+            "attributes": [
+                {
+                    "key": "Subsidiaria",
+                    "value": "Autopista Fluminense",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967c10-6759-7972-bc50-1e18ad13bea7",
+            "entity_type": "Subsidiary",
+            "attributes": [
+                {
+                    "key": "Subsidiaria",
+                    "value": "Autopista Fernão Dias",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "id": "01967c10-822a-7cd2-bd2b-eb4b4e8b9e46",
+            "entity_type": "Subsidiary",
+            "attributes": [
+                {
+                    "key": "Subsidiaria",
+                    "value": "Autopista Régis Bittencourt",
+                    "type": "string"
                 }
             ]
         },

@@ -18,9 +18,7 @@ from dotenv import load_dotenv
 from get_docktypes import process_arteris_doctypes
 from api_client_data import get_keys, get_data_from_key
 from json_to_entity_transformer import create_hierarchical_doctype_structure, process_fields_for_hierarchy
-#from data_to_engine_entities import transform_data_to_engine_entities
-from data_to_engine_entities_v2 import get_data_engine_hierarquical
-from data_to_engine_entities_v3 import get_data_engine_full_hierarquical
+from data_to_engine_entities_v4 import transform_to_entity_engine
 
 
 # Carrega variáveis de ambiente do arquivo .env na raiz do projeto
@@ -123,7 +121,7 @@ def main():
     # --- Transformar dados para o formato engine_entities ---
     print("\n--- Iniciando transformação para formato engine_entities v2---")
     
-    engine_data_v2 = get_data_engine_hierarquical(
+    engine_data_v2 = transform_to_entity_engine(
         all_doctype_data, 
         hierarchical_entities)
     

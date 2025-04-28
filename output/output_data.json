@@ -135,6 +135,7 @@
             "contratada": "01966f01-1ae9-72a1-86e1-464b5faba430",
             "datainicial": "2023-07-14",
             "datafinal": "2023-07-31",
+            "subsidiaria": "01967c0f-3239-7ea1-a090-38c3c2fd3873",
             "obra": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
             "descricao": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
             "valortotal": 4486174.16,
@@ -936,6 +937,87 @@
             "centrocusto": "FD38134101",
             "valortotal": 4363200.0,
             "doctype": "SAP Order"
+        }
+    },
+    {
+        "doctype": "Subsidiary",
+        "key": "01967c0f-3239-7ea1-a090-38c3c2fd3873",
+        "data": {
+            "name": "01967c0f-3239-7ea1-a090-38c3c2fd3873",
+            "nome": "Autovias",
+            "doctype": "Subsidiary"
+        }
+    },
+    {
+        "doctype": "Subsidiary",
+        "key": "01967c0f-6b94-7760-bd23-72eeea81bcb7",
+        "data": {
+            "name": "01967c0f-6b94-7760-bd23-72eeea81bcb7",
+            "nome": "Centrovias",
+            "doctype": "Subsidiary"
+        }
+    },
+    {
+        "doctype": "Subsidiary",
+        "key": "01967c0f-9762-7bf0-8572-f65924258867",
+        "data": {
+            "name": "01967c0f-9762-7bf0-8572-f65924258867",
+            "nome": "Intervias",
+            "doctype": "Subsidiary"
+        }
+    },
+    {
+        "doctype": "Subsidiary",
+        "key": "01967c0f-c04d-7852-813e-03e14bd09c3d",
+        "data": {
+            "name": "01967c0f-c04d-7852-813e-03e14bd09c3d",
+            "nome": "Entrevias",
+            "doctype": "Subsidiary"
+        }
+    },
+    {
+        "doctype": "Subsidiary",
+        "key": "01967c0f-ec9f-7ea2-8e02-8da2cad0f7e5",
+        "data": {
+            "name": "01967c0f-ec9f-7ea2-8e02-8da2cad0f7e5",
+            "nome": "Autopista Planalto Sul",
+            "doctype": "Subsidiary"
+        }
+    },
+    {
+        "doctype": "Subsidiary",
+        "key": "01967c10-167e-75e1-8391-96937aaa64bf",
+        "data": {
+            "name": "01967c10-167e-75e1-8391-96937aaa64bf",
+            "nome": "Autopista Litoral Sul",
+            "doctype": "Subsidiary"
+        }
+    },
+    {
+        "doctype": "Subsidiary",
+        "key": "01967c10-3a45-7833-8151-6d73076513af",
+        "data": {
+            "name": "01967c10-3a45-7833-8151-6d73076513af",
+            "nome": "Autopista Fluminense",
+            "doctype": "Subsidiary"
+        }
+    },
+    {
+        "doctype": "Subsidiary",
+        "key": "01967c10-6759-7972-bc50-1e18ad13bea7",
+        "data": {
+            "name": "01967c10-6759-7972-bc50-1e18ad13bea7",
+            "nome": "Autopista Fernão Dias",
+            "doctype": "Subsidiary"
+        }
+    },
+    {
+        "doctype": "Subsidiary",
+        "key": "01967c10-822a-7cd2-bd2b-eb4b4e8b9e46",
+        "data": {
+            "name": "01967c10-822a-7cd2-bd2b-eb4b4e8b9e46",
+            "nome": "Autopista Régis Bittencourt",
+            "doctype": "Subsidiary"
         }
     },
     {

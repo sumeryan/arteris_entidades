@@ -14,7 +14,7 @@ from flask_cors import CORS # Importar CORS
 # Importa as funções dos módulos existentes
 from get_docktypes import process_arteris_doctypes
 from api_client_data import get_keys, get_data_from_key
-from json_to_entity_transformer import transform_entity_structure, create_hierarchical_doctype_structure
+from json_to_entity_transformer import create_hierarchical_doctype_structure
 
 # Carrega variáveis de ambiente do arquivo .env
 load_dotenv()
