@@ -1,0 +1,151 @@
+{
+    "entities": [
+        {
+            "key": "Contract_Measurement",
+            "description": "Contract Measurement",
+            "fieldname": "Contract Measurement",
+            "type": "doctype",
+            "children": [
+                {
+                    "key": "Data_final_do_contrato",
+                    "description": "Data final do contrato",
+                    "fieldname": "data_final_do_contrato",
+                    "type": "string",
+                    "path": "Contract_Measurement.Data_final_do_contrato"
+                },
+                {
+                    "key": "Data_inicial_do_contrato",
+                    "description": "Data inicial do contrato",
+                    "fieldname": "data_ejak",
+                    "type": "string",
+                    "path": "Contract_Measurement.Data_inicial_do_contrato"
+                },
+                {
+                    "key": "Obra",
+                    "description": "Obra",
+                    "fieldname": "obra",
+                    "type": "string",
+                    "path": "Contract_Measurement.Obra"
+                },
+                {
+                    "key": "Contracted_Company",
+                    "description": "Contracted Company",
+                    "fieldname": "Contracted Company",
+                    "type": "doctype",
+                    "children": [],
+                    "path": "Contract_Measurement.Contracted_Company"
+                },
+                {
+                    "key": "Contract",
+                    "description": "Contract",
+                    "fieldname": "Contract",
+                    "type": "doctype",
+                    "children": [],
+                    "path": "Contract_Measurement.Contract"
+                },
+                {
+                    "key": "Contract_Measurement_Asset",
+                    "description": "Contract Measurement Asset",
+                    "fieldname": "Contract Measurement Asset",
+                    "type": "doctype",
+                    "children": [
+                        {
+                            "key": "Quantidade_medida",
+                            "description": "Quantidade medida",
+                            "fieldname": "quantidade_medida",
+                            "type": "numeric",
+                            "path": "Contract_Measurement.Contract_Measurement_Asset.Quantidade_medida"
+                        },
+                        {
+                            "key": "Data_e_hora",
+                            "description": "Data e hora",
+                            "fieldname": "data_e_hora",
+                            "type": "datetime",
+                            "path": "Contract_Measurement.Contract_Measurement_Asset.Data_e_hora"
+                        },
+                        {
+                            "key": "Asset",
+                            "description": "Asset",
+                            "fieldname": "Asset",
+                            "type": "doctype",
+                            "children": [],
+                            "path": "Contract_Measurement.Contract_Measurement_Asset.Asset"
+                        },
+                        {
+                            "key": "Contract_Item",
+                            "description": "Contract Item",
+                            "fieldname": "Contract Item",
+                            "type": "doctype",
+                            "children": [],
+                            "path": "Contract_Measurement.Contract_Measurement_Asset.Contract_Item"
+                        }
+                    ],
+                    "path": "Contract_Measurement.Contract_Measurement_Asset"
+                },
+                {
+                    "key": "Contract_Measurement_Work_Role",
+                    "description": "Contract Measurement Work Role",
+                    "fieldname": "Contract Measurement Work Role",
+                    "type": "doctype",
+                    "children": [
+                        {
+                            "key": "Data_e_hora",
+                            "description": "Data e hora",
+                            "fieldname": "data_e_hora",
+                            "type": "datetime",
+                            "path": "Contract_Measurement.Contract_Measurement_Work_Role.Data_e_hora"
+                        },
+                        {
+                            "key": "Quantidade_medida",
+                            "description": "Quantidade medida",
+                            "fieldname": "quantidade_medida",
+                            "type": "numeric",
+                            "path": "Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida"
+                        },
+                        {
+                            "key": "Contract_Item_Work_Role",
+                            "description": "Contract Item Work Role",
+                            "fieldname": "Contract Item Work Role",
+                            "type": "doctype",
+                            "children": [],
+                            "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role"
+                        },
+                        {
+                            "key": "Contract_Item",
+                            "description": "Contract Item",
+                            "fieldname": "Contract Item",
+                            "type": "doctype",
+                            "children": [],
+                            "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item"
+                        },
+                        {
+                            "key": "Work_Role",
+                            "description": "Work Role",
+                            "fieldname": "Work Role",
+                            "type": "doctype",
+                            "children": [],
+                            "path": "Contract_Measurement.Contract_Measurement_Work_Role.Work_Role"
+                        }
+                    ],
+                    "path": "Contract_Measurement.Contract_Measurement_Work_Role"
+                }
+            ]
+        },
+        {
+            "key": "Contract",
+            "description": "Contract",
+            "fieldname": "Contract",
+            "type": "doctype",
+            "children": [
+                {
+                    "key": "Contract_Item",
+                    "description": "Contract Item",
+                    "fieldname": "Contract Item",
+                    "type": "doctype",
+                    "children": [],
+                    "path": "Contract.Contract_Item"
+                }
+            ]
+        }
+    ]
+}
