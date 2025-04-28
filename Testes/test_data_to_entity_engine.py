@@ -73,6 +73,18 @@ def test_transform_to_entity_engine():
         if entity_engine_result.get('entities'):
             logger.info("Exemplo da primeira entidade transformada:")
             logger.info(json.dumps(entity_engine_result['entities'][0], indent=2, ensure_ascii=False))
+
+        # Gravar o resultado em um arquivo
+        output_path="output"
+        output_filename="entity_engine_resultado_v4.json"
+        try:
+            with open(os.path.join(output_path, output_filename), "w", encoding="utf-8") as f:
+                json.dump(entity_engine_result, f, indent=4, ensure_ascii=False)
+            logger.info(f"\n************************")    
+            logger.info(f"\nEstrutura hierárquica de entidades salva em {output_filename}")
+            logger.info(f"\n************************")    
+        except IOError as e:
+            logger.error(f"\nErro ao salvar o arquivo {output_filename}: {e}")
         
     except Exception as e:
         logger.error(f"Erro durante o teste: {e}")
