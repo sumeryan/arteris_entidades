@@ -20,8 +20,8 @@ from dotenv import load_dotenv
 #from transformer import transform_to_entity_structure
 from get_docktypes import process_arteris_doctypes
 from api_client_data import get_keys, get_data_from_key
-from json_to_entity_transformer import transform_entity_structure
-from data_to_engine_entities import transform_data_to_engine_entities
+from json_to_entity_transformer import transform_entity_structure, create_hierarchical_doctype_structure
+
 
 # Carrega variáveis de ambiente do arquivo .env na raiz do projeto
 load_dotenv()
@@ -85,50 +85,55 @@ def main():
     print("\n--- DocTypes com suas respectivas chaves ---")
     print(json.dumps(doctypes_with_keys, indent=4, ensure_ascii=False))
 
-    # Para cada DocType, busca os dados usando o método get_data_from_key
-    all_doctype_data = []
-    for doctype in doctypes_with_keys:
-        doctype_name = doctype.get("doctype")
-        keys = doctype.get("keys")
-        if keys:
-            for key in keys:
-                data = get_data_from_key(api_base_url, api_token, doctype_name, key)
-                if data:
-                    all_doctype_data.append({"doctype": doctype_name, "key": key, "data": data})
-                else:
-                    print(f"Erro ao buscar dados para {doctype_name} com chave {key}.")
-        else:
-            print(f"Aviso: Nenhuma chave encontrada para o DocType {doctype_name}.")
+    # # Para cada DocType, busca os dados usando o método get_data_from_key
+    # all_doctype_data = []
+    # for doctype in doctypes_with_keys:
+    #     doctype_name = doctype.get("doctype")
+    #     keys = doctype.get("keys")
+    #     if keys:
+    #         for key in keys:
+    #             data = get_data_from_key(api_base_url, api_token, doctype_name, key)
+    #             if data:
+    #                 all_doctype_data.append({"doctype": doctype_name, "key": key, "data": data})
+    #             else:
+    #                 print(f"Erro ao buscar dados para {doctype_name} com chave {key}.")
+    #     else:
+    #         print(f"Aviso: Nenhuma chave encontrada para o DocType {doctype_name}.")
 
     # Salva os dados em um arquivo
-    output_data_filename = "output_data.json"
-    try:
-        with open(output_data_filename, "w", encoding="utf-8") as f:
-            json.dump(all_doctype_data, f, indent=4, ensure_ascii=False)
-        print(f"\nDados salvos em {output_data_filename}")
-    except IOError as e:
-        print(f"\nErro ao salvar o arquivo {output_data_filename}: {e}")
+    # output_data_filename = "output_data.json"
+    # try:
+    #     with open(output_data_filename, "w", encoding="utf-8") as f:
+    #         json.dump(all_doctype_data, f, indent=4, ensure_ascii=False)
+    #     print(f"\nDados salvos em {output_data_filename}")
+    # except IOError as e:
+    #     print(f"\nErro ao salvar o arquivo {output_data_filename}: {e}")
 
     # --- Etapa 3: Transformar dados para o formato engine_entities ---
     print("\n--- Iniciando transformação para formato engine_entities ---")
     
     # Transformar dados para o formato engine_entities
-    engine_entities = transform_data_to_engine_entities(all_doctype_data, entity_structure)
+    # engine_entities = transform_data_to_engine_entities(all_doctype_data, entity_structure)
+
+    h_entities = create_hierarchical_doctype_structure(doctypes_with_fields,
+        child_parent_mapping)
+
+    print(f"Entidades hierárquicas: {h_entities}")  
     
     # Salvar o resultado
-    output_engine_filename = "engine_entities_output.json"
-    try:
-        with open(output_engine_filename, "w", encoding="utf-8") as f:
-            json.dump(engine_entities, f, indent=4, ensure_ascii=False)
-        print(f"\nEntidades no formato engine salvas em {output_engine_filename}")
-    except IOError as e:
-        print(f"\nErro ao salvar o arquivo {output_engine_filename}: {e}")
+    # output_engine_filename = "engine_entities_output.json"
+    # try:
+    #     with open(output_engine_filename, "w", encoding="utf-8") as f:
+    #         json.dump(engine_entities, f, indent=4, ensure_ascii=False)
+    #     print(f"\nEntidades no formato engine salvas em {output_engine_filename}")
+    # except IOError as e:
+    #     print(f"\nErro ao salvar o arquivo {output_engine_filename}: {e}")
     
     print(f"\n--- Fim da execução ---")
 
     # Mensagem final opcional
-    print(f"\nTotal de {len(all_doctype_data)} DocTypes tiveram seus dados buscados.")
-    print(f"Total de {len(engine_entities.get('entities', []))} entidades geradas no formato engine.")
+    # print(f"\nTotal de {len(all_doctype_data)} DocTypes tiveram seus dados buscados.")
+    # print(f"Total de {len(engine_entities.get('entities', []))} entidades geradas no formato engine.")
     # if 'entity_structure' in locals() and entity_structure:
     #      print(f"Estrutura de entidades gerada para {len(entity_structure.get('entities', []))} DocTypes.")
 

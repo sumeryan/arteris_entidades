@@ -311,9 +311,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 1,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -331,11 +331,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "Contrato CW32567",
                     "type": "string"
@@ -349,9 +344,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 1,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -369,11 +364,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
                     "type": "string"
@@ -387,9 +377,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 1,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -407,11 +397,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1.1. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
                     "type": "string"
@@ -425,9 +410,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 1,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -445,11 +430,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1.1.1. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
                     "type": "string"
@@ -463,9 +443,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 1,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -483,11 +463,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1.1.2. MANUTENÇÃO DE SISTEMAS E EQUIPAMENTOS DE PEDÁGIO",
                     "type": "string"
@@ -501,9 +476,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 0,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -521,11 +496,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1.1.2.1. Praça P-01-Norte km 65+700 CC- Mairiporã (SP)",
                     "type": "string"
@@ -539,9 +509,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 0,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -559,11 +529,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1.1.2.2. Praça P-01-Sul  e Defasada km 66+680 CC- Mairiporã (SP)",
                     "type": "string"
@@ -577,9 +542,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 0,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -597,11 +562,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1.1.2.3. Praça P-02 km 7+576 CC- Vargem (SP)",
                     "type": "string"
@@ -615,9 +575,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 0,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -635,11 +595,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1.1.2.4. Praça P-03 km 900+875 CC- Cambuí (MG)",
                     "type": "string"
@@ -653,9 +608,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 0,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -673,11 +628,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1.1.2.5. Praça P-04 Km 805+151 CC- São Gonçalo do Sapucaí (MG)",
                     "type": "string"
@@ -690,11 +640,6 @@
                 "Contract Item"
             ],
             "attributes": [
-                {
-                    "key": "is_group",
-                    "value": 0,
-                    "type": "boolean"
-                },
                 {
                     "key": "valorunitario",
                     "value": "0.0",
@@ -724,9 +669,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 0,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -744,11 +689,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1.1.2.7. Praça P-06 Km 658+027 CC - Santo Antônio do Amparo (MG)",
                     "type": "string"
@@ -762,9 +702,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 0,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -782,11 +722,6 @@
                     "type": "number"
                 },
                 {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
-                },
-                {
                     "key": "descricao",
                     "value": "1.1.2.8. Praça P-07 - Km 597+678 CC - Carmópolis de Minas (MG)",
                     "type": "string"
@@ -800,9 +735,9 @@
             ],
             "attributes": [
                 {
-                    "key": "is_group",
-                    "value": 0,
-                    "type": "boolean"
+                    "key": "parentId",
+                    "value": "01966f13-c251-7093-9534-e5ae31671748",
+                    "type": "string"
                 },
                 {
                     "key": "valorunitario",
@@ -818,11 +753,6 @@
                     "key": "quantidade",
                     "value": "23.03",
                     "type": "number"
-                },
-                {
-                    "key": "contrato",
-                    "value": "01966f13-c251-7093-9534-e5ae31671748",
-                    "type": "string"
                 },
                 {
                     "key": "descricao",

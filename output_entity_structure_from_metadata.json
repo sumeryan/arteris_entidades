@@ -12,7 +12,7 @@
                     {
                         "key": "nomeativo",
                         "type": "string",
-                        "description": "Nome do ativo"
+                        "description": "Nome_do_ativo"
                     }
                 ],
                 "relationships": []
@@ -35,7 +35,7 @@
                     {
                         "key": "municipio",
                         "type": "string",
-                        "description": "Município"
+                        "description": "Municipio"
                     },
                     {
                         "key": "iss",
@@ -63,17 +63,17 @@
                     {
                         "key": "inicioservicos",
                         "type": "datetime",
-                        "description": "Início real dos serviços"
+                        "description": "Inicio_real_dos_servicos"
                     },
                     {
                         "key": "modeloformula",
                         "type": "string",
-                        "description": "Modelo de fórmula"
+                        "description": "Modelo_de_formula"
                     },
                     {
                         "key": "inicioservicosprevisto",
                         "type": "datetime",
-                        "description": "Início dos serviços conf. contrato"
+                        "description": "Inicio_dos_servicos_conf_contrato"
                     },
                     {
                         "key": "percentualreidi",
@@ -88,37 +88,37 @@
                     {
                         "key": "terminoservicos",
                         "type": "datetime",
-                        "description": "Término previsto dos serviços"
+                        "description": "Termino_previsto_dos_servicos"
                     },
                     {
                         "key": "terminoservicosprevisto",
                         "type": "datetime",
-                        "description": "Término serviços conf. contrato"
+                        "description": "Termino_servicos_conf_contrato"
                     },
                     {
                         "key": "valortotal",
                         "type": "numeric",
-                        "description": "Valor total do contrato"
+                        "description": "Valor_total_do_contrato"
                     },
                     {
                         "key": "datainicial",
                         "type": "datetime",
-                        "description": "Data inicial do contrato"
+                        "description": "Data_inicial_do_contrato"
                     },
                     {
                         "key": "descricao",
                         "type": "string",
-                        "description": "Descrição"
+                        "description": "Descricao"
                     },
                     {
                         "key": "contrato",
                         "type": "string",
-                        "description": "Nº do Contrato"
+                        "description": "No_do_Contrato"
                     },
                     {
                         "key": "datafinal",
                         "type": "datetime",
-                        "description": "Data final do contrato"
+                        "description": "Data_final_do_contrato"
                     }
                 ],
                 "relationships": [
@@ -138,7 +138,7 @@
         {
             "entity": {
                 "type": "Contract Item",
-                "description": "Contract Item",
+                "description": "Contract_Item",
                 "attributes": [
                     {
                         "key": "name",
@@ -147,17 +147,17 @@
                     {
                         "key": "is_group",
                         "type": "boolean",
-                        "description": "Is Group"
+                        "description": "Is_Group"
                     },
                     {
                         "key": "valorunitario",
                         "type": "numeric",
-                        "description": "Valor unitário"
+                        "description": "Valor_unitario"
                     },
                     {
                         "key": "codigo",
                         "type": "string",
-                        "description": "Código"
+                        "description": "Codigo"
                     },
                     {
                         "key": "quantidade",
@@ -167,12 +167,12 @@
                     {
                         "key": "contrato",
                         "type": "string",
-                        "description": "Nº do contrato"
+                        "description": "No_do_contrato"
                     },
                     {
                         "key": "descricao",
                         "type": "string",
-                        "description": "Descrição"
+                        "description": "Descricao"
                     }
                 ],
                 "relationships": [
@@ -202,7 +202,7 @@
         {
             "entity": {
                 "type": "Contract Measurement",
-                "description": "Contract Measurement",
+                "description": "Contract_Measurement",
                 "attributes": [
                     {
                         "key": "name",
@@ -211,7 +211,7 @@
                     {
                         "key": "data_final_do_contrato",
                         "type": "string",
-                        "description": "Data final do contrato"
+                        "description": "Data_final_do_contrato"
                     },
                     {
                         "key": "contratada",
@@ -221,12 +221,12 @@
                     {
                         "key": "data_ejak",
                         "type": "string",
-                        "description": "Data inicial do contrato"
+                        "description": "Data_inicial_do_contrato"
                     },
                     {
                         "key": "contrato",
                         "type": "string",
-                        "description": "Nº do contrato"
+                        "description": "No_do_contrato"
                     },
                     {
                         "key": "obra",
@@ -251,7 +251,7 @@
         {
             "entity": {
                 "type": "Contracted Company",
-                "description": "Contracted Company",
+                "description": "Contracted_Company",
                 "attributes": [
                     {
                         "key": "name",
@@ -260,12 +260,12 @@
                     {
                         "key": "razaosocial",
                         "type": "string",
-                        "description": "Razão Social"
+                        "description": "Razao_Social"
                     },
                     {
                         "key": "endereco",
                         "type": "string",
-                        "description": "Endereço"
+                        "description": "Endereco"
                     },
                     {
                         "key": "cnpj",
@@ -307,7 +307,7 @@
         {
             "entity": {
                 "type": "Formula Template",
-                "description": "Formula Template",
+                "description": "Formula_Template",
                 "attributes": [
                     {
                         "key": "name",
@@ -321,7 +321,7 @@
                     {
                         "key": "formula",
                         "type": "string",
-                        "description": "Fórmula"
+                        "description": "Formula"
                     },
                     {
                         "key": "configurar",
@@ -331,7 +331,7 @@
                     {
                         "key": "descricao",
                         "type": "string",
-                        "description": "Descrrção"
+                        "description": "Descrrcao"
                     }
                 ],
                 "relationships": []
@@ -340,7 +340,7 @@
         {
             "entity": {
                 "type": "SAP Order",
-                "description": "SAP Order",
+                "description": "SAP_Order",
                 "attributes": [
                     {
                         "key": "name",
@@ -349,17 +349,17 @@
                     {
                         "key": "numeropedido",
                         "type": "string",
-                        "description": "Nº do pedido"
+                        "description": "No_do_pedido"
                     },
                     {
                         "key": "valortotal",
                         "type": "numeric",
-                        "description": "Valor total"
+                        "description": "Valor_total"
                     },
                     {
                         "key": "centrocusto",
                         "type": "string",
-                        "description": "Centro de custo"
+                        "description": "Centro_de_custo"
                     }
                 ],
                 "relationships": []
@@ -377,7 +377,7 @@
                     {
                         "key": "nome",
                         "type": "string",
-                        "description": "Subsidiária"
+                        "description": "Subsidiaria"
                     }
                 ],
                 "relationships": []
@@ -386,7 +386,7 @@
         {
             "entity": {
                 "type": "Work Role",
-                "description": "Work Role",
+                "description": "Work_Role",
                 "attributes": [
                     {
                         "key": "name",
@@ -395,7 +395,7 @@
                     {
                         "key": "funcao",
                         "type": "string",
-                        "description": "Função"
+                        "description": "Funcao"
                     }
                 ],
                 "relationships": []
@@ -404,7 +404,7 @@
         {
             "entity": {
                 "type": "Asset Operator",
-                "description": "Asset Operator",
+                "description": "Asset_Operator",
                 "attributes": [
                     {
                         "key": "name",
@@ -413,7 +413,7 @@
                     {
                         "key": "operador",
                         "type": "string",
-                        "description": "Operador/motorista"
+                        "description": "Operador_motorista"
                     },
                     {
                         "key": "quantidade",
@@ -442,7 +442,7 @@
         {
             "entity": {
                 "type": "Contract Item Asset",
-                "description": "Contract Item Asset",
+                "description": "Contract_Item_Asset",
                 "attributes": [
                     {
                         "key": "name",
@@ -451,17 +451,17 @@
                     {
                         "key": "descricao",
                         "type": "string",
-                        "description": "Descrição"
+                        "description": "Descricao"
                     },
                     {
                         "key": "valormensal",
                         "type": "numeric",
-                        "description": "Valor mensal"
+                        "description": "Valor_mensal"
                     },
                     {
                         "key": "asset",
                         "type": "string",
-                        "description": "Máquina, equipamento ou veículos"
+                        "description": "Maquina_equipamento_ou_veiculos"
                     },
                     {
                         "key": "quantidade",
@@ -490,7 +490,7 @@
         {
             "entity": {
                 "type": "Contract Item City",
-                "description": "Contract Item City",
+                "description": "Contract_Item_City",
                 "attributes": [
                     {
                         "key": "name",
@@ -509,7 +509,7 @@
                     {
                         "key": "participacaopercentual",
                         "type": "numeric",
-                        "description": "Participação %"
+                        "description": "Participacao"
                     },
                     {
                         "key": "parent",
@@ -533,7 +533,7 @@
         {
             "entity": {
                 "type": "Contract Item Order",
-                "description": "Contract Item Order",
+                "description": "Contract_Item_Order",
                 "attributes": [
                     {
                         "key": "name",
@@ -547,17 +547,17 @@
                     {
                         "key": "valortotal",
                         "type": "numeric",
-                        "description": "Valor total"
+                        "description": "Valor_total"
                     },
                     {
                         "key": "pedidosap",
                         "type": "string",
-                        "description": "Nº do pedido SAP"
+                        "description": "No_do_pedido_SAP"
                     },
                     {
                         "key": "centrocusto",
                         "type": "string",
-                        "description": "Centro de custo"
+                        "description": "Centro_de_custo"
                     },
                     {
                         "key": "parent",
@@ -581,7 +581,7 @@
         {
             "entity": {
                 "type": "Contract Item Work Role",
-                "description": "Contract Item Work Role",
+                "description": "Contract_Item_Work_Role",
                 "attributes": [
                     {
                         "key": "name",
@@ -590,12 +590,12 @@
                     {
                         "key": "valortotalmensal",
                         "type": "numeric",
-                        "description": "Valor total mensal"
+                        "description": "Valor_total_mensal"
                     },
                     {
                         "key": "pagamentohora",
                         "type": "boolean",
-                        "description": "Pagamento por hora"
+                        "description": "Pagamento_por_hora"
                     },
                     {
                         "key": "quantidade",
@@ -605,12 +605,12 @@
                     {
                         "key": "funcao",
                         "type": "string",
-                        "description": "Função"
+                        "description": "Funcao"
                     },
                     {
                         "key": "valorporhora",
                         "type": "numeric",
-                        "description": "Valor por hora"
+                        "description": "Valor_por_hora"
                     },
                     {
                         "key": "parent",
@@ -634,7 +634,7 @@
         {
             "entity": {
                 "type": "Contract Measurement Asset",
-                "description": "Contract Measurement Asset",
+                "description": "Contract_Measurement_Asset",
                 "attributes": [
                     {
                         "key": "name",
@@ -643,7 +643,7 @@
                     {
                         "key": "maquina_equipamento_ou_ferramenta",
                         "type": "string",
-                        "description": "Maquina, equipamento ou ferramenta"
+                        "description": "Maquina_equipamento_ou_ferramenta"
                     },
                     {
                         "key": "item",
@@ -653,12 +653,12 @@
                     {
                         "key": "quantidade_medida",
                         "type": "numeric",
-                        "description": "Quantidade medida"
+                        "description": "Quantidade_medida"
                     },
                     {
                         "key": "data_e_hora",
                         "type": "datetime",
-                        "description": "Data e hora"
+                        "description": "Data_e_hora"
                     },
                     {
                         "key": "parent",
@@ -687,7 +687,7 @@
         {
             "entity": {
                 "type": "Contract Measurement Work Role",
-                "description": "Contract Measurement Work Role",
+                "description": "Contract_Measurement_Work_Role",
                 "attributes": [
                     {
                         "key": "name",
@@ -696,7 +696,7 @@
                     {
                         "key": "funcaoitem",
                         "type": "string",
-                        "description": "Função do item"
+                        "description": "Funcao_do_item"
                     },
                     {
                         "key": "item",
@@ -706,17 +706,17 @@
                     {
                         "key": "funcao",
                         "type": "string",
-                        "description": "Função"
+                        "description": "Funcao"
                     },
                     {
                         "key": "data_e_hora",
                         "type": "datetime",
-                        "description": "Data e hora"
+                        "description": "Data_e_hora"
                     },
                     {
                         "key": "quantidade_medida",
                         "type": "numeric",
-                        "description": "Quantidade medida"
+                        "description": "Quantidade_medida"
                     },
                     {
                         "key": "parent",

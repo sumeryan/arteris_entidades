@@ -90,7 +90,7 @@ def get_data_from_key(api_base_url, api_token, doctype_name, key):
             
             # Remove as propriedades especificadas recursivamente
             data_filtered = data["data"]
-            properties_to_remove = ['owner', 'creation', 'modified', 'modified_by', 'docstatus', 'idx', 'parent', 'parentfield','parenttype','doctype']
+            properties_to_remove = ['owner', 'creation', 'modified', 'modified_by', 'docstatus', 'idx', 'parent', 'parentfield','parenttype','doctype','is_group']
             
             # Aplica a remoção recursiva de propriedades
             data_filtered = remove_properties_recursively(data_filtered, properties_to_remove)

@@ -1,4 +1,44 @@
 import json
+import unicodedata
+import re
+
+def normalize_string(text):
+    """Normaliza uma string: substitui acentos por caracteres base (preservando maiúsculas/minúsculas)
+       e substitui espaços/não alfanuméricos por underscore."""
+    if not text:
+        return text
+    try:
+        # Garantir que o input é uma string
+        text_str = str(text)
+        # Transliterar acentos para caracteres base (e.g., á -> a, Ç -> C)
+        # NFKD decompõe caracteres como 'ç' em 'c' e um acento combinatório.
+        nfkd_form = unicodedata.normalize('NFKD', text_str)
+        # Remove os acentos combinatórios, preservando a letra base e sua caixa.
+        sem_acentos = "".join([c for c in nfkd_form if not unicodedata.combining(c)])
+
+        # Substituir espaços e outros caracteres não alfanuméricos (exceto underscore) por underscore
+        # O padrão \W corresponde a qualquer caractere que não seja letra, número ou underscore.
+        # Aplicamos isso na string já sem acentos, mas com a caixa original preservada.
+        normalized = re.sub(r'\W+', '_', sem_acentos)
+        # Remover underscores múltiplos que podem ter sido criados
+        normalized = re.sub(r'_+', '_', normalized)
+        # Remover underscores no início ou fim, se houver
+        normalized = normalized.strip('_')
+        print(f"String normalizada: '{text_str}' -> '{normalized}'")
+
+        # Caso a string fique vazia (ex: só tinha caracteres não alfanuméricos), retorna um fallback.
+        # Este fallback ainda usa lower() por simplicidade, mas a lógica principal preserva a caixa.
+        if not normalized:
+             normalized = re.sub(r'\s+', '_', text_str.lower()).strip('_') # Fallback simples
+             if not normalized:
+                 # Se ainda vazio, retorna um valor genérico para evitar string vazia
+                 return "string_normalizada_fallback"
+        return normalized
+    except Exception as e:
+        print(f"Erro ao normalizar string '{text}': {e}")
+        # Em caso de erro inesperado, retorna uma versão simplificada (minúscula, espaços por _)
+        return re.sub(r'\s+', '_', str(text).lower()).strip('_')
+
 
 def map_field_type(field_type, key=None):
     """
@@ -106,7 +146,7 @@ def process_attributes(fields_metadata, is_child=False):
         attribute = {
             "key": field_name,
             "type": generic_type,
-            "description": field.get("label") if field.get("label") else None
+            "description": normalize_string(field.get("label")) if field.get("label") else None
         }
 
         # A lógica de adicionar 'parent' ao atributo foi movida para create_entity
@@ -177,7 +217,7 @@ def create_entity(doctype_name, fields_metadata, is_child=False, parent_doctype=
     entity = {
         "entity": {
             "type": doctype_name,
-            "description": doctype_name,
+            "description": normalize_string(doctype_name),
             "attributes": attributes,
             "relationships": relationships
         }
@@ -256,3 +296,259 @@ def transform_entity_structure(doctypes_with_fields, child_parent_mapping):
 
     # Retornar estrutura final
     return {"entities": entities}
+
+# Função auxiliar para processar campos para a hierarquia
+# Função auxiliar refatorada para lidar com recursão controlada
+def _process_fields_for_hierarchy(fields_metadata, all_doctypes_data, process_nested_relationships=True):
+    """
+    Processa metadados de campos para a estrutura hierárquica com recursão controlada.
+
+    Args:
+        fields_metadata (list): Metadados dos campos do DocType atual.
+        all_doctypes_data (dict): Dicionário completo {doctype_name: fields_metadata_list}.
+        process_nested_relationships (bool): Se True, processa Links/Tabelas neste nível.
+                                             Se False, ignora Tabelas e trata Links como campos normais.
+
+    Returns:
+        list: Lista de nós representando campos ou DocTypes vinculados.
+    """
+    processed_nodes = []
+    if not isinstance(fields_metadata, list):
+        print(f"Aviso: Metadados de campos inválidos recebidos por _process_fields_for_hierarchy.")
+        return processed_nodes
+
+    for field in fields_metadata:
+        if not isinstance(field, dict):
+            continue
+
+        field_name = field.get("fieldname")
+        field_type = field.get("fieldtype")
+        field_hidden = field.get("hidden")
+        label = field.get("label")
+        options = field.get("options")
+
+        # --- Ignorar campos irrelevantes ---
+        if not field_name or not field_type:
+            continue
+        if field_hidden == 1:
+            continue
+        if field_name.startswith("f_") or field_name.startswith("fm_"):
+            continue
+        if field_name in ["owner", "creation", "modified", "modified_by",
+                          "docstatus", "idx", "parentfield", "parenttype", "doctype",
+                          "parent"]:
+            continue
+
+        # --- Lógica de Processamento Condicional (Baseada em process_nested_relationships) ---
+
+        # 1. Processar Links no nível principal?
+        if field_type == "Link" and process_nested_relationships:
+            destination_entity = options
+            if destination_entity and destination_entity not in ["Web Page", "Report"]:
+                # Obter metadados do DocType vinculado
+                linked_fields_metadata = all_doctypes_data.get(destination_entity, [])
+                # Chamar recursivamente SEM processar mais relações aninhadas
+                linked_fields = _process_fields_for_hierarchy(
+                    linked_fields_metadata, all_doctypes_data, process_nested_relationships=False
+                )
+                # Criar nó para o DocType vinculado
+                normalized_description = normalize_string(destination_entity)
+                linked_doctype_node = {
+                    "key": normalized_description, # Key continua usando a descrição normalizada
+                    "description": destination_entity, # Description usa o nome original do doctype
+                    "fieldname": destination_entity, # Nova propriedade fieldname
+                    "type": "doctype",
+                    "children": linked_fields # Adiciona os campos processados do DocType vinculado
+                }
+                processed_nodes.append(linked_doctype_node)
+                continue # Pula para o próximo field
+
+        # 2. Ignorar Tabelas se não estiver no nível principal?
+        if field_type == "Table" and not process_nested_relationships:
+            continue # Ignora tabelas dentro de DocTypes vinculados por Link
+
+        # 3. Tratar Links como campos normais se não estiver no nível principal?
+        #    (Ou se for Link para Web Page/Report)
+        #    A lógica abaixo já faz isso tratando como um campo normal se não caiu no 'if' acima.
+
+        # 4. Ignorar Tabelas no nível principal (serão tratadas pelo child_parent_mapping)
+        if field_type == "Table" and process_nested_relationships:
+             continue # Ignora tabelas no nível principal
+
+        # --- Lógica Padrão para outros campos (ou Links/Tabelas não tratados/ignorados acima) ---
+        generic_type = map_field_type(field_type, field_name)
+        normalized_label = normalize_string(label) if label else None
+
+        field_node = {
+            "key": normalized_label if normalized_label else field_name, # Key continua usando a descrição normalizada
+            "description": label if label else field_name, # Description usa o label original (ou field_name)
+            "fieldname": field_name, # Nova propriedade fieldname
+            "type": generic_type
+        }
+        # Adiciona 'children: []' explicitamente para campos normais para consistência? Não, deixa sem.
+        processed_nodes.append(field_node)
+
+    return processed_nodes
+
+# Função principal ajustada para passar all_doctypes_data
+def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_mapping):
+    """
+    Cria uma estrutura JSON hierárquica de DocTypes e seus campos (Refatorada v2).
+
+    Utiliza _process_fields_for_hierarchy com recursão controlada.
+
+    Args:
+        doctypes_with_fields (dict): Dicionário {doctype_name: fields_metadata_list}.
+        child_parent_mapping (list): Lista de dicts {"child": child_name, "parent": parent_name}.
+
+    Returns:
+        list: Lista contendo os nós DocType raiz, com filhos (campos e DocTypes) aninhados.
+              Retorna lista vazia em caso de erro nos inputs principais.
+    """
+    if not isinstance(doctypes_with_fields, dict):
+        print("Erro: doctypes_with_fields deve ser um dicionário.")
+        return []
+    if child_parent_mapping is not None and not isinstance(child_parent_mapping, list):
+        print("Erro: child_parent_mapping deve ser uma lista ou None.")
+        return []
+    if child_parent_mapping is None:
+        child_parent_mapping = []
+
+    nodes = {}
+    child_doctypes = set()
+
+    # --- Passo 1: Criar nós DocType e processar seus campos (nível principal) ---
+    all_doctype_names = list(doctypes_with_fields.keys()) # Para iteração segura se modificarmos o dict
+    for doctype_name in all_doctype_names:
+        if not doctype_name: continue
+        fields_metadata = doctypes_with_fields.get(doctype_name, [])
+
+        if doctype_name not in nodes:
+            normalized_description = normalize_string(doctype_name)
+            nodes[doctype_name] = {
+                "key": normalized_description, # Key continua usando a descrição normalizada
+                "description": doctype_name, # Description usa o nome original do doctype
+                "fieldname": doctype_name, # Nova propriedade fieldname
+                "type": "doctype",
+                # Chama processador de campos para o nível principal (process_nested_relationships=True)
+                "children": _process_fields_for_hierarchy(fields_metadata, doctypes_with_fields, True)
+            }
+        else:
+             # Se o nó já existe (criado por mapeamento), processa e adiciona/atualiza os campos
+             current_children = nodes[doctype_name].get("children", [])
+             processed_fields = _process_fields_for_hierarchy(fields_metadata, doctypes_with_fields, True)
+             # Evita duplicar campos se o DocType for processado múltiplas vezes (improvável, mas seguro)
+             existing_field_keys = {child.get("key") for child in current_children if child.get("type") != "doctype"}
+             for field_node in processed_fields:
+                 if field_node.get("key") not in existing_field_keys:
+                     current_children.append(field_node)
+             nodes[doctype_name]["children"] = current_children
+
+
+    # --- Passo 2: Processar mapeamento pai-filho para aninhar DocTypes ---
+
+    # Garante que a relação Contract -> Contract Item exista
+    specific_mapping = {"child": "Contract Item", "parent": "Contract"}
+    mapping_exists = any(
+        m.get("child") == specific_mapping["child"] and m.get("parent") == specific_mapping["parent"]
+        for m in child_parent_mapping if isinstance(m, dict)
+    )
+    if not mapping_exists:
+        print("Info: Adicionando mapeamento implícito: Contract Item -> Contract")
+        child_parent_mapping.append(specific_mapping) # Modifica a lista diretamente (ou uma cópia se preferir imutabilidade)
+
+    # Continua o processamento dos mapeamentos (incluindo o adicionado, se for o caso)
+    for mapping in child_parent_mapping:
+        if not isinstance(mapping, dict): continue
+
+        child_name = mapping.get("child")
+        parent_name = mapping.get("parent")
+
+        if not child_name or not parent_name:
+            print(f"Aviso: Mapeamento inválido encontrado: {mapping}")
+            continue
+
+        # Garante que nós pai e filho existam
+        for name in [parent_name, child_name]:
+            if name not in nodes:
+                print(f"Aviso: DocType '{name}' do mapeamento não encontrado em doctypes_with_fields. Criando nó básico.")
+                node_fields_metadata = doctypes_with_fields.get(name, [])
+                normalized_description = normalize_string(name)
+                nodes[name] = {
+                    "key": normalized_description, # Key continua usando a descrição normalizada
+                    "description": name, # Description usa o nome original do doctype/campo
+                    "fieldname": name, # Nova propriedade fieldname
+                    "type": "doctype",
+                    # Processa campos no nível principal ao criar nó básico
+                    "children": _process_fields_for_hierarchy(node_fields_metadata, doctypes_with_fields, True)
+                }
+
+        # Adiciona a REFERÊNCIA do nó filho completo à lista de filhos do nó pai
+        # Apenas se ambos os nós realmente existem (foram encontrados ou criados)
+        if parent_name in nodes and child_name in nodes:
+            child_node_ref = nodes[child_name]
+            parent_node_children = nodes[parent_name]["children"]
+
+            is_already_child = any(child is child_node_ref for child in parent_node_children if isinstance(child, dict) and child.get("type") == "doctype")
+
+            if not is_already_child:
+                parent_node_children.append(child_node_ref)
+            # else: # Comentado para reduzir verbosidade
+                # print(f"Aviso: Tentativa de adicionar filho duplicado '{child_name}' a '{parent_name}'. Ignorando.")
+
+            child_doctypes.add(child_name)
+        else:
+             print(f"Erro Crítico: Nó pai ('{parent_name}') ou filho ('{child_name}') não pôde ser encontrado ou criado. Mapeamento ignorado.")
+
+
+    # --- Passo 2.5: Ordenar filhos (campos primeiro, depois doctypes) ---
+    for node in nodes.values():
+        # Verifica se é um nó doctype e se possui a chave 'children'
+        if isinstance(node, dict) and node.get("type") == "doctype" and "children" in node:
+            children_list = node["children"]
+            if isinstance(children_list, list):
+                # Ordena a lista 'children' in-place
+                # Chave de ordenação: 0 para campos (não doctype), 1 para doctypes
+                children_list.sort(key=lambda child: 0 if isinstance(child, dict) and child.get("type") != "doctype" else 1)
+
+    # --- Passo 3: Identificar e coletar nós raiz ---
+    root_nodes = []
+    all_processed_doctypes = list(nodes.keys())
+
+    for doctype_name in all_processed_doctypes:
+        if doctype_name not in child_doctypes: # Se não for filho de ninguém, é raiz
+             root_nodes.append(nodes[doctype_name])
+
+    # --- Passo 4: Adicionar a propriedade 'path' recursivamente ---
+    for root_node in root_nodes:
+        add_paths_recursively(root_node) # Inicia a recursão para cada raiz
+
+    return root_nodes
+
+def add_paths_recursively(node, current_path=""):
+    """
+    Adiciona recursivamente a propriedade 'path' a cada nó na hierarquia.
+
+    Args:
+        node (dict): O nó atual a ser processado.
+        current_path (str): O caminho acumulado até o nó pai.
+    """
+    if not isinstance(node, dict):
+        return
+
+    node_key = node.get("key")
+    if not node_key:
+        # Não é possível determinar o caminho sem uma chave
+        return
+
+    # Calcula o novo caminho para este nó
+    new_path = f"{current_path}.{node_key}" if current_path else node_key
+    # Adiciona o path apenas se não for um nó raiz (current_path existe)
+    if current_path:
+        node["path"] = new_path
+
+    # Processa os filhos recursivamente
+    children = node.get("children")
+    if isinstance(children, list):
+        for child in children:
+            add_paths_recursively(child, new_path)

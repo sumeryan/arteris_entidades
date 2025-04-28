@@ -144,6 +144,12 @@ def identify_entity_relationships(entity_structure: Dict[str, Any]) -> Tuple[Dic
         else:
             entity_types[entity_type] = "Parent"
     
+    # Adicionar tratamento especial para "Contract Item"
+    if "Contract Item" in all_entities and "Contract" in all_entities:
+        entity_types["Contract Item"] = "Child"
+        child_to_parent["Contract Item"] = "Contract"
+        logger.info(f"Adicionado tratamento especial para 'Contract Item' como Child de 'Contract'")
+    
     logger.info(f"Identificados {len(entity_types)} tipos de entidades")
     logger.info(f"Entidades Child: {list(child_to_parent.keys())}")
     
@@ -219,6 +225,11 @@ def transform_to_engine_format(
         # Se for uma entidade Child, o primeiro atributo deve ser o valor de parent
         if entity_type_value == "Child":
             parent_key = "parent"
+            
+            # Tratamento especial para "Contract Item"
+            if doctype == "Contract Item":
+                parent_key = "contrato"
+            
             parent_value = item_data.get(parent_key)
             parent_type = "string"
             
@@ -231,7 +242,7 @@ def transform_to_engine_format(
                     "type": parent_type
                 })
             else:
-                logger.warning(f"Valor de parent não encontrado para entidade Child: {key}")
+                logger.warning(f"Valor de {parent_key} não encontrado para entidade Child: {key}")
         
         # Adicionar os demais atributos
         for attr_def in entity_definition.get('attributes', []):
@@ -240,6 +251,10 @@ def transform_to_engine_format(
             
             # Pular o atributo parent para entidades Child (já foi adicionado como primeiro atributo)
             if entity_type_value == "Child" and attr_key == 'parent':
+                continue
+                
+            # Pular o atributo contrato para Contract Item (já foi adicionado como parentId)
+            if doctype == "Contract Item" and attr_key == 'contrato':
                 continue
             
             # Pular o atributo name (já foi usado como id)

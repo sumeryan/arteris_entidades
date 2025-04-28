@@ -4,3 +4,4 @@ python-dotenv
 Flask
 Flask-SocketIO
 # eventlet # Removido pois estamos usando async_mode='threading'
+Flask-CORS

@@ -5,7 +5,7 @@ services:
     build: . # Constrói a imagem a partir do Dockerfile no diretório atual
     container_name: arteris_entity_generator_web # Nome do container
     ports:
-      - "5000:5000" # Mapeia a porta 5000 do host para a porta 5000 do container
+      - "8088:8088" # Mapeia a porta 5000 do host para a porta 5000 do container
     volumes:
       # Monta o diretório atual no container para refletir mudanças no código (útil para desenvolvimento)
       # Em produção, você pode remover ou ajustar isso conforme necessário.

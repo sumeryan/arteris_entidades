@@ -1,0 +1,1136 @@
+[
+    {
+        "key": "Asset",
+        "description": "Asset",
+        "fieldname": "Asset",
+        "type": "doctype",
+        "children": [
+            {
+                "key": "Nome_do_ativo",
+                "description": "Nome do ativo",
+                "fieldname": "nomeativo",
+                "type": "string",
+                "path": "Asset.Nome_do_ativo"
+            },
+            {
+                "key": "Asset_Operator",
+                "description": "Asset Operator",
+                "fieldname": "Asset Operator",
+                "type": "doctype",
+                "children": [
+                    {
+                        "key": "Work_Role",
+                        "description": "Work Role",
+                        "fieldname": "Work Role",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "Funcao",
+                                "description": "Função",
+                                "fieldname": "funcao",
+                                "type": "string",
+                                "path": "Asset.Asset_Operator.Work_Role.Funcao"
+                            }
+                        ],
+                        "path": "Asset.Asset_Operator.Work_Role"
+                    },
+                    {
+                        "key": "Quantidade",
+                        "description": "Quantidade",
+                        "fieldname": "quantidade",
+                        "type": "numeric",
+                        "path": "Asset.Asset_Operator.Quantidade"
+                    }
+                ],
+                "path": "Asset.Asset_Operator"
+            }
+        ]
+    },
+    {
+        "key": "City",
+        "description": "City",
+        "fieldname": "City",
+        "type": "doctype",
+        "children": [
+            {
+                "key": "UF",
+                "description": "UF",
+                "fieldname": "uf",
+                "type": "string",
+                "path": "City.UF"
+            },
+            {
+                "key": "Municipio",
+                "description": "Município",
+                "fieldname": "municipio",
+                "type": "string",
+                "path": "City.Municipio"
+            },
+            {
+                "key": "ISS",
+                "description": "ISS",
+                "fieldname": "iss",
+                "type": "numeric",
+                "path": "City.ISS"
+            }
+        ]
+    },
+    {
+        "key": "Contract",
+        "description": "Contract",
+        "fieldname": "Contract",
+        "type": "doctype",
+        "children": [
+            {
+                "key": "Obra",
+                "description": "Obra",
+                "fieldname": "obra",
+                "type": "string",
+                "path": "Contract.Obra"
+            },
+            {
+                "key": "Inicio_real_dos_servicos",
+                "description": "Início real dos serviços",
+                "fieldname": "inicioservicos",
+                "type": "datetime",
+                "path": "Contract.Inicio_real_dos_servicos"
+            },
+            {
+                "key": "Formula_Template",
+                "description": "Formula Template",
+                "fieldname": "Formula Template",
+                "type": "doctype",
+                "children": [
+                    {
+                        "key": "Nome",
+                        "description": "Nome",
+                        "fieldname": "nome",
+                        "type": "string",
+                        "path": "Contract.Formula_Template.Nome"
+                    },
+                    {
+                        "key": "Formula",
+                        "description": "Fórmula",
+                        "fieldname": "formula",
+                        "type": "string",
+                        "path": "Contract.Formula_Template.Formula"
+                    },
+                    {
+                        "key": "Configurar",
+                        "description": "Configurar",
+                        "fieldname": "configurar",
+                        "type": "string",
+                        "path": "Contract.Formula_Template.Configurar"
+                    },
+                    {
+                        "key": "Descrrcao",
+                        "description": "Descrrção",
+                        "fieldname": "descricao",
+                        "type": "string",
+                        "path": "Contract.Formula_Template.Descrrcao"
+                    }
+                ],
+                "path": "Contract.Formula_Template"
+            },
+            {
+                "key": "Inicio_dos_servicos_conf_contrato",
+                "description": "Início dos serviços conf. contrato",
+                "fieldname": "inicioservicosprevisto",
+                "type": "datetime",
+                "path": "Contract.Inicio_dos_servicos_conf_contrato"
+            },
+            {
+                "key": "Percentual",
+                "description": "Percentual",
+                "fieldname": "percentualreidi",
+                "type": "numeric",
+                "path": "Contract.Percentual"
+            },
+            {
+                "key": "Contracted_Company",
+                "description": "Contracted Company",
+                "fieldname": "Contracted Company",
+                "type": "doctype",
+                "children": [
+                    {
+                        "key": "Razao_Social",
+                        "description": "Razão Social",
+                        "fieldname": "razaosocial",
+                        "type": "string",
+                        "path": "Contract.Contracted_Company.Razao_Social"
+                    },
+                    {
+                        "key": "Endereco",
+                        "description": "Endereço",
+                        "fieldname": "endereco",
+                        "type": "string",
+                        "path": "Contract.Contracted_Company.Endereco"
+                    },
+                    {
+                        "key": "CNPJ",
+                        "description": "CNPJ",
+                        "fieldname": "cnpj",
+                        "type": "string",
+                        "path": "Contract.Contracted_Company.CNPJ"
+                    },
+                    {
+                        "key": "Nome",
+                        "description": "Nome",
+                        "fieldname": "nome",
+                        "type": "string",
+                        "path": "Contract.Contracted_Company.Nome"
+                    }
+                ],
+                "path": "Contract.Contracted_Company"
+            },
+            {
+                "key": "Termino_previsto_dos_servicos",
+                "description": "Término previsto dos serviços",
+                "fieldname": "terminoservicos",
+                "type": "datetime",
+                "path": "Contract.Termino_previsto_dos_servicos"
+            },
+            {
+                "key": "Termino_servicos_conf_contrato",
+                "description": "Término serviços conf. contrato",
+                "fieldname": "terminoservicosprevisto",
+                "type": "datetime",
+                "path": "Contract.Termino_servicos_conf_contrato"
+            },
+            {
+                "key": "Valor_total_do_contrato",
+                "description": "Valor total do contrato",
+                "fieldname": "valortotal",
+                "type": "numeric",
+                "path": "Contract.Valor_total_do_contrato"
+            },
+            {
+                "key": "Data_inicial_do_contrato",
+                "description": "Data inicial do contrato",
+                "fieldname": "datainicial",
+                "type": "datetime",
+                "path": "Contract.Data_inicial_do_contrato"
+            },
+            {
+                "key": "Descricao",
+                "description": "Descrição",
+                "fieldname": "descricao",
+                "type": "string",
+                "path": "Contract.Descricao"
+            },
+            {
+                "key": "No_do_Contrato",
+                "description": "Nº do Contrato",
+                "fieldname": "contrato",
+                "type": "string",
+                "path": "Contract.No_do_Contrato"
+            },
+            {
+                "key": "Data_final_do_contrato",
+                "description": "Data final do contrato",
+                "fieldname": "datafinal",
+                "type": "datetime",
+                "path": "Contract.Data_final_do_contrato"
+            },
+            {
+                "key": "Contract_Item",
+                "description": "Contract Item",
+                "fieldname": "Contract Item",
+                "type": "doctype",
+                "children": [
+                    {
+                        "key": "Is_Group",
+                        "description": "Is Group",
+                        "fieldname": "is_group",
+                        "type": "boolean",
+                        "path": "Contract.Contract_Item.Is_Group"
+                    },
+                    {
+                        "key": "Valor_unitario",
+                        "description": "Valor unitário",
+                        "fieldname": "valorunitario",
+                        "type": "numeric",
+                        "path": "Contract.Contract_Item.Valor_unitario"
+                    },
+                    {
+                        "key": "Codigo",
+                        "description": "Código",
+                        "fieldname": "codigo",
+                        "type": "string",
+                        "path": "Contract.Contract_Item.Codigo"
+                    },
+                    {
+                        "key": "Quantidade",
+                        "description": "Quantidade",
+                        "fieldname": "quantidade",
+                        "type": "numeric",
+                        "path": "Contract.Contract_Item.Quantidade"
+                    },
+                    {
+                        "key": "Contract",
+                        "description": "Contract",
+                        "fieldname": "Contract",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "Obra",
+                                "description": "Obra",
+                                "fieldname": "obra",
+                                "type": "string",
+                                "path": "Contract.Contract_Item.Contract.Obra"
+                            },
+                            {
+                                "key": "Inicio_real_dos_servicos",
+                                "description": "Início real dos serviços",
+                                "fieldname": "inicioservicos",
+                                "type": "datetime",
+                                "path": "Contract.Contract_Item.Contract.Inicio_real_dos_servicos"
+                            },
+                            {
+                                "key": "Modelo_de_formula",
+                                "description": "Modelo de fórmula",
+                                "fieldname": "modeloformula",
+                                "type": "string",
+                                "path": "Contract.Contract_Item.Contract.Modelo_de_formula"
+                            },
+                            {
+                                "key": "Inicio_dos_servicos_conf_contrato",
+                                "description": "Início dos serviços conf. contrato",
+                                "fieldname": "inicioservicosprevisto",
+                                "type": "datetime",
+                                "path": "Contract.Contract_Item.Contract.Inicio_dos_servicos_conf_contrato"
+                            },
+                            {
+                                "key": "Percentual",
+                                "description": "Percentual",
+                                "fieldname": "percentualreidi",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract.Percentual"
+                            },
+                            {
+                                "key": "Contratada",
+                                "description": "Contratada",
+                                "fieldname": "contratada",
+                                "type": "string",
+                                "path": "Contract.Contract_Item.Contract.Contratada"
+                            },
+                            {
+                                "key": "Termino_previsto_dos_servicos",
+                                "description": "Término previsto dos serviços",
+                                "fieldname": "terminoservicos",
+                                "type": "datetime",
+                                "path": "Contract.Contract_Item.Contract.Termino_previsto_dos_servicos"
+                            },
+                            {
+                                "key": "Termino_servicos_conf_contrato",
+                                "description": "Término serviços conf. contrato",
+                                "fieldname": "terminoservicosprevisto",
+                                "type": "datetime",
+                                "path": "Contract.Contract_Item.Contract.Termino_servicos_conf_contrato"
+                            },
+                            {
+                                "key": "Valor_total_do_contrato",
+                                "description": "Valor total do contrato",
+                                "fieldname": "valortotal",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract.Valor_total_do_contrato"
+                            },
+                            {
+                                "key": "Data_inicial_do_contrato",
+                                "description": "Data inicial do contrato",
+                                "fieldname": "datainicial",
+                                "type": "datetime",
+                                "path": "Contract.Contract_Item.Contract.Data_inicial_do_contrato"
+                            },
+                            {
+                                "key": "Descricao",
+                                "description": "Descrição",
+                                "fieldname": "descricao",
+                                "type": "string",
+                                "path": "Contract.Contract_Item.Contract.Descricao"
+                            },
+                            {
+                                "key": "No_do_Contrato",
+                                "description": "Nº do Contrato",
+                                "fieldname": "contrato",
+                                "type": "string",
+                                "path": "Contract.Contract_Item.Contract.No_do_Contrato"
+                            },
+                            {
+                                "key": "Data_final_do_contrato",
+                                "description": "Data final do contrato",
+                                "fieldname": "datafinal",
+                                "type": "datetime",
+                                "path": "Contract.Contract_Item.Contract.Data_final_do_contrato"
+                            }
+                        ],
+                        "path": "Contract.Contract_Item.Contract"
+                    },
+                    {
+                        "key": "Descricao",
+                        "description": "Descrição",
+                        "fieldname": "descricao",
+                        "type": "string",
+                        "path": "Contract.Contract_Item.Descricao"
+                    },
+                    {
+                        "key": "Contract_Item_Asset",
+                        "description": "Contract Item Asset",
+                        "fieldname": "Contract Item Asset",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "Descricao",
+                                "description": "Descrição",
+                                "fieldname": "descricao",
+                                "type": "string",
+                                "path": "Contract.Contract_Item.Contract_Item_Asset.Descricao"
+                            },
+                            {
+                                "key": "Valor_mensal",
+                                "description": "Valor mensal",
+                                "fieldname": "valormensal",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_Asset.Valor_mensal"
+                            },
+                            {
+                                "key": "Asset",
+                                "description": "Asset",
+                                "fieldname": "Asset",
+                                "type": "doctype",
+                                "children": [
+                                    {
+                                        "key": "Nome_do_ativo",
+                                        "description": "Nome do ativo",
+                                        "fieldname": "nomeativo",
+                                        "type": "string",
+                                        "path": "Contract.Contract_Item.Contract_Item_Asset.Asset.Nome_do_ativo"
+                                    }
+                                ],
+                                "path": "Contract.Contract_Item.Contract_Item_Asset.Asset"
+                            },
+                            {
+                                "key": "Quantidade",
+                                "description": "Quantidade",
+                                "fieldname": "quantidade",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_Asset.Quantidade"
+                            }
+                        ],
+                        "path": "Contract.Contract_Item.Contract_Item_Asset"
+                    },
+                    {
+                        "key": "Contract_Item_Work_Role",
+                        "description": "Contract Item Work Role",
+                        "fieldname": "Contract Item Work Role",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "Valor_total_mensal",
+                                "description": "Valor total mensal",
+                                "fieldname": "valortotalmensal",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_Work_Role.Valor_total_mensal"
+                            },
+                            {
+                                "key": "Pagamento_por_hora",
+                                "description": "Pagamento por hora",
+                                "fieldname": "pagamentohora",
+                                "type": "boolean",
+                                "path": "Contract.Contract_Item.Contract_Item_Work_Role.Pagamento_por_hora"
+                            },
+                            {
+                                "key": "Quantidade",
+                                "description": "Quantidade",
+                                "fieldname": "quantidade",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_Work_Role.Quantidade"
+                            },
+                            {
+                                "key": "Work_Role",
+                                "description": "Work Role",
+                                "fieldname": "Work Role",
+                                "type": "doctype",
+                                "children": [
+                                    {
+                                        "key": "Funcao",
+                                        "description": "Função",
+                                        "fieldname": "funcao",
+                                        "type": "string",
+                                        "path": "Contract.Contract_Item.Contract_Item_Work_Role.Work_Role.Funcao"
+                                    }
+                                ],
+                                "path": "Contract.Contract_Item.Contract_Item_Work_Role.Work_Role"
+                            },
+                            {
+                                "key": "Valor_por_hora",
+                                "description": "Valor por hora",
+                                "fieldname": "valorporhora",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_Work_Role.Valor_por_hora"
+                            }
+                        ],
+                        "path": "Contract.Contract_Item.Contract_Item_Work_Role"
+                    },
+                    {
+                        "key": "Contract_Item_City",
+                        "description": "Contract Item City",
+                        "fieldname": "Contract Item City",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "ISS",
+                                "description": "ISS",
+                                "fieldname": "iss",
+                                "type": "string",
+                                "path": "Contract.Contract_Item.Contract_Item_City.ISS"
+                            },
+                            {
+                                "key": "City",
+                                "description": "City",
+                                "fieldname": "City",
+                                "type": "doctype",
+                                "children": [
+                                    {
+                                        "key": "UF",
+                                        "description": "UF",
+                                        "fieldname": "uf",
+                                        "type": "string",
+                                        "path": "Contract.Contract_Item.Contract_Item_City.City.UF"
+                                    },
+                                    {
+                                        "key": "Municipio",
+                                        "description": "Município",
+                                        "fieldname": "municipio",
+                                        "type": "string",
+                                        "path": "Contract.Contract_Item.Contract_Item_City.City.Municipio"
+                                    },
+                                    {
+                                        "key": "ISS",
+                                        "description": "ISS",
+                                        "fieldname": "iss",
+                                        "type": "numeric",
+                                        "path": "Contract.Contract_Item.Contract_Item_City.City.ISS"
+                                    }
+                                ],
+                                "path": "Contract.Contract_Item.Contract_Item_City.City"
+                            },
+                            {
+                                "key": "Participacao",
+                                "description": "Participação %",
+                                "fieldname": "participacaopercentual",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_City.Participacao"
+                            }
+                        ],
+                        "path": "Contract.Contract_Item.Contract_Item_City"
+                    },
+                    {
+                        "key": "Contract_Item_Order",
+                        "description": "Contract Item Order",
+                        "fieldname": "Contract Item Order",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "Percentual",
+                                "description": "Percentual",
+                                "fieldname": "percentual",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_Order.Percentual"
+                            },
+                            {
+                                "key": "Valor_total",
+                                "description": "Valor total",
+                                "fieldname": "valortotal",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_Order.Valor_total"
+                            },
+                            {
+                                "key": "SAP_Order",
+                                "description": "SAP Order",
+                                "fieldname": "SAP Order",
+                                "type": "doctype",
+                                "children": [
+                                    {
+                                        "key": "No_do_pedido",
+                                        "description": "Nº do pedido",
+                                        "fieldname": "numeropedido",
+                                        "type": "string",
+                                        "path": "Contract.Contract_Item.Contract_Item_Order.SAP_Order.No_do_pedido"
+                                    },
+                                    {
+                                        "key": "Valor_total",
+                                        "description": "Valor total",
+                                        "fieldname": "valortotal",
+                                        "type": "numeric",
+                                        "path": "Contract.Contract_Item.Contract_Item_Order.SAP_Order.Valor_total"
+                                    },
+                                    {
+                                        "key": "Centro_de_custo",
+                                        "description": "Centro de custo",
+                                        "fieldname": "centrocusto",
+                                        "type": "string",
+                                        "path": "Contract.Contract_Item.Contract_Item_Order.SAP_Order.Centro_de_custo"
+                                    }
+                                ],
+                                "path": "Contract.Contract_Item.Contract_Item_Order.SAP_Order"
+                            },
+                            {
+                                "key": "Centro_de_custo",
+                                "description": "Centro de custo",
+                                "fieldname": "centrocusto",
+                                "type": "string",
+                                "path": "Contract.Contract_Item.Contract_Item_Order.Centro_de_custo"
+                            }
+                        ],
+                        "path": "Contract.Contract_Item.Contract_Item_Order"
+                    }
+                ],
+                "path": "Contract.Contract_Item"
+            }
+        ]
+    },
+    {
+        "key": "Contract_Measurement",
+        "description": "Contract Measurement",
+        "fieldname": "Contract Measurement",
+        "type": "doctype",
+        "children": [
+            {
+                "key": "Data_final_do_contrato",
+                "description": "Data final do contrato",
+                "fieldname": "data_final_do_contrato",
+                "type": "string",
+                "path": "Contract_Measurement.Data_final_do_contrato"
+            },
+            {
+                "key": "Contracted_Company",
+                "description": "Contracted Company",
+                "fieldname": "Contracted Company",
+                "type": "doctype",
+                "children": [
+                    {
+                        "key": "Razao_Social",
+                        "description": "Razão Social",
+                        "fieldname": "razaosocial",
+                        "type": "string",
+                        "path": "Contract_Measurement.Contracted_Company.Razao_Social"
+                    },
+                    {
+                        "key": "Endereco",
+                        "description": "Endereço",
+                        "fieldname": "endereco",
+                        "type": "string",
+                        "path": "Contract_Measurement.Contracted_Company.Endereco"
+                    },
+                    {
+                        "key": "CNPJ",
+                        "description": "CNPJ",
+                        "fieldname": "cnpj",
+                        "type": "string",
+                        "path": "Contract_Measurement.Contracted_Company.CNPJ"
+                    },
+                    {
+                        "key": "Nome",
+                        "description": "Nome",
+                        "fieldname": "nome",
+                        "type": "string",
+                        "path": "Contract_Measurement.Contracted_Company.Nome"
+                    }
+                ],
+                "path": "Contract_Measurement.Contracted_Company"
+            },
+            {
+                "key": "Data_inicial_do_contrato",
+                "description": "Data inicial do contrato",
+                "fieldname": "data_ejak",
+                "type": "string",
+                "path": "Contract_Measurement.Data_inicial_do_contrato"
+            },
+            {
+                "key": "Contract",
+                "description": "Contract",
+                "fieldname": "Contract",
+                "type": "doctype",
+                "children": [
+                    {
+                        "key": "Obra",
+                        "description": "Obra",
+                        "fieldname": "obra",
+                        "type": "string",
+                        "path": "Contract_Measurement.Contract.Obra"
+                    },
+                    {
+                        "key": "Inicio_real_dos_servicos",
+                        "description": "Início real dos serviços",
+                        "fieldname": "inicioservicos",
+                        "type": "datetime",
+                        "path": "Contract_Measurement.Contract.Inicio_real_dos_servicos"
+                    },
+                    {
+                        "key": "Modelo_de_formula",
+                        "description": "Modelo de fórmula",
+                        "fieldname": "modeloformula",
+                        "type": "string",
+                        "path": "Contract_Measurement.Contract.Modelo_de_formula"
+                    },
+                    {
+                        "key": "Inicio_dos_servicos_conf_contrato",
+                        "description": "Início dos serviços conf. contrato",
+                        "fieldname": "inicioservicosprevisto",
+                        "type": "datetime",
+                        "path": "Contract_Measurement.Contract.Inicio_dos_servicos_conf_contrato"
+                    },
+                    {
+                        "key": "Percentual",
+                        "description": "Percentual",
+                        "fieldname": "percentualreidi",
+                        "type": "numeric",
+                        "path": "Contract_Measurement.Contract.Percentual"
+                    },
+                    {
+                        "key": "Contratada",
+                        "description": "Contratada",
+                        "fieldname": "contratada",
+                        "type": "string",
+                        "path": "Contract_Measurement.Contract.Contratada"
+                    },
+                    {
+                        "key": "Termino_previsto_dos_servicos",
+                        "description": "Término previsto dos serviços",
+                        "fieldname": "terminoservicos",
+                        "type": "datetime",
+                        "path": "Contract_Measurement.Contract.Termino_previsto_dos_servicos"
+                    },
+                    {
+                        "key": "Termino_servicos_conf_contrato",
+                        "description": "Término serviços conf. contrato",
+                        "fieldname": "terminoservicosprevisto",
+                        "type": "datetime",
+                        "path": "Contract_Measurement.Contract.Termino_servicos_conf_contrato"
+                    },
+                    {
+                        "key": "Valor_total_do_contrato",
+                        "description": "Valor total do contrato",
+                        "fieldname": "valortotal",
+                        "type": "numeric",
+                        "path": "Contract_Measurement.Contract.Valor_total_do_contrato"
+                    },
+                    {
+                        "key": "Data_inicial_do_contrato",
+                        "description": "Data inicial do contrato",
+                        "fieldname": "datainicial",
+                        "type": "datetime",
+                        "path": "Contract_Measurement.Contract.Data_inicial_do_contrato"
+                    },
+                    {
+                        "key": "Descricao",
+                        "description": "Descrição",
+                        "fieldname": "descricao",
+                        "type": "string",
+                        "path": "Contract_Measurement.Contract.Descricao"
+                    },
+                    {
+                        "key": "No_do_Contrato",
+                        "description": "Nº do Contrato",
+                        "fieldname": "contrato",
+                        "type": "string",
+                        "path": "Contract_Measurement.Contract.No_do_Contrato"
+                    },
+                    {
+                        "key": "Data_final_do_contrato",
+                        "description": "Data final do contrato",
+                        "fieldname": "datafinal",
+                        "type": "datetime",
+                        "path": "Contract_Measurement.Contract.Data_final_do_contrato"
+                    }
+                ],
+                "path": "Contract_Measurement.Contract"
+            },
+            {
+                "key": "Obra",
+                "description": "Obra",
+                "fieldname": "obra",
+                "type": "string",
+                "path": "Contract_Measurement.Obra"
+            },
+            {
+                "key": "Contract_Measurement_Asset",
+                "description": "Contract Measurement Asset",
+                "fieldname": "Contract Measurement Asset",
+                "type": "doctype",
+                "children": [
+                    {
+                        "key": "Asset",
+                        "description": "Asset",
+                        "fieldname": "Asset",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "Nome_do_ativo",
+                                "description": "Nome do ativo",
+                                "fieldname": "nomeativo",
+                                "type": "string",
+                                "path": "Contract_Measurement.Contract_Measurement_Asset.Asset.Nome_do_ativo"
+                            }
+                        ],
+                        "path": "Contract_Measurement.Contract_Measurement_Asset.Asset"
+                    },
+                    {
+                        "key": "Contract_Item",
+                        "description": "Contract Item",
+                        "fieldname": "Contract Item",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "Is_Group",
+                                "description": "Is Group",
+                                "fieldname": "is_group",
+                                "type": "boolean",
+                                "path": "Contract_Measurement.Contract_Measurement_Asset.Contract_Item.Is_Group"
+                            },
+                            {
+                                "key": "Valor_unitario",
+                                "description": "Valor unitário",
+                                "fieldname": "valorunitario",
+                                "type": "numeric",
+                                "path": "Contract_Measurement.Contract_Measurement_Asset.Contract_Item.Valor_unitario"
+                            },
+                            {
+                                "key": "Codigo",
+                                "description": "Código",
+                                "fieldname": "codigo",
+                                "type": "string",
+                                "path": "Contract_Measurement.Contract_Measurement_Asset.Contract_Item.Codigo"
+                            },
+                            {
+                                "key": "Quantidade",
+                                "description": "Quantidade",
+                                "fieldname": "quantidade",
+                                "type": "numeric",
+                                "path": "Contract_Measurement.Contract_Measurement_Asset.Contract_Item.Quantidade"
+                            },
+                            {
+                                "key": "No_do_contrato",
+                                "description": "Nº do contrato",
+                                "fieldname": "contrato",
+                                "type": "string",
+                                "path": "Contract_Measurement.Contract_Measurement_Asset.Contract_Item.No_do_contrato"
+                            },
+                            {
+                                "key": "Descricao",
+                                "description": "Descrição",
+                                "fieldname": "descricao",
+                                "type": "string",
+                                "path": "Contract_Measurement.Contract_Measurement_Asset.Contract_Item.Descricao"
+                            }
+                        ],
+                        "path": "Contract_Measurement.Contract_Measurement_Asset.Contract_Item"
+                    },
+                    {
+                        "key": "Quantidade_medida",
+                        "description": "Quantidade medida",
+                        "fieldname": "quantidade_medida",
+                        "type": "numeric",
+                        "path": "Contract_Measurement.Contract_Measurement_Asset.Quantidade_medida"
+                    },
+                    {
+                        "key": "Data_e_hora",
+                        "description": "Data e hora",
+                        "fieldname": "data_e_hora",
+                        "type": "datetime",
+                        "path": "Contract_Measurement.Contract_Measurement_Asset.Data_e_hora"
+                    }
+                ],
+                "path": "Contract_Measurement.Contract_Measurement_Asset"
+            },
+            {
+                "key": "Contract_Measurement_Work_Role",
+                "description": "Contract Measurement Work Role",
+                "fieldname": "Contract Measurement Work Role",
+                "type": "doctype",
+                "children": [
+                    {
+                        "key": "Contract_Item_Work_Role",
+                        "description": "Contract Item Work Role",
+                        "fieldname": "Contract Item Work Role",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "Valor_total_mensal",
+                                "description": "Valor total mensal",
+                                "fieldname": "valortotalmensal",
+                                "type": "numeric",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_total_mensal"
+                            },
+                            {
+                                "key": "Pagamento_por_hora",
+                                "description": "Pagamento por hora",
+                                "fieldname": "pagamentohora",
+                                "type": "boolean",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Pagamento_por_hora"
+                            },
+                            {
+                                "key": "Quantidade",
+                                "description": "Quantidade",
+                                "fieldname": "quantidade",
+                                "type": "numeric",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Quantidade"
+                            },
+                            {
+                                "key": "Funcao",
+                                "description": "Função",
+                                "fieldname": "funcao",
+                                "type": "string",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Funcao"
+                            },
+                            {
+                                "key": "Valor_por_hora",
+                                "description": "Valor por hora",
+                                "fieldname": "valorporhora",
+                                "type": "numeric",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role.Valor_por_hora"
+                            }
+                        ],
+                        "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item_Work_Role"
+                    },
+                    {
+                        "key": "Contract_Item",
+                        "description": "Contract Item",
+                        "fieldname": "Contract Item",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "Is_Group",
+                                "description": "Is Group",
+                                "fieldname": "is_group",
+                                "type": "boolean",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item.Is_Group"
+                            },
+                            {
+                                "key": "Valor_unitario",
+                                "description": "Valor unitário",
+                                "fieldname": "valorunitario",
+                                "type": "numeric",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item.Valor_unitario"
+                            },
+                            {
+                                "key": "Codigo",
+                                "description": "Código",
+                                "fieldname": "codigo",
+                                "type": "string",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item.Codigo"
+                            },
+                            {
+                                "key": "Quantidade",
+                                "description": "Quantidade",
+                                "fieldname": "quantidade",
+                                "type": "numeric",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item.Quantidade"
+                            },
+                            {
+                                "key": "No_do_contrato",
+                                "description": "Nº do contrato",
+                                "fieldname": "contrato",
+                                "type": "string",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item.No_do_contrato"
+                            },
+                            {
+                                "key": "Descricao",
+                                "description": "Descrição",
+                                "fieldname": "descricao",
+                                "type": "string",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item.Descricao"
+                            }
+                        ],
+                        "path": "Contract_Measurement.Contract_Measurement_Work_Role.Contract_Item"
+                    },
+                    {
+                        "key": "Work_Role",
+                        "description": "Work Role",
+                        "fieldname": "Work Role",
+                        "type": "doctype",
+                        "children": [
+                            {
+                                "key": "Funcao",
+                                "description": "Função",
+                                "fieldname": "funcao",
+                                "type": "string",
+                                "path": "Contract_Measurement.Contract_Measurement_Work_Role.Work_Role.Funcao"
+                            }
+                        ],
+                        "path": "Contract_Measurement.Contract_Measurement_Work_Role.Work_Role"
+                    },
+                    {
+                        "key": "Data_e_hora",
+                        "description": "Data e hora",
+                        "fieldname": "data_e_hora",
+                        "type": "datetime",
+                        "path": "Contract_Measurement.Contract_Measurement_Work_Role.Data_e_hora"
+                    },
+                    {
+                        "key": "Quantidade_medida",
+                        "description": "Quantidade medida",
+                        "fieldname": "quantidade_medida",
+                        "type": "numeric",
+                        "path": "Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida"
+                    }
+                ],
+                "path": "Contract_Measurement.Contract_Measurement_Work_Role"
+            }
+        ]
+    },
+    {
+        "key": "Contracted_Company",
+        "description": "Contracted Company",
+        "fieldname": "Contracted Company",
+        "type": "doctype",
+        "children": [
+            {
+                "key": "Razao_Social",
+                "description": "Razão Social",
+                "fieldname": "razaosocial",
+                "type": "string",
+                "path": "Contracted_Company.Razao_Social"
+            },
+            {
+                "key": "Endereco",
+                "description": "Endereço",
+                "fieldname": "endereco",
+                "type": "string",
+                "path": "Contracted_Company.Endereco"
+            },
+            {
+                "key": "CNPJ",
+                "description": "CNPJ",
+                "fieldname": "cnpj",
+                "type": "string",
+                "path": "Contracted_Company.CNPJ"
+            },
+            {
+                "key": "Nome",
+                "description": "Nome",
+                "fieldname": "nome",
+                "type": "string",
+                "path": "Contracted_Company.Nome"
+            }
+        ]
+    },
+    {
+        "key": "Formula",
+        "description": "Formula",
+        "fieldname": "Formula",
+        "type": "doctype",
+        "children": [
+            {
+                "key": "Formula",
+                "description": "Formula",
+                "fieldname": "formula",
+                "type": "string",
+                "path": "Formula.Formula"
+            },
+            {
+                "key": "Open",
+                "description": "Open",
+                "fieldname": "open",
+                "type": "string",
+                "path": "Formula.Open"
+            }
+        ]
+    },
+    {
+        "key": "Formula_Template",
+        "description": "Formula Template",
+        "fieldname": "Formula Template",
+        "type": "doctype",
+        "children": [
+            {
+                "key": "Nome",
+                "description": "Nome",
+                "fieldname": "nome",
+                "type": "string",
+                "path": "Formula_Template.Nome"
+            },
+            {
+                "key": "Formula",
+                "description": "Fórmula",
+                "fieldname": "formula",
+                "type": "string",
+                "path": "Formula_Template.Formula"
+            },
+            {
+                "key": "Configurar",
+                "description": "Configurar",
+                "fieldname": "configurar",
+                "type": "string",
+                "path": "Formula_Template.Configurar"
+            },
+            {
+                "key": "Descrrcao",
+                "description": "Descrrção",
+                "fieldname": "descricao",
+                "type": "string",
+                "path": "Formula_Template.Descrrcao"
+            }
+        ]
+    },
+    {
+        "key": "SAP_Order",
+        "description": "SAP Order",
+        "fieldname": "SAP Order",
+        "type": "doctype",
+        "children": [
+            {
+                "key": "No_do_pedido",
+                "description": "Nº do pedido",
+                "fieldname": "numeropedido",
+                "type": "string",
+                "path": "SAP_Order.No_do_pedido"
+            },
+            {
+                "key": "Valor_total",
+                "description": "Valor total",
+                "fieldname": "valortotal",
+                "type": "numeric",
+                "path": "SAP_Order.Valor_total"
+            },
+            {
+                "key": "Centro_de_custo",
+                "description": "Centro de custo",
+                "fieldname": "centrocusto",
+                "type": "string",
+                "path": "SAP_Order.Centro_de_custo"
+            }
+        ]
+    },
+    {
+        "key": "Subsidiary",
+        "description": "Subsidiary",
+        "fieldname": "Subsidiary",
+        "type": "doctype",
+        "children": [
+            {
+                "key": "Subsidiaria",
+                "description": "Subsidiária",
+                "fieldname": "nome",
+                "type": "string",
+                "path": "Subsidiary.Subsidiaria"
+            }
+        ]
+    },
+    {
+        "key": "Work_Role",
+        "description": "Work Role",
+        "fieldname": "Work Role",
+        "type": "doctype",
+        "children": [
+            {
+                "key": "Funcao",
+                "description": "Função",
+                "fieldname": "funcao",
+                "type": "string",
+                "path": "Work_Role.Funcao"
+            }
+        ]
+    }
+]
