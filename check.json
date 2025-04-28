@@ -19,6 +19,13 @@
                 "type": "doctype",
                 "children": [
                     {
+                        "key": "Quantidade",
+                        "description": "Quantidade",
+                        "fieldname": "quantidade",
+                        "type": "numeric",
+                        "path": "Asset.Asset_Operator.Quantidade"
+                    },
+                    {
                         "key": "Work_Role",
                         "description": "Work Role",
                         "fieldname": "Work Role",
@@ -33,13 +40,6 @@
                             }
                         ],
                         "path": "Asset.Asset_Operator.Work_Role"
-                    },
-                    {
-                        "key": "Quantidade",
-                        "description": "Quantidade",
-                        "fieldname": "quantidade",
-                        "type": "numeric",
-                        "path": "Asset.Asset_Operator.Quantidade"
                     }
                 ],
                 "path": "Asset.Asset_Operator"
@@ -96,43 +96,6 @@
                 "path": "Contract.Inicio_real_dos_servicos"
             },
             {
-                "key": "Formula_Template",
-                "description": "Formula Template",
-                "fieldname": "Formula Template",
-                "type": "doctype",
-                "children": [
-                    {
-                        "key": "Nome",
-                        "description": "Nome",
-                        "fieldname": "nome",
-                        "type": "string",
-                        "path": "Contract.Formula_Template.Nome"
-                    },
-                    {
-                        "key": "Formula",
-                        "description": "Fórmula",
-                        "fieldname": "formula",
-                        "type": "string",
-                        "path": "Contract.Formula_Template.Formula"
-                    },
-                    {
-                        "key": "Configurar",
-                        "description": "Configurar",
-                        "fieldname": "configurar",
-                        "type": "string",
-                        "path": "Contract.Formula_Template.Configurar"
-                    },
-                    {
-                        "key": "Descrrcao",
-                        "description": "Descrrção",
-                        "fieldname": "descricao",
-                        "type": "string",
-                        "path": "Contract.Formula_Template.Descrrcao"
-                    }
-                ],
-                "path": "Contract.Formula_Template"
-            },
-            {
                 "key": "Inicio_dos_servicos_conf_contrato",
                 "description": "Início dos serviços conf. contrato",
                 "fieldname": "inicioservicosprevisto",
@@ -145,43 +108,6 @@
                 "fieldname": "percentualreidi",
                 "type": "numeric",
                 "path": "Contract.Percentual"
-            },
-            {
-                "key": "Contracted_Company",
-                "description": "Contracted Company",
-                "fieldname": "Contracted Company",
-                "type": "doctype",
-                "children": [
-                    {
-                        "key": "Razao_Social",
-                        "description": "Razão Social",
-                        "fieldname": "razaosocial",
-                        "type": "string",
-                        "path": "Contract.Contracted_Company.Razao_Social"
-                    },
-                    {
-                        "key": "Endereco",
-                        "description": "Endereço",
-                        "fieldname": "endereco",
-                        "type": "string",
-                        "path": "Contract.Contracted_Company.Endereco"
-                    },
-                    {
-                        "key": "CNPJ",
-                        "description": "CNPJ",
-                        "fieldname": "cnpj",
-                        "type": "string",
-                        "path": "Contract.Contracted_Company.CNPJ"
-                    },
-                    {
-                        "key": "Nome",
-                        "description": "Nome",
-                        "fieldname": "nome",
-                        "type": "string",
-                        "path": "Contract.Contracted_Company.Nome"
-                    }
-                ],
-                "path": "Contract.Contracted_Company"
             },
             {
                 "key": "Termino_previsto_dos_servicos",
@@ -233,6 +159,80 @@
                 "path": "Contract.Data_final_do_contrato"
             },
             {
+                "key": "Formula_Template",
+                "description": "Formula Template",
+                "fieldname": "Formula Template",
+                "type": "doctype",
+                "children": [
+                    {
+                        "key": "Nome",
+                        "description": "Nome",
+                        "fieldname": "nome",
+                        "type": "string",
+                        "path": "Contract.Formula_Template.Nome"
+                    },
+                    {
+                        "key": "Formula",
+                        "description": "Fórmula",
+                        "fieldname": "formula",
+                        "type": "string",
+                        "path": "Contract.Formula_Template.Formula"
+                    },
+                    {
+                        "key": "Configurar",
+                        "description": "Configurar",
+                        "fieldname": "configurar",
+                        "type": "string",
+                        "path": "Contract.Formula_Template.Configurar"
+                    },
+                    {
+                        "key": "Descrrcao",
+                        "description": "Descrrção",
+                        "fieldname": "descricao",
+                        "type": "string",
+                        "path": "Contract.Formula_Template.Descrrcao"
+                    }
+                ],
+                "path": "Contract.Formula_Template"
+            },
+            {
+                "key": "Contracted_Company",
+                "description": "Contracted Company",
+                "fieldname": "Contracted Company",
+                "type": "doctype",
+                "children": [
+                    {
+                        "key": "Razao_Social",
+                        "description": "Razão Social",
+                        "fieldname": "razaosocial",
+                        "type": "string",
+                        "path": "Contract.Contracted_Company.Razao_Social"
+                    },
+                    {
+                        "key": "Endereco",
+                        "description": "Endereço",
+                        "fieldname": "endereco",
+                        "type": "string",
+                        "path": "Contract.Contracted_Company.Endereco"
+                    },
+                    {
+                        "key": "CNPJ",
+                        "description": "CNPJ",
+                        "fieldname": "cnpj",
+                        "type": "string",
+                        "path": "Contract.Contracted_Company.CNPJ"
+                    },
+                    {
+                        "key": "Nome",
+                        "description": "Nome",
+                        "fieldname": "nome",
+                        "type": "string",
+                        "path": "Contract.Contracted_Company.Nome"
+                    }
+                ],
+                "path": "Contract.Contracted_Company"
+            },
+            {
                 "key": "Contract_Item",
                 "description": "Contract Item",
                 "fieldname": "Contract Item",
@@ -265,6 +265,13 @@
                         "fieldname": "quantidade",
                         "type": "numeric",
                         "path": "Contract.Contract_Item.Quantidade"
+                    },
+                    {
+                        "key": "Descricao",
+                        "description": "Descrição",
+                        "fieldname": "descricao",
+                        "type": "string",
+                        "path": "Contract.Contract_Item.Descricao"
                     },
                     {
                         "key": "Contract",
@@ -367,13 +374,6 @@
                         "path": "Contract.Contract_Item.Contract"
                     },
                     {
-                        "key": "Descricao",
-                        "description": "Descrição",
-                        "fieldname": "descricao",
-                        "type": "string",
-                        "path": "Contract.Contract_Item.Descricao"
-                    },
-                    {
                         "key": "Contract_Item_Asset",
                         "description": "Contract Item Asset",
                         "fieldname": "Contract Item Asset",
@@ -394,6 +394,13 @@
                                 "path": "Contract.Contract_Item.Contract_Item_Asset.Valor_mensal"
                             },
                             {
+                                "key": "Quantidade",
+                                "description": "Quantidade",
+                                "fieldname": "quantidade",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_Asset.Quantidade"
+                            },
+                            {
                                 "key": "Asset",
                                 "description": "Asset",
                                 "fieldname": "Asset",
@@ -408,13 +415,6 @@
                                     }
                                 ],
                                 "path": "Contract.Contract_Item.Contract_Item_Asset.Asset"
-                            },
-                            {
-                                "key": "Quantidade",
-                                "description": "Quantidade",
-                                "fieldname": "quantidade",
-                                "type": "numeric",
-                                "path": "Contract.Contract_Item.Contract_Item_Asset.Quantidade"
                             }
                         ],
                         "path": "Contract.Contract_Item.Contract_Item_Asset"
@@ -447,6 +447,13 @@
                                 "path": "Contract.Contract_Item.Contract_Item_Work_Role.Quantidade"
                             },
                             {
+                                "key": "Valor_por_hora",
+                                "description": "Valor por hora",
+                                "fieldname": "valorporhora",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_Work_Role.Valor_por_hora"
+                            },
+                            {
                                 "key": "Work_Role",
                                 "description": "Work Role",
                                 "fieldname": "Work Role",
@@ -461,13 +468,6 @@
                                     }
                                 ],
                                 "path": "Contract.Contract_Item.Contract_Item_Work_Role.Work_Role"
-                            },
-                            {
-                                "key": "Valor_por_hora",
-                                "description": "Valor por hora",
-                                "fieldname": "valorporhora",
-                                "type": "numeric",
-                                "path": "Contract.Contract_Item.Contract_Item_Work_Role.Valor_por_hora"
                             }
                         ],
                         "path": "Contract.Contract_Item.Contract_Item_Work_Role"
@@ -484,6 +484,13 @@
                                 "fieldname": "iss",
                                 "type": "string",
                                 "path": "Contract.Contract_Item.Contract_Item_City.ISS"
+                            },
+                            {
+                                "key": "Participacao",
+                                "description": "Participação %",
+                                "fieldname": "participacaopercentual",
+                                "type": "numeric",
+                                "path": "Contract.Contract_Item.Contract_Item_City.Participacao"
                             },
                             {
                                 "key": "City",
@@ -514,13 +521,6 @@
                                     }
                                 ],
                                 "path": "Contract.Contract_Item.Contract_Item_City.City"
-                            },
-                            {
-                                "key": "Participacao",
-                                "description": "Participação %",
-                                "fieldname": "participacaopercentual",
-                                "type": "numeric",
-                                "path": "Contract.Contract_Item.Contract_Item_City.Participacao"
                             }
                         ],
                         "path": "Contract.Contract_Item.Contract_Item_City"
@@ -544,6 +544,13 @@
                                 "fieldname": "valortotal",
                                 "type": "numeric",
                                 "path": "Contract.Contract_Item.Contract_Item_Order.Valor_total"
+                            },
+                            {
+                                "key": "Centro_de_custo",
+                                "description": "Centro de custo",
+                                "fieldname": "centrocusto",
+                                "type": "string",
+                                "path": "Contract.Contract_Item.Contract_Item_Order.Centro_de_custo"
                             },
                             {
                                 "key": "SAP_Order",
@@ -574,13 +581,6 @@
                                     }
                                 ],
                                 "path": "Contract.Contract_Item.Contract_Item_Order.SAP_Order"
-                            },
-                            {
-                                "key": "Centro_de_custo",
-                                "description": "Centro de custo",
-                                "fieldname": "centrocusto",
-                                "type": "string",
-                                "path": "Contract.Contract_Item.Contract_Item_Order.Centro_de_custo"
                             }
                         ],
                         "path": "Contract.Contract_Item.Contract_Item_Order"
@@ -602,6 +602,20 @@
                 "fieldname": "data_final_do_contrato",
                 "type": "string",
                 "path": "Contract_Measurement.Data_final_do_contrato"
+            },
+            {
+                "key": "Data_inicial_do_contrato",
+                "description": "Data inicial do contrato",
+                "fieldname": "data_ejak",
+                "type": "string",
+                "path": "Contract_Measurement.Data_inicial_do_contrato"
+            },
+            {
+                "key": "Obra",
+                "description": "Obra",
+                "fieldname": "obra",
+                "type": "string",
+                "path": "Contract_Measurement.Obra"
             },
             {
                 "key": "Contracted_Company",
@@ -639,13 +653,6 @@
                     }
                 ],
                 "path": "Contract_Measurement.Contracted_Company"
-            },
-            {
-                "key": "Data_inicial_do_contrato",
-                "description": "Data inicial do contrato",
-                "fieldname": "data_ejak",
-                "type": "string",
-                "path": "Contract_Measurement.Data_inicial_do_contrato"
             },
             {
                 "key": "Contract",
@@ -748,18 +755,25 @@
                 "path": "Contract_Measurement.Contract"
             },
             {
-                "key": "Obra",
-                "description": "Obra",
-                "fieldname": "obra",
-                "type": "string",
-                "path": "Contract_Measurement.Obra"
-            },
-            {
                 "key": "Contract_Measurement_Asset",
                 "description": "Contract Measurement Asset",
                 "fieldname": "Contract Measurement Asset",
                 "type": "doctype",
                 "children": [
+                    {
+                        "key": "Quantidade_medida",
+                        "description": "Quantidade medida",
+                        "fieldname": "quantidade_medida",
+                        "type": "numeric",
+                        "path": "Contract_Measurement.Contract_Measurement_Asset.Quantidade_medida"
+                    },
+                    {
+                        "key": "Data_e_hora",
+                        "description": "Data e hora",
+                        "fieldname": "data_e_hora",
+                        "type": "datetime",
+                        "path": "Contract_Measurement.Contract_Measurement_Asset.Data_e_hora"
+                    },
                     {
                         "key": "Asset",
                         "description": "Asset",
@@ -826,20 +840,6 @@
                             }
                         ],
                         "path": "Contract_Measurement.Contract_Measurement_Asset.Contract_Item"
-                    },
-                    {
-                        "key": "Quantidade_medida",
-                        "description": "Quantidade medida",
-                        "fieldname": "quantidade_medida",
-                        "type": "numeric",
-                        "path": "Contract_Measurement.Contract_Measurement_Asset.Quantidade_medida"
-                    },
-                    {
-                        "key": "Data_e_hora",
-                        "description": "Data e hora",
-                        "fieldname": "data_e_hora",
-                        "type": "datetime",
-                        "path": "Contract_Measurement.Contract_Measurement_Asset.Data_e_hora"
                     }
                 ],
                 "path": "Contract_Measurement.Contract_Measurement_Asset"
@@ -850,6 +850,20 @@
                 "fieldname": "Contract Measurement Work Role",
                 "type": "doctype",
                 "children": [
+                    {
+                        "key": "Data_e_hora",
+                        "description": "Data e hora",
+                        "fieldname": "data_e_hora",
+                        "type": "datetime",
+                        "path": "Contract_Measurement.Contract_Measurement_Work_Role.Data_e_hora"
+                    },
+                    {
+                        "key": "Quantidade_medida",
+                        "description": "Quantidade medida",
+                        "fieldname": "quantidade_medida",
+                        "type": "numeric",
+                        "path": "Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida"
+                    },
                     {
                         "key": "Contract_Item_Work_Role",
                         "description": "Contract Item Work Role",
@@ -960,20 +974,6 @@
                             }
                         ],
                         "path": "Contract_Measurement.Contract_Measurement_Work_Role.Work_Role"
-                    },
-                    {
-                        "key": "Data_e_hora",
-                        "description": "Data e hora",
-                        "fieldname": "data_e_hora",
-                        "type": "datetime",
-                        "path": "Contract_Measurement.Contract_Measurement_Work_Role.Data_e_hora"
-                    },
-                    {
-                        "key": "Quantidade_medida",
-                        "description": "Quantidade medida",
-                        "fieldname": "quantidade_medida",
-                        "type": "numeric",
-                        "path": "Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida"
                     }
                 ],
                 "path": "Contract_Measurement.Contract_Measurement_Work_Role"

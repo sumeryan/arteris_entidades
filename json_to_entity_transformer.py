@@ -523,7 +523,7 @@ def create_hierarchical_doctype_structure(doctypes_with_fields, child_parent_map
     for root_node in root_nodes:
         add_paths_recursively(root_node) # Inicia a recursão para cada raiz
 
-    return root_nodes
+    return {"entities": root_nodes}
 
 def add_paths_recursively(node, current_path=""):
     """
