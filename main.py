@@ -140,16 +140,16 @@ def main():
     # --- Transformar dados para o formato engine_entities ---
     print("\n--- Iniciando transformação para formato engine_entities v3---")
     
-    engine_data_v3 = get_data_engine_full_hierarquical(
+    engine_data_v4 = transform_to_entity_engine(
         all_doctype_data, 
         hierarchical_entities)
     
     # Grava o resultado em um arquivo
     output_dir = "output"
-    output_engine_data_filename = "engine_entities_data_v3.json"
+    output_engine_data_filename = "engine_entities_data_v4.json"
     try:
         with open(os.path.join(output_dir, output_engine_data_filename), "w", encoding="utf-8") as f:
-            json.dump(engine_data_v3, f, indent=4, ensure_ascii=False)
+            json.dump(engine_data_v4, f, indent=4, ensure_ascii=False)
         print(f"\n************************")    
         print(f"\nDados no formato engine_entities salvos em {output_engine_data_filename}")
         print(f"\n************************")

@@ -2,7 +2,9 @@
     "entities": [
         {
             "id": "01967343-b7d4-7e20-908c-c48e8cf68789",
-            "entity_type": "Asset",
+            "entity_type": [
+                "Asset"
+            ],
             "attributes": [
                 {
                     "key": "Nome_do_ativo",
@@ -13,7 +15,9 @@
         },
         {
             "id": "0196778f-92d5-71e2-aea3-e2fbf6faffdb",
-            "entity_type": "Asset_Operator",
+            "entity_type": [
+                "Asset_Operator"
+            ],
             "attributes": [
                 {
                     "key": "Asset",
@@ -28,13 +32,15 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01967346-0d87-7ba1-82b4-1fad84d539d0",
-            "entity_type": "Asset",
+            "entity_type": [
+                "Asset"
+            ],
             "attributes": [
                 {
                     "key": "Nome_do_ativo",
@@ -45,7 +51,9 @@
         },
         {
             "id": "Mairiporã-SP",
-            "entity_type": "City",
+            "entity_type": [
+                "City"
+            ],
             "attributes": [
                 {
                     "key": "UF",
@@ -60,13 +68,15 @@
                 {
                     "key": "ISS",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "Vargem-SP",
-            "entity_type": "City",
+            "entity_type": [
+                "City"
+            ],
             "attributes": [
                 {
                     "key": "UF",
@@ -81,13 +91,15 @@
                 {
                     "key": "ISS",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "Cambuí-MG",
-            "entity_type": "City",
+            "entity_type": [
+                "City"
+            ],
             "attributes": [
                 {
                     "key": "UF",
@@ -102,13 +114,15 @@
                 {
                     "key": "ISS",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "São Gonçalo do Sapucaí-MG",
-            "entity_type": "City",
+            "entity_type": [
+                "City"
+            ],
             "attributes": [
                 {
                     "key": "UF",
@@ -123,13 +137,15 @@
                 {
                     "key": "ISS",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "Carmo da Cachoeira-MG",
-            "entity_type": "City",
+            "entity_type": [
+                "City"
+            ],
             "attributes": [
                 {
                     "key": "UF",
@@ -144,13 +160,15 @@
                 {
                     "key": "ISS",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "Santo Antônio do Amparo-MG",
-            "entity_type": "City",
+            "entity_type": [
+                "City"
+            ],
             "attributes": [
                 {
                     "key": "UF",
@@ -165,13 +183,15 @@
                 {
                     "key": "ISS",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "Carmópolis de Minas-MG",
-            "entity_type": "City",
+            "entity_type": [
+                "City"
+            ],
             "attributes": [
                 {
                     "key": "UF",
@@ -186,13 +206,15 @@
                 {
                     "key": "ISS",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "Itatiaiuçu-MG",
-            "entity_type": "City",
+            "entity_type": [
+                "City"
+            ],
             "attributes": [
                 {
                     "key": "UF",
@@ -207,13 +229,15 @@
                 {
                     "key": "ISS",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "Curitiba-PR",
-            "entity_type": "City",
+            "entity_type": [
+                "City"
+            ],
             "attributes": [
                 {
                     "key": "UF",
@@ -228,13 +252,15 @@
                 {
                     "key": "ISS",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966f13-c251-7093-9534-e5ae31671748",
-            "entity_type": "Contract",
+            "entity_type": [
+                "Contract"
+            ],
             "attributes": [
                 {
                     "key": "No_do_Contrato",
@@ -274,28 +300,30 @@
                 {
                     "key": "Valor_total_do_contrato",
                     "value": 4486174.16,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Percentual",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966f53-8232-7060-80af-b7dd2993d17e",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 28,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -315,12 +343,12 @@
                 {
                     "key": "Quantidade",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -331,17 +359,19 @@
         },
         {
             "id": "01966f56-d3ca-77d1-a962-df501cc6ef11",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 2,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 27,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -366,12 +396,12 @@
                 {
                     "key": "Quantidade",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -382,17 +412,19 @@
         },
         {
             "id": "01966f57-6c35-75a1-a2eb-77953f905c4c",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 3,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 26,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -417,12 +449,12 @@
                 {
                     "key": "Quantidade",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -433,17 +465,19 @@
         },
         {
             "id": "01966f58-2d31-7f83-824f-f73c2a1490e9",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 4,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 5,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -468,12 +502,12 @@
                 {
                     "key": "Quantidade",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -484,17 +518,19 @@
         },
         {
             "id": "01966f88-9263-73b0-abdb-1f9e1c104a03",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 6,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 25,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -519,12 +555,12 @@
                 {
                     "key": "Quantidade",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -535,17 +571,19 @@
         },
         {
             "id": "01966f89-7148-7163-93dd-c2e6e9b8d5bf",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 7,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 8,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -570,12 +608,12 @@
                 {
                     "key": "Quantidade",
                     "value": 23.03,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 14035.99,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -596,7 +634,9 @@
         },
         {
             "id": "01967374-d549-7d91-9b62-e14b371b9f20",
-            "entity_type": "Contract_Item_Work_Role",
+            "entity_type": [
+                "Contract_Item_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -611,7 +651,7 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Pagamento_por_hora",
@@ -621,18 +661,20 @@
                 {
                     "key": "Valor_por_hora",
                     "value": 42.32,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_total_mensal",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "87cdmeqcd9",
-            "entity_type": "Contract_Item_City",
+            "entity_type": [
+                "Contract_Item_City"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -652,13 +694,15 @@
                 {
                     "key": "Participacao",
                     "value": 50.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966fb6-8f8b-76c3-846b-3a12208ef922",
-            "entity_type": "Contract_Item_Order",
+            "entity_type": [
+                "Contract_Item_Order"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -678,28 +722,30 @@
                 {
                     "key": "Valor_total",
                     "value": 4363200.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Percentual",
                     "value": 11.11,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966f89-a62b-75d1-aef5-fab65638be12",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 9,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 10,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -724,12 +770,12 @@
                 {
                     "key": "Quantidade",
                     "value": 23.03,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 14035.99,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -750,7 +796,9 @@
         },
         {
             "id": "01967375-c2bc-75a1-95bc-a4c2f4ab35d9",
-            "entity_type": "Contract_Item_Work_Role",
+            "entity_type": [
+                "Contract_Item_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -765,7 +813,7 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Pagamento_por_hora",
@@ -775,18 +823,20 @@
                 {
                     "key": "Valor_por_hora",
                     "value": 42.32,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_total_mensal",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "a1v5jjui4h",
-            "entity_type": "Contract_Item_City",
+            "entity_type": [
+                "Contract_Item_City"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -806,13 +856,15 @@
                 {
                     "key": "Participacao",
                     "value": 50.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966fb7-b8be-74e1-8252-86023958705c",
-            "entity_type": "Contract_Item_Order",
+            "entity_type": [
+                "Contract_Item_Order"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -832,28 +884,30 @@
                 {
                     "key": "Valor_total",
                     "value": 4363200.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Percentual",
                     "value": 11.11,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966f8a-5692-7cb1-a670-5e9f81e3ebb0",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 11,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 12,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -878,12 +932,12 @@
                 {
                     "key": "Quantidade",
                     "value": 23.03,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 14035.99,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -904,7 +958,9 @@
         },
         {
             "id": "0196737a-329e-7591-b9d0-95b4910e6b8f",
-            "entity_type": "Contract_Item_Asset",
+            "entity_type": [
+                "Contract_Item_Asset"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -924,18 +980,20 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_mensal",
                     "value": 3918.96,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "0196737a-329c-7203-bdc6-55265ce0a401",
-            "entity_type": "Contract_Item_Work_Role",
+            "entity_type": [
+                "Contract_Item_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -950,7 +1008,7 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Pagamento_por_hora",
@@ -960,18 +1018,20 @@
                 {
                     "key": "Valor_por_hora",
                     "value": 42.32,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_total_mensal",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "ai4fsup7tb",
-            "entity_type": "Contract_Item_City",
+            "entity_type": [
+                "Contract_Item_City"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -991,13 +1051,15 @@
                 {
                     "key": "Participacao",
                     "value": 100.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966fb8-82f0-78e1-b4fb-387a2c5d182f",
-            "entity_type": "Contract_Item_Order",
+            "entity_type": [
+                "Contract_Item_Order"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1017,28 +1079,30 @@
                 {
                     "key": "Valor_total",
                     "value": 4363200.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Percentual",
                     "value": 11.11,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966f8a-7e88-7870-aeb3-ac166733b461",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 13,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 14,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -1063,12 +1127,12 @@
                 {
                     "key": "Quantidade",
                     "value": 23.03,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 14035.99,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -1089,7 +1153,9 @@
         },
         {
             "id": "0196737c-6477-7150-b721-e5f43302efdf",
-            "entity_type": "Contract_Item_Asset",
+            "entity_type": [
+                "Contract_Item_Asset"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1109,18 +1175,20 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_mensal",
                     "value": 3918.96,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "0196737c-6476-7190-b691-9ac1988ab36a",
-            "entity_type": "Contract_Item_Work_Role",
+            "entity_type": [
+                "Contract_Item_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1135,7 +1203,7 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Pagamento_por_hora",
@@ -1145,18 +1213,20 @@
                 {
                     "key": "Valor_por_hora",
                     "value": 42.32,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_total_mensal",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "fm5l9a0gb9",
-            "entity_type": "Contract_Item_City",
+            "entity_type": [
+                "Contract_Item_City"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1176,13 +1246,15 @@
                 {
                     "key": "Participacao",
                     "value": 100.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966fc0-8504-7310-8d69-c9ca78d608e3",
-            "entity_type": "Contract_Item_Order",
+            "entity_type": [
+                "Contract_Item_Order"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1202,28 +1274,30 @@
                 {
                     "key": "Valor_total",
                     "value": 4363200.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Percentual",
                     "value": 11.11,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 15,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 16,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -1248,12 +1322,12 @@
                 {
                     "key": "Quantidade",
                     "value": 23.03,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 14035.99,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -1274,7 +1348,9 @@
         },
         {
             "id": "0196737d-4724-7103-b25b-921a87ab0bbe",
-            "entity_type": "Contract_Item_Asset",
+            "entity_type": [
+                "Contract_Item_Asset"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1294,18 +1370,20 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_mensal",
                     "value": 3918.96,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "0196737d-4724-7103-b25b-920993479712",
-            "entity_type": "Contract_Item_Work_Role",
+            "entity_type": [
+                "Contract_Item_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1320,7 +1398,7 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Pagamento_por_hora",
@@ -1330,18 +1408,20 @@
                 {
                     "key": "Valor_por_hora",
                     "value": 42.32,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_total_mensal",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "g7p18bndsf",
-            "entity_type": "Contract_Item_City",
+            "entity_type": [
+                "Contract_Item_City"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1361,13 +1441,15 @@
                 {
                     "key": "Participacao",
                     "value": 100.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966fc1-6185-77f0-9660-d08a68e4a454",
-            "entity_type": "Contract_Item_Order",
+            "entity_type": [
+                "Contract_Item_Order"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1387,28 +1469,30 @@
                 {
                     "key": "Valor_total",
                     "value": 4363200.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Percentual",
                     "value": 11.11,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966f8b-0b72-7232-817e-9315e536cde2",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 17,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 18,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -1433,12 +1517,12 @@
                 {
                     "key": "Quantidade",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "fm_modeloformula",
@@ -1454,7 +1538,9 @@
         },
         {
             "id": "0196737e-234b-7af1-b5fe-71b8b46dcf84",
-            "entity_type": "Contract_Item_Asset",
+            "entity_type": [
+                "Contract_Item_Asset"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1474,18 +1560,20 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_mensal",
                     "value": 3918.96,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "0196737e-234b-7af1-b5fe-71aa57ccb166",
-            "entity_type": "Contract_Item_Work_Role",
+            "entity_type": [
+                "Contract_Item_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1500,7 +1588,7 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Pagamento_por_hora",
@@ -1510,18 +1598,20 @@
                 {
                     "key": "Valor_por_hora",
                     "value": 42.32,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_total_mensal",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "gn7hn669ov",
-            "entity_type": "Contract_Item_City",
+            "entity_type": [
+                "Contract_Item_City"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1541,13 +1631,15 @@
                 {
                     "key": "Participacao",
                     "value": 100.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966fc2-2288-73e2-9e46-efe6d8b93b8e",
-            "entity_type": "Contract_Item_Order",
+            "entity_type": [
+                "Contract_Item_Order"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1567,28 +1659,30 @@
                 {
                     "key": "Valor_total",
                     "value": 4363200.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Percentual",
                     "value": 11.11,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966f8b-30ad-7fe3-9a64-d7178c9d4d06",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 19,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 20,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -1613,12 +1707,12 @@
                 {
                     "key": "Quantidade",
                     "value": 23.03,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 14035.99,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -1639,7 +1733,9 @@
         },
         {
             "id": "0196737e-ddf5-72a1-9eb7-2c09773ced3d",
-            "entity_type": "Contract_Item_Work_Role",
+            "entity_type": [
+                "Contract_Item_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1654,7 +1750,7 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Pagamento_por_hora",
@@ -1664,18 +1760,20 @@
                 {
                     "key": "Valor_por_hora",
                     "value": 42.32,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_total_mensal",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "hf3vf6p17c",
-            "entity_type": "Contract_Item_City",
+            "entity_type": [
+                "Contract_Item_City"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1695,13 +1793,15 @@
                 {
                     "key": "Participacao",
                     "value": 100.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966fc3-4cc6-7670-97c4-0005faa8332d",
-            "entity_type": "Contract_Item_Order",
+            "entity_type": [
+                "Contract_Item_Order"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1721,28 +1821,30 @@
                 {
                     "key": "Valor_total",
                     "value": 4363200.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Percentual",
                     "value": 11.11,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966f8b-56dd-7361-a69b-9a459c8466e5",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 21,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 22,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -1767,12 +1869,12 @@
                 {
                     "key": "Quantidade",
                     "value": 23.03,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 14035.99,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -1793,7 +1895,9 @@
         },
         {
             "id": "0196737f-ba03-7211-bf9a-7a2094d0c948",
-            "entity_type": "Contract_Item_Asset",
+            "entity_type": [
+                "Contract_Item_Asset"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1813,18 +1917,20 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_mensal",
                     "value": 3918.96,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "0196737f-ba03-7211-bf9a-7a1ee05d660e",
-            "entity_type": "Contract_Item_Work_Role",
+            "entity_type": [
+                "Contract_Item_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1839,7 +1945,7 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Pagamento_por_hora",
@@ -1849,18 +1955,20 @@
                 {
                     "key": "Valor_por_hora",
                     "value": 42.32,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_total_mensal",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "i3uu3vfrj7",
-            "entity_type": "Contract_Item_City",
+            "entity_type": [
+                "Contract_Item_City"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1880,13 +1988,15 @@
                 {
                     "key": "Participacao",
                     "value": 100.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966fc4-5143-7392-8465-e53a1b2f9ea4",
-            "entity_type": "Contract_Item_Order",
+            "entity_type": [
+                "Contract_Item_Order"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1906,28 +2016,30 @@
                 {
                     "key": "Valor_total",
                     "value": 4363200.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Percentual",
                     "value": 11.11,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966f8b-79a4-7650-b3db-5e9db17f8644",
-            "entity_type": "Contract_Item",
+            "entity_type": [
+                "Contract_Item"
+            ],
             "attributes": [
                 {
                     "key": "lft",
                     "value": 23,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "rgt",
                     "value": 24,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "old_parent",
@@ -1952,12 +2064,12 @@
                 {
                     "key": "Quantidade",
                     "value": 23.03,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_unitario",
                     "value": 14035.99,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "No_do_contrato",
@@ -1978,7 +2090,9 @@
         },
         {
             "id": "01967381-55da-77c3-b65f-d2dd6b67b101",
-            "entity_type": "Contract_Item_Asset",
+            "entity_type": [
+                "Contract_Item_Asset"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -1993,18 +2107,20 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_mensal",
                     "value": 7295.94,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01967381-55da-77c3-b65f-d2ce4588db00",
-            "entity_type": "Contract_Item_Asset",
+            "entity_type": [
+                "Contract_Item_Asset"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -2024,18 +2140,20 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_mensal",
                     "value": 4690.24,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01967381-55da-77c3-b65f-d2b6570cb53d",
-            "entity_type": "Contract_Item_Work_Role",
+            "entity_type": [
+                "Contract_Item_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -2050,7 +2168,7 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Pagamento_por_hora",
@@ -2060,18 +2178,20 @@
                 {
                     "key": "Valor_por_hora",
                     "value": 42.32,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_total_mensal",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01967381-55da-77c3-b65f-d2ac6a393cc0",
-            "entity_type": "Contract_Item_Work_Role",
+            "entity_type": [
+                "Contract_Item_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -2086,7 +2206,7 @@
                 {
                     "key": "Quantidade",
                     "value": 1,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Pagamento_por_hora",
@@ -2096,18 +2216,20 @@
                 {
                     "key": "Valor_por_hora",
                     "value": 0.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Valor_total_mensal",
                     "value": 9276.26,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "iks1oc7kdo",
-            "entity_type": "Contract_Item_City",
+            "entity_type": [
+                "Contract_Item_City"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -2127,13 +2249,15 @@
                 {
                     "key": "Participacao",
                     "value": 100.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01966fc5-252f-73a0-b938-79d8c6c00d24",
-            "entity_type": "Contract_Item_Order",
+            "entity_type": [
+                "Contract_Item_Order"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Item",
@@ -2153,18 +2277,20 @@
                 {
                     "key": "Valor_total",
                     "value": 4363200.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "Percentual",
                     "value": 11.11,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "019678b6-ff93-75d2-912d-a654e42f8cb1",
-            "entity_type": "Contract_Measurement",
+            "entity_type": [
+                "Contract_Measurement"
+            ],
             "attributes": [
                 {
                     "key": "contrato",
@@ -2195,7 +2321,9 @@
         },
         {
             "id": "019678cb-9ace-76b0-b955-9bc9e2ecb680",
-            "entity_type": "Contract_Measurement_Asset",
+            "entity_type": [
+                "Contract_Measurement_Asset"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Measurement",
@@ -2220,13 +2348,15 @@
                 {
                     "key": "Quantidade_medida",
                     "value": 30.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "019678cb-9ace-76b0-b955-9bba2a0bfe6f",
-            "entity_type": "Contract_Measurement_Asset",
+            "entity_type": [
+                "Contract_Measurement_Asset"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Measurement",
@@ -2251,13 +2381,15 @@
                 {
                     "key": "Quantidade_medida",
                     "value": 30.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "0196792f-6a67-7272-9724-8207fb3dba25",
-            "entity_type": "Contract_Measurement_Work_Role",
+            "entity_type": [
+                "Contract_Measurement_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Measurement",
@@ -2282,7 +2414,7 @@
                 {
                     "key": "Quantidade_medida",
                     "value": 202.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "funcaoitem",
@@ -2293,7 +2425,9 @@
         },
         {
             "id": "019678c3-0550-77c2-8f16-be66d3f09d33",
-            "entity_type": "Contract_Measurement_Work_Role",
+            "entity_type": [
+                "Contract_Measurement_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Measurement",
@@ -2318,7 +2452,7 @@
                 {
                     "key": "Quantidade_medida",
                     "value": 202.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "funcaoitem",
@@ -2329,7 +2463,9 @@
         },
         {
             "id": "019678c3-0550-77c2-8f16-be50ccad36fd",
-            "entity_type": "Contract_Measurement_Work_Role",
+            "entity_type": [
+                "Contract_Measurement_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Measurement",
@@ -2354,7 +2490,7 @@
                 {
                     "key": "Quantidade_medida",
                     "value": 202.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "funcaoitem",
@@ -2365,7 +2501,9 @@
         },
         {
             "id": "019678c3-0550-77c2-8f16-be4e31a16d19",
-            "entity_type": "Contract_Measurement_Work_Role",
+            "entity_type": [
+                "Contract_Measurement_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Measurement",
@@ -2390,7 +2528,7 @@
                 {
                     "key": "Quantidade_medida",
                     "value": 202.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "funcaoitem",
@@ -2401,7 +2539,9 @@
         },
         {
             "id": "019678c3-054f-7e30-95d1-0dc63fcd01c3",
-            "entity_type": "Contract_Measurement_Work_Role",
+            "entity_type": [
+                "Contract_Measurement_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Measurement",
@@ -2426,7 +2566,7 @@
                 {
                     "key": "Quantidade_medida",
                     "value": 202.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "funcaoitem",
@@ -2437,7 +2577,9 @@
         },
         {
             "id": "019678be-2991-7893-9056-a82503920e00",
-            "entity_type": "Contract_Measurement_Work_Role",
+            "entity_type": [
+                "Contract_Measurement_Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Contract_Measurement",
@@ -2462,7 +2604,7 @@
                 {
                     "key": "Quantidade_medida",
                     "value": 202.0,
-                    "type": "number"
+                    "type": "numeric"
                 },
                 {
                     "key": "funcaoitem",
@@ -2473,7 +2615,9 @@
         },
         {
             "id": "01966f01-1ae9-72a1-86e1-464b5faba430",
-            "entity_type": "Contracted_Company",
+            "entity_type": [
+                "Contracted_Company"
+            ],
             "attributes": [
                 {
                     "key": "Nome",
@@ -2499,7 +2643,9 @@
         },
         {
             "id": "0196727a-a6fc-7f90-a9b5-c286fca9a065",
-            "entity_type": "Formula",
+            "entity_type": [
+                "Formula"
+            ],
             "attributes": [
                 {
                     "key": "Formula",
@@ -2510,7 +2656,9 @@
         },
         {
             "id": "01967389-eb01-7e20-a48e-7dca19939d69",
-            "entity_type": "Formula_Template",
+            "entity_type": [
+                "Formula_Template"
+            ],
             "attributes": [
                 {
                     "key": "Nome",
@@ -2531,7 +2679,9 @@
         },
         {
             "id": "01966f9c-ee82-7501-bb3d-52f7a07f2197",
-            "entity_type": "SAP_Order",
+            "entity_type": [
+                "SAP_Order"
+            ],
             "attributes": [
                 {
                     "key": "No_do_pedido",
@@ -2546,13 +2696,15 @@
                 {
                     "key": "Valor_total",
                     "value": 4363200.0,
-                    "type": "number"
+                    "type": "numeric"
                 }
             ]
         },
         {
             "id": "01967c0f-3239-7ea1-a090-38c3c2fd3873",
-            "entity_type": "Subsidiary",
+            "entity_type": [
+                "Subsidiary"
+            ],
             "attributes": [
                 {
                     "key": "Subsidiaria",
@@ -2563,7 +2715,9 @@
         },
         {
             "id": "01967c0f-6b94-7760-bd23-72eeea81bcb7",
-            "entity_type": "Subsidiary",
+            "entity_type": [
+                "Subsidiary"
+            ],
             "attributes": [
                 {
                     "key": "Subsidiaria",
@@ -2574,7 +2728,9 @@
         },
         {
             "id": "01967c0f-9762-7bf0-8572-f65924258867",
-            "entity_type": "Subsidiary",
+            "entity_type": [
+                "Subsidiary"
+            ],
             "attributes": [
                 {
                     "key": "Subsidiaria",
@@ -2585,7 +2741,9 @@
         },
         {
             "id": "01967c0f-c04d-7852-813e-03e14bd09c3d",
-            "entity_type": "Subsidiary",
+            "entity_type": [
+                "Subsidiary"
+            ],
             "attributes": [
                 {
                     "key": "Subsidiaria",
@@ -2596,7 +2754,9 @@
         },
         {
             "id": "01967c0f-ec9f-7ea2-8e02-8da2cad0f7e5",
-            "entity_type": "Subsidiary",
+            "entity_type": [
+                "Subsidiary"
+            ],
             "attributes": [
                 {
                     "key": "Subsidiaria",
@@ -2607,7 +2767,9 @@
         },
         {
             "id": "01967c10-167e-75e1-8391-96937aaa64bf",
-            "entity_type": "Subsidiary",
+            "entity_type": [
+                "Subsidiary"
+            ],
             "attributes": [
                 {
                     "key": "Subsidiaria",
@@ -2618,7 +2780,9 @@
         },
         {
             "id": "01967c10-3a45-7833-8151-6d73076513af",
-            "entity_type": "Subsidiary",
+            "entity_type": [
+                "Subsidiary"
+            ],
             "attributes": [
                 {
                     "key": "Subsidiaria",
@@ -2629,7 +2793,9 @@
         },
         {
             "id": "01967c10-6759-7972-bc50-1e18ad13bea7",
-            "entity_type": "Subsidiary",
+            "entity_type": [
+                "Subsidiary"
+            ],
             "attributes": [
                 {
                     "key": "Subsidiaria",
@@ -2640,7 +2806,9 @@
         },
         {
             "id": "01967c10-822a-7cd2-bd2b-eb4b4e8b9e46",
-            "entity_type": "Subsidiary",
+            "entity_type": [
+                "Subsidiary"
+            ],
             "attributes": [
                 {
                     "key": "Subsidiaria",
@@ -2651,7 +2819,9 @@
         },
         {
             "id": "01967344-d3f1-7060-88f7-7ca7dd3b434a",
-            "entity_type": "Work_Role",
+            "entity_type": [
+                "Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Funcao",
@@ -2662,7 +2832,9 @@
         },
         {
             "id": "01967345-0e75-7200-8d82-84d37b4f010c",
-            "entity_type": "Work_Role",
+            "entity_type": [
+                "Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Funcao",
@@ -2673,7 +2845,9 @@
         },
         {
             "id": "0196778e-f60f-79f3-8043-3f3089d2a9ac",
-            "entity_type": "Work_Role",
+            "entity_type": [
+                "Work_Role"
+            ],
             "attributes": [
                 {
                     "key": "Funcao",

@@ -255,7 +255,7 @@ def transform_to_entity_engine(output_data: List[Dict[str, Any]], output_hierarc
         # Criar a entidade final
         engine_entity = {
             "id": item_id,
-            "entity_type": entity_type, # Usar a chave como entity_type
+            "entity_type": [ entity_type ], # Usar a chave como entity_type
             "attributes": current_attributes
         }
         engine_entities.append(engine_entity)

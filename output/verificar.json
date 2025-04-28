@@ -1,0 +1,71 @@
+Contract_Measurement.Contract_Measurement_Work_Role.Quantidade_medida
+2165
+{
+    "id": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+    "entity_type": "Contract_Measurement",
+    "attributes": [
+        {
+            "key": "contrato",
+            "value": "01966f13-c251-7093-9534-e5ae31671748",
+            "type": "string"
+        },
+        {
+            "key": "contratada",
+            "value": "01966f01-1ae9-72a1-86e1-464b5faba430",
+            "type": "string"
+        },
+        {
+            "key": "Data_inicial_do_contrato",
+            "value": "2023-07-14",
+            "type": "string"
+        },
+        {
+            "key": "Data_final_do_contrato",
+            "value": "2023-07-31",
+            "type": "string"
+        },
+        {
+            "key": "Obra",
+            "value": "OPERAÇÃO DA RODOVIA - MANUTENÇÃO PEDÁGIO",
+            "type": "string"
+        }
+    ]
+}
+2258
+{
+    "id": "0196792f-6a67-7272-9724-8207fb3dba25",
+    "entity_type": "Contract_Measurement_Work_Role",
+    "attributes": [
+        {
+            "key": "Contract_Measurement",
+            "value": "019678b6-ff93-75d2-912d-a654e42f8cb1",
+            "type": "string"
+        },
+        {
+            "key": "Data_e_hora",
+            "value": "2025-04-16 18:37:33",
+            "type": "datetime"
+        },
+        {
+            "key": "item",
+            "value": "01966f8a-ac0f-7cc1-a499-54dd2424998e",
+            "type": "string"
+        },
+        {
+            "key": "funcao",
+            "value": "01967345-0e75-7200-8d82-84d37b4f010c",
+            "type": "string"
+        },
+        {
+            "key": "Quantidade_medida",
+            "value": 202.0,
+            "type": "numeric"
+        },
+        {
+            "key": "funcaoitem",
+            "value": "0196737d-4724-7103-b25b-920993479712",
+            "type": "string"
+        }
+    ]
+}
+++---
